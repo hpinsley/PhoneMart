@@ -1,0 +1,7 @@
+/*/bin
+/*/obj
+*.log
+*.log.*
+*.*.*.ReSharper.user
+*.MDF
+*.ldf

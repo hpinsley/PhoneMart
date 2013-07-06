@@ -129,7 +129,16 @@
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="index.html" />
+    <Content Include="js\controllers\TestController.js" />
     <Content Include="js\main.js" />
+    <Content Include="js\vendor\angular\angular-bootstrap.js" />
+    <Content Include="js\vendor\angular\angular-cookies.js" />
+    <Content Include="js\vendor\angular\angular-loader.js" />
+    <Content Include="js\vendor\angular\angular-mocks.js" />
+    <Content Include="js\vendor\angular\angular-resource.js" />
+    <Content Include="js\vendor\angular\angular-sanitize.js" />
+    <Content Include="js\vendor\angular\angular-scenario.js" />
+    <Content Include="js\vendor\angular\angular.js" />
     <Content Include="js\vendor\bootstrap.js" />
     <Content Include="js\vendor\bootstrap.min.js" />
     <Content Include="js\vendor\jquery-1.10.1.js" />

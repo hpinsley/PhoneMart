@@ -15,4 +15,17 @@
         $scope.deletedPhone = $scope.phones.pop();
     };
 
+    $scope.updateDescriptions = function() {
+        $.each($scope.phones, function(i, phone) {
+            phone.description = "Phone " + i;
+            if (phone.price < 100) {
+                phone.description += "\n\nThis phone is under $100.00";
+            }
+        });
+    };
+
+    $scope.displayPhone = function(phone) {
+        alert("Model: " + phone.model + "\n\n" + phone.description);
+    };
+
 }

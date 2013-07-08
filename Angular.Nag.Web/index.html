@@ -71,6 +71,7 @@
             <div class="row">
                 <button class="btn" ng-click="morePhones()">More Phones</button>
                 <button class="btn-warning" ng-click="lessPhones()">Less Phones</button>
+                <button class="btn-danger" ng-click="updateDescriptions()">Update Descriptions</button>
             </div>
             <div class="row">
                 Deleted Phone: {{deletedPhone.model}}
@@ -99,12 +100,14 @@
                             <tr>
                                 <th>Model</th>
                                 <th>Price</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="phone in phones">
-                                <td>{{phone.model}}</td>
+                            <tr ng-repeat="phone in phones" ng-click="displayPhone(phone)">
+                                <td >{{phone.model}}</td>
                                 <td>{{phone.price}}</td>
+                                <td>{{phone.description}}</td>
                             </tr>
                         </tbody>
                     </table>

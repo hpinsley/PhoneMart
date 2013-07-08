@@ -1,7 +1,18 @@
 ﻿function TestController($scope) {
+
     $scope.name = "Howard";
     $scope.phones = [
-        { model: "Nokia 1500", price: 100.0 },
-        { model: "iPhone", price: 80.0 }
+        { model: "Phone 1", price: 100.0 },
+        { model: "Phone 2", price: 200.0}
     ];
+
+    $scope.morePhones = function () {
+        var numPhones = $scope.phones.length + 1;
+        $scope.phones.push({ model: "Phone " + numPhones, price: 10.00 * numPhones });
+    };
+
+    $scope.lessPhones = function () {
+        $scope.deletedPhone = $scope.phones.pop();
+    };
+
 }

@@ -66,38 +66,50 @@
             </div>
         </div>
 
-        <div class="container">
-
-            <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit">
-                <h1>Hello, world!  This is from {{'angular.js'}}</h1>
-                <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-                <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-            </div>
-
-            <!-- Example row of columns -->
+        <div class="container" ng-controller="TestController">
+            
             <div class="row">
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-                </div>
-                <div class="span8" ng-controller="TestController">
-                    <h2>Phones for {{name}}</h2>
+                <button class="btn" ng-click="morePhones()">More Phones</button>
+                <button class="btn-warning" ng-click="lessPhones()">Less Phones</button>
+            </div>
+            <div class="row">
+                Deleted Phone: {{deletedPhone.model}}
+            </div>
+            <div class="row">
+                <h2 class="text-center">Phones for {{name}}</h2>
+                <div class="span6">
                     <ul>
                         <li ng-repeat="phone in phones">
                             Model: {{phone.model}} - Price: {{phone.price}}
                         </li>
                     </ul>
-               </div>
+                </div>
+                <div class="span6">
+                    <ul>
+                        <li ng-repeat="phone in phones">
+                            Model: {{phone.model}} - Price: {{phone.price}}
+                        </li>
+                    </ul>
+                </div>
+            </div> <!-- row -->
+            <div class="row">
+                <div class="span12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="phone in phones">
+                                <td>{{phone.model}}</td>
+                                <td>{{phone.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-            <hr>
-
-            <footer>
-                <p>&copy; Company 2012</p>
-            </footer>
-
         </div> <!-- /container -->
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>

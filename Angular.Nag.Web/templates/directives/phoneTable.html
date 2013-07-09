@@ -1,0 +1,20 @@
+﻿<div>
+    <h2>Phones (directive)</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="phone in phones" ng-click="displayPhone(phone)">
+                <td>{{phone.model}}</td>
+                <td>{{phone.price}}</td>
+                <td>{{phone.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

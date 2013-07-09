@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html ng-app class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html ng-app class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html ng-app class="no-js">
+<html ng-app="nagApp" class="no-js">
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
@@ -125,26 +125,11 @@
             <li><a href="#pane2" data-toggle="tab">Pane2</a></li>
         </ul>
         <div class="tab-content">
-            <div id="pane1" class="tab-pane active">Tab pane 1</div>
+            <div id="pane1" class="tab-pane active">
+                <phone-table phones="phones" />
+            </div>
             <div id="pane2" class="tab-pane">
-                <h2>Phones</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Model</th>
-                            <th>Price</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="phone in phones" ng-click="displayPhone(phone)">
-                            <td>{{phone.model}}</td>
-                            <td>{{phone.price}}</td>
-                            <td>{{phone.description}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
+                Pane 2
             </div>
         </div>
     </div>
@@ -155,7 +140,9 @@
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/vendor/angular/angular.js"></script>
 
+    <script src="js/app.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/directives/phoneTable.js"></script>
     <script src="js/controllers/TestController.js"></script>
 
     <script>

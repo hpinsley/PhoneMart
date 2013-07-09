@@ -81,23 +81,10 @@
             Deleted Phone: {{deletedPhone.model}}
         </div>
         <div class="row">
-            <h2 class="text-center">Phones for {{name}}</h2>
             <div class="span6">
-                <ul>
-                    <li ng-repeat="phone in phones">Model: {{phone.model}} - Price: {{phone.price}}
-                    </li>
-                </ul>
+                <phone-list />
             </div>
             <div class="span6">
-                <ul>
-                    <li ng-repeat="phone in phones">Model: {{phone.model}} - Price: {{phone.price}}
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- row -->
-        <div class="row">
-            <div class="span12">
                 <phone-table />
             </div>
         </div>
@@ -128,6 +115,7 @@
     <script src="js/app.js"></script>
     <script src="js/main.js"></script>
     <script src="js/directives/phoneTable.js"></script>
+    <script src="js/directives/phoneList.js"></script>
     <script src="js/controllers/TestController.js"></script>
 
     <script>

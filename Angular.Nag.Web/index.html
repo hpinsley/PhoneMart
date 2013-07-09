@@ -98,22 +98,7 @@
         <!-- row -->
         <div class="row">
             <div class="span12">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Model</th>
-                            <th>Price</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="phone in phones" ng-click="displayPhone(phone)">
-                            <td>{{phone.model}}</td>
-                            <td>{{phone.price}}</td>
-                            <td>{{phone.description}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <phone-table />
             </div>
         </div>
     </div>
@@ -126,7 +111,7 @@
         </ul>
         <div class="tab-content">
             <div id="pane1" class="tab-pane active">
-                <phone-table phones="phones" />
+                <phone-table />
             </div>
             <div id="pane2" class="tab-pane">
                 Pane 2

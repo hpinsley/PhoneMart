@@ -73,38 +73,41 @@
     <div class="container">
 
         <div class="row">
-            <button class="btn" ng-click="morePhones()">More Phones</button>
-            <button class="btn-warning" ng-click="lessPhones()">Less Phones</button>
-            <button class="btn-danger" ng-click="updateDescriptions()">Update Descriptions</button>
-        </div>
-        <div class="row">
-            Deleted Phone: {{deletedPhone.model}}
-        </div>
-        <div class="row">
             <div class="span6">
-                <phone-list />
+                <button class="btn" ng-click="morePhones()">More Phones</button>
+                <button class="btn-warning" ng-click="lessPhones()">Less Phones</button>
+                <button class="btn-danger" ng-click="updateDescriptions()">Update Descriptions</button>
             </div>
             <div class="span6">
+                Deleted Phone: {{deletedPhone.model}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="span5">
+                <phone-list />
+            </div>
+            <div class="span7">
                 <phone-table />
+            </div>
+        </div>
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#pane1" data-toggle="tab">Table</a></li>
+                <li><a href="#pane2" data-toggle="tab">List</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="pane1" class="tab-pane active">
+                    <phone-table />
+                </div>
+                <div id="pane2" class="tab-pane">
+                    <phone-list />
+                </div>
             </div>
         </div>
     </div>
     <!-- /container -->
 
-    <div class="tabbable">
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#pane1" data-toggle="tab">Pane1</a></li>
-            <li><a href="#pane2" data-toggle="tab">Pane2</a></li>
-        </ul>
-        <div class="tab-content">
-            <div id="pane1" class="tab-pane active">
-                <phone-table />
-            </div>
-            <div id="pane2" class="tab-pane">
-                Pane 2
-            </div>
-        </div>
-    </div>
+
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>

@@ -25,7 +25,7 @@
 
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
-<body>
+<body ng-controller="TestController">
     <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    <div class="container" ng-controller="TestController">
+    <div class="container">
 
         <div class="row">
             <button class="btn" ng-click="morePhones()">More Phones</button>
@@ -126,7 +126,26 @@
         </ul>
         <div class="tab-content">
             <div id="pane1" class="tab-pane active">Tab pane 1</div>
-            <div id="pane2" class="tab-pane">Tab pane 2</div>
+            <div id="pane2" class="tab-pane">
+                <h2>Phones</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="phone in phones" ng-click="displayPhone(phone)">
+                            <td>{{phone.model}}</td>
+                            <td>{{phone.price}}</td>
+                            <td>{{phone.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
 

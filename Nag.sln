@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.Nag.Web", "Angular.Nag.Web\Angular.Nag.Web.csproj", "{C44F12B9-F3DA-4541-9966-16FC69B85EE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.Nag.Models", "Angular.Nag.Models\Angular.Nag.Models.csproj", "{F29D0B68-CE0A-4336-8711-A2DBFD279A7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.Nag.Services", "Angular.Nag.Services\Angular.Nag.Services.csproj", "{96E13933-B6C7-44F6-93CA-929983F29178}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.Nag.Data", "Angular.Nag.Data\Angular.Nag.Data.csproj", "{14562E0C-C8EC-490E-82B4-6CBA19910AD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +19,18 @@ Global
 		{C44F12B9-F3DA-4541-9966-16FC69B85EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C44F12B9-F3DA-4541-9966-16FC69B85EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C44F12B9-F3DA-4541-9966-16FC69B85EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F29D0B68-CE0A-4336-8711-A2DBFD279A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F29D0B68-CE0A-4336-8711-A2DBFD279A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F29D0B68-CE0A-4336-8711-A2DBFD279A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F29D0B68-CE0A-4336-8711-A2DBFD279A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E13933-B6C7-44F6-93CA-929983F29178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E13933-B6C7-44F6-93CA-929983F29178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E13933-B6C7-44F6-93CA-929983F29178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E13933-B6C7-44F6-93CA-929983F29178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14562E0C-C8EC-490E-82B4-6CBA19910AD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14562E0C-C8EC-490E-82B4-6CBA19910AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14562E0C-C8EC-490E-82B4-6CBA19910AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14562E0C-C8EC-490E-82B4-6CBA19910AD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

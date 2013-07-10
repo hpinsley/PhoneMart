@@ -1,10 +1,10 @@
-﻿function TestController($scope) {
+﻿function TestController($scope, phoneData) {
 
     $scope.name = "Howard";
-    $scope.phones = [
-        { model: "Phone 1", price: 100.0 },
-        { model: "Phone 2", price: 200.0}
-    ];
+    //$scope.phones = phoneData.phones;
+    phoneData.getPhones(function (phones) {
+        $scope.phones = phones;
+    });
 
     $scope.morePhones = function () {
         var numPhones = $scope.phones.length + 1;

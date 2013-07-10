@@ -3,5 +3,5 @@
 *.log
 *.log.*
 *.*.*.ReSharper.user
-*.MDF
+*.mdf
 *.ldf

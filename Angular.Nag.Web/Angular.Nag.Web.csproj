@@ -130,7 +130,7 @@
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="index.html" />
     <Content Include="js\app.js" />
-    <Content Include="js\controllers\TestController.js" />
+    <Content Include="js\controllers\PhoneController.js" />
     <Content Include="js\directives\phoneList.js" />
     <Content Include="js\directives\phoneTable.js" />
     <Content Include="js\main.js" />

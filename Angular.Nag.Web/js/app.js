@@ -1,3 +1,3 @@
 ﻿'use strict';
 
-var nagApp = angular.module('nagApp', []);
+var nagApp = angular.module('nagApp', ['ngResource']);

@@ -5,6 +5,15 @@ nagApp.controller('PhoneController',
 
         $scope.name = "Howard";
         $scope.phones = phoneData.getPhones();   //this is a promise that Angular knows how to bind to
+        
+        //Remember that scope.phones is a promise
+        $scope.phones.then(
+            function (phones) {
+                console.log("phones", phones);
+            },
+            function(data) {
+                console.log(data);
+            });
 
         //When you pass the scoped object (which is a promise) back
         //into a controller method, Angular unwraps the real object for you.

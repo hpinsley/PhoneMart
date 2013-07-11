@@ -11,11 +11,11 @@ nagApp.factory('phoneData', function ($http, $q) {
                     url: "http://localhost/Angular.Nag.Services/api/phones"
                 
                 })
-                .success(function(data, status, headers, config) {
+                .success(function(data) {
                     deferred.resolve(data);
                 })
                 .error(function (data, status, headers, config) {
-                    deferred.reject(status);
+                    deferred.reject(data);
                 });
 
             return deferred.promise;

@@ -4,6 +4,8 @@
         <li ng-repeat="phone in phones">Model: {{phone.model}} - Price: {{phone.price}}
             <br/>
             {{phone.description}}
+            <br/>
+            <img style="height:100px" ng-click="displayPhone(phone)" src="img/phones/{{phone.imageFile}}"/>
         </li>
     </ul>
 </div>

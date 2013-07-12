@@ -1,21 +1,21 @@
 ﻿'use strict';
 
-nagApp.factory('phoneData', function ($http, $q) {
+nagApp.factory('phoneData', function ($resource, $http, $q) {
     return {
-        getPhones: function () {
-
+        
+        //getPhones: function () {
+        //    var r = $resource("http://localhost/Angular.Nag.Services/api/phones");
+        //    return r.get();
+        //}
+        
+        getPhones: function() {
             var deferred = $q.defer();
-            
-            $http({
-                    method: "GET",
-                    url: "http://localhost/Angular.Nag.Services/api/phones"
-                
-                })
-                .success(function(data) {
+            $http({ method: "GET", url:"http://localhost/Angular.Nag.Services/api/phones"})
+                .success(function (data) {
                     deferred.resolve(data);
                 })
-                .error(function (data, status, headers, config) {
-                    deferred.reject(data);
+                .error(function(error) {
+                    deferred.reject(error);
                 });
 
             return deferred.promise;

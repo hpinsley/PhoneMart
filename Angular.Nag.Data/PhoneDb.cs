@@ -8,7 +8,7 @@ namespace Angular.Nag.Data
         public PhoneDb()
             : base(@"Data Source=PINSLEYLAPTOP\SQLEXPRESS;Initial Catalog=Angular.Nag;Integrated Security=True") {
 
-            this.Configuration.LazyLoadingEnabled = false;
+            //this.Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<phone> Phones { get; set; }

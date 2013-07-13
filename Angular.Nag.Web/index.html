@@ -82,26 +82,40 @@
                 Deleted Phone: {{deletedPhone.model}}
             </div>
         </div>
+
         <div class="row">
-            <div class="span5">
-                <phone-list />
+            <div class="span8">
+                <div class="hero-unit">
+                    Phones    
+                </div>
             </div>
-            <div class="span7">
-                <phone-table />
+            <div class="span4">
+                <div class="hero-unit">
+                    Plans    
+                </div>
             </div>
         </div>
-        <div class="tabbable">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#pane1" data-toggle="tab">Table</a></li>
-                <li><a href="#pane2" data-toggle="tab">List</a></li>
-            </ul>
-            <div class="tab-content">
-                <div id="pane1" class="tab-pane active">
-                    <phone-table />
+
+        <div class="row">
+            <div class="span8">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs">
+                        <li ng-repeat="phone in phones" ng-class='{active: $index == 0}'>
+                            <a href="#phonePane{{$index}}" data-toggle="tab">{{phone.model}}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div ng-repeat="phone in phones" id="phonePane{{$index}}" class="tab-pane" ng-class='{active: $index == 0}'>
+                            {{phone.model}}
+                    <img style="height: 100px" ng-click="displayPhone(phone)"
+                        src="img/phones/{{phone.imageFile}}" />
+
+                        </div>
+                    </div>
                 </div>
-                <div id="pane2" class="tab-pane">
-                    <phone-list />
-                </div>
+            </div>
+            <div class="span4">
+                Plans go here
             </div>
         </div>
     </div>
@@ -120,6 +134,7 @@
     <script src="js/services/PhoneData.js"></script>
     <script src="js/directives/phoneTable.js"></script>
     <script src="js/directives/phoneList.js"></script>
+    <script src="js/directives/phoneTabs.js"></script>
     <script src="js/controllers/PhoneController.js"></script>
 
     <script>
@@ -129,6 +144,6 @@
             g.src = '//www.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g, s)
         }(document, 'script'));
-        </script>
+    </script>
 </body>
 </html>

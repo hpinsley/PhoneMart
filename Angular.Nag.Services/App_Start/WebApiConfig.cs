@@ -13,7 +13,10 @@ namespace Angular.Nag.Services {
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            //TODO: Use json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            
         }
     }
 }

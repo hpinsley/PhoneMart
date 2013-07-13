@@ -16,10 +16,34 @@
                 <div class="row">
                     <div class="span4">
                         <img style="height: 300px" ng-click="displayPhone(phone)"
-                             src="img/phones/{{phone.imageFile}}" />
+                            src="img/phones/{{phone.imageFile}}" />
                     </div>
                     <div class="span4">
                         <div class="lead">{{phone.description}}</div>
+                    </div>
+                    <div class="span4">
+                        <h3>Available Plans for this Phone</h3>
+                        <ul style="list-style: none" class="pill-content">
+                            <li ng-repeat="plan in phone.plans" style="margin-top: 30px">
+                                <h4>{{plan.PlanName}}</h4>
+                                <table class="table-bordered table-striped" style="text-align: center">
+                                    <thead>
+                                        <tr>
+                                            <th>Talk Minutes</th>
+                                            <th>Text Minutes</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{plan.VoiceMinutes}}</td>
+                                            <td>{{plan.DataMinutes}}</td>
+                                            <td>{{plan.MonthlyCost | currency }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ namespace Angular.Nag.Data {
 
         protected override void Seed(PhoneDb context) {
             System.Diagnostics.Trace.WriteLine("Seeding phone values");
-            var phone1 = new phone {model = "Nokia 1000", price = 25.0m, description = "Nokia's top offering", imageFile = "phone01.jpg"};
+            var phone1 = new phone { model = "Nokia 1000", price = 25.0m, description = @"Capture more of the moment with a 41 megapixel camera sensor, Full HD video and Nokia Rich Recording for incredible sound quality.", imageFile = "phone01.jpg" };
             var phone2 = new phone { model = "Android 200", price = 75.0m, description = @"Your home screen. Your world. With HTC BlinkFeed™ on your phone, you’re never out of touch with your world. All your favorite content is streamed live onto one screen. If it’s happening now, you’ll find it on your home screen.  Awesome camera. Awesome imaging tools.Awesome camera. Awesome imaging tools. Get perfect images with one-press continuous shooting, VideoPic, and a camera that captures 300% more light.Slim phone. Fat sound.  Slim phone. Dual frontal stereo speakers are teamed with powerful amplifiers, so everyone can hear what you’re hearing. Share music, share videos, share games—and share them loudly.", imageFile = "phone02.jpg" };
             var phone3 = new phone {model = "iPhone 4",price = 175.0m,description = "Apples's old top offering",imageFile = "phone03.png"};
             var phone4 = new phone {model = "iPhone 5",price = 50.0m,description = "Apples's new top offering.  The iPhone 5 comes with Siri and a wealth of productivity apps making it the choice of todays savvy consumer.",imageFile = "phone04.png"};
@@ -19,11 +19,15 @@ namespace Angular.Nag.Data {
 
             context.SaveChanges();
 
-            var plan1 = new Plan { PlanId = 1, PlanName = "Plan One", MonthlyCost = 100.0m, DataMinutes = 1000, VoiceMinutes = 500, Phones = new List<phone> { phone1, phone3 } };
-            var plan2 = new Plan { PlanId = 2, PlanName = "Plan Two", MonthlyCost = 50.0m, DataMinutes = 500, VoiceMinutes = 250, Phones = new List<phone> { phone2, phone3, phone4 } };
+            var plan1 = new Plan { PlanId = 1, PlanName = "Family Text and Talk", MonthlyCost = 100.0m, DataMinutes = 1000, VoiceMinutes = 500, Phones = new List<phone> { phone1, phone3 } };
+            var plan2 = new Plan { PlanId = 2, PlanName = "Yappers and Texters", MonthlyCost = 50.0m, DataMinutes = 500, VoiceMinutes = 250, Phones = new List<phone> { phone1, phone3, phone4 } };
+            var plan3 = new Plan { PlanId = 3, PlanName = "Teenage Text Special", MonthlyCost = 50.0m, DataMinutes = 500, VoiceMinutes = 250, Phones = new List<phone> { phone2, phone3, phone4 } };
+            var plan4 = new Plan { PlanId = 4, PlanName = "Frugal Family", MonthlyCost = 50.0m, DataMinutes = 500, VoiceMinutes = 250, Phones = new List<phone> { phone1, phone3 } };
 
             context.Plans.Add(plan1);
             context.Plans.Add(plan2);
+            context.Plans.Add(plan3);
+            context.Plans.Add(plan4);
 
             context.SaveChanges();
             System.Diagnostics.Trace.WriteLine("Seeded phone values");

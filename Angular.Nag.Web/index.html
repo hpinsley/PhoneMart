@@ -82,37 +82,25 @@
                 Deleted Phone: {{deletedPhone.model}}
             </div>
         </div>
+        
+        <hr/>
 
         <div class="row">
             <div class="span8">
                 <div class="hero-unit">
-                    Phones    
+                    <h1>Phones</h1>
                 </div>
             </div>
             <div class="span4">
                 <div class="hero-unit">
-                    Plans    
+                    <h1>Plans</h1>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="span8">
-                <div class="tabbable">
-                    <ul class="nav nav-tabs">
-                        <li ng-repeat="phone in phones" ng-class='{active: $index == 0}'>
-                            <a href="#phonePane{{$index}}" data-toggle="tab">{{phone.model}}</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div ng-repeat="phone in phones" id="phonePane{{$index}}" class="tab-pane" ng-class='{active: $index == 0}'>
-                            {{phone.model}}
-                    <img style="height: 100px" ng-click="displayPhone(phone)"
-                        src="img/phones/{{phone.imageFile}}" />
-
-                        </div>
-                    </div>
-                </div>
+                <phone-tabs />
             </div>
             <div class="span4">
                 Plans go here

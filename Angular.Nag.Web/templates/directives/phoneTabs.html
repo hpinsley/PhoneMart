@@ -1,11 +1,28 @@
-﻿<div>
-    <h2 class="text-center">Phones for {{name}}</h2>
-    <ul>
-        <li ng-repeat="phone in phones">Model: {{phone.model}} - Price: {{phone.price}}
-            <br/>
-            {{phone.description}}
-            <br/>
-            <img style="height:100px" ng-click="displayPhone(phone)" src="img/phones/{{phone.imageFile}}"/>
+﻿<div class="tabbable">
+    <ul class="nav nav-tabs">
+        <li ng-repeat="phone in phones" ng-class='{active: $index == 0}'>
+            <a href="#phonePane{{$index}}" data-toggle="tab">
+                <img style="height: 100px" src="img/phones/{{phone.imageFile}}" />
+                <br />
+                {{phone.model}}
+            </a>
         </li>
     </ul>
+    <div class="tab-content">
+        <div ng-repeat="phone in phones" id="phonePane{{$index}}" class="tab-pane" ng-class='{active: $index == 0}'>
+            <h1>{{phone.model}}</h1>
+
+            <div class="container">
+                <div class="row">
+                    <div class="span4">
+                        <img style="height: 300px" ng-click="displayPhone(phone)"
+                             src="img/phones/{{phone.imageFile}}" />
+                    </div>
+                    <div class="span4">
+                        <div class="lead">{{phone.description}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

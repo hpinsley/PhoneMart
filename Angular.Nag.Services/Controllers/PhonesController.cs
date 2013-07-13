@@ -12,7 +12,7 @@ namespace Angular.Nag.Services.Controllers
         // GET api/phones
         public IEnumerable<phone> Get() {
             var db = new PhoneDb();
-            return db.Phones.ToArray();
+            return db.Phones.Include("plans");
         }
 
         // GET api/phones/5

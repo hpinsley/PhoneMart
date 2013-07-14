@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using Angular.Nag.Data;
 using Angular.Nag.Models;
@@ -9,9 +7,15 @@ namespace Angular.Nag.Services.Controllers
 {
     public class PhonesController : ApiController
     {
-        // GET api/phones
+        private readonly IPhoneRepository _phoneRepository;
+
+        public PhonesController(IPhoneRepository phoneRepository) {
+            _phoneRepository = phoneRepository;
+        }
+
+// GET api/phones
         public IEnumerable<phone> Get() {
-            var db = new PhoneDb();
+            var db = _phoneRepository.GetDatabase();
             return db.Phones; //.Include("plans");
         }
 

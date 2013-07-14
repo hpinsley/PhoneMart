@@ -14,7 +14,7 @@ namespace Angular.Nag.Services.Controllers
         }
 
 // GET api/phones
-        public IEnumerable<phone> Get() {
+        public IEnumerable<Phone> Get() {
             var db = _phoneRepository.GetDatabase();
             return db.Phones; //.Include("plans");
         }

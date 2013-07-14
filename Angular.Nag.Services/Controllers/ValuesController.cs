@@ -14,7 +14,7 @@ namespace Angular.Nag.Services.Controllers {
         public IEnumerable<string> Get() {
 
             var db = new PhoneDb();
-            DbSet<phone> phones = db.Phones;
+            DbSet<Phone> phones = db.Phones;
             int count = phones.Count();
             return new string[] { "value1", "value2", count.ToString() };
         }

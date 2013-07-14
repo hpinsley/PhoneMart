@@ -25,7 +25,7 @@
                         <h3>Available Plans for this Phone</h3>
                         <ul style="list-style: none" class="pill-content">
                             <li ng-repeat="plan in phone.plans" style="margin-top: 30px">
-                                <h4>{{plan.PlanName}}</h4>
+                                <h4>{{plan.planName}}</h4>
                                 <table class="table-bordered table-striped" style="text-align: center">
                                     <thead>
                                         <tr>
@@ -36,9 +36,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>{{plan.VoiceMinutes}}</td>
-                                            <td>{{plan.DataMinutes}}</td>
-                                            <td>{{plan.MonthlyCost | currency }}</td>
+                                            <td>{{plan.voiceMinutes}}</td>
+                                            <td>{{plan.dataMinutes}}</td>
+                                            <td>{{plan.monthlyCost | currency }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

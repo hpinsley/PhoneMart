@@ -11,13 +11,13 @@ namespace Angular.Nag.Data
             //this.Configuration.LazyLoadingEnabled = false;
         }
 
-        public DbSet<phone> Phones { get; set; }
+        public DbSet<Phone> Phones { get; set; }
         public DbSet<Plan> Plans { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
-            modelBuilder.Entity<phone>()
-                        .HasKey(p => p.model)
-                        .HasMany(phone => phone.plans)
+            modelBuilder.Entity<Phone>()
+                        .HasKey(p => p.Model)
+                        .HasMany(phone => phone.Plans)
                         .WithMany(plan => plan.Phones);
 
             base.OnModelCreating(modelBuilder);

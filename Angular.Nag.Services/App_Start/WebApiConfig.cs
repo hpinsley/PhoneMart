@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Angular.Nag.Services {
     public static class WebApiConfig {
@@ -14,8 +15,10 @@ namespace Angular.Nag.Services {
             );
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
-            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            //TODO: Use json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             
         }
     }

@@ -144,6 +144,7 @@
     <Content Include="img\phones\phone04.jpg" />
     <Content Include="index.html" />
     <Content Include="js\app.js" />
+    <Content Include="js\controllers\PlansController.js" />
     <Content Include="js\controllers\PhoneController.js" />
     <Content Include="js\directives\phoneTabs.js" />
     <Content Include="js\directives\phoneList.js" />
@@ -163,9 +164,11 @@
     <Content Include="js\vendor\jquery-1.10.1.js" />
     <Content Include="js\vendor\jquery-1.10.1.min.js" />
     <Content Include="js\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="templates\plans.html" />
     <Content Include="templates\directives\phoneTabs.html" />
     <Content Include="templates\directives\phoneList.html" />
     <Content Include="templates\directives\phoneTable.html" />
+    <Content Include="templates\phones.html" />
     <Content Include="Test.html" />
     <Content Include="Unity.Mvc4.README.txt" />
     <Content Include="Web.config" />

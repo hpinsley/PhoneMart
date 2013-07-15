@@ -144,6 +144,7 @@
     <Content Include="img\phones\phone04.jpg" />
     <Content Include="index.html" />
     <Content Include="js\app.js" />
+    <Content Include="js\controllers\MenuController.js" />
     <Content Include="js\controllers\PlansController.js" />
     <Content Include="js\controllers\PhoneController.js" />
     <Content Include="js\directives\phoneTabs.js" />

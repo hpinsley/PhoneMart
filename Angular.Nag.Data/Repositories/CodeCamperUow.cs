@@ -1,4 +1,5 @@
 using System;
+using Angular.Nag.Models;
 
 namespace Angular.Nag.Data.Repositories
 {
@@ -31,9 +32,8 @@ namespace Angular.Nag.Data.Repositories
 
         // Code Camper repositories
 
-        //public IRepository<Room> Rooms { get { return GetStandardRepo<Room>(); } }
+        public IRepository<Phone> Phones { get { return GetStandardRepo<Phone>(); } }
         public IPlansRepository Plans { get { return GetRepo<IPlansRepository>(); } }
-
         /// <summary>
         /// Save pending changes to the database
         /// </summary>

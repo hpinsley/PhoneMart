@@ -16,7 +16,7 @@ namespace Angular.Nag.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<Phone>()
-                        .HasKey(p => p.Model)
+                        .HasKey(p => p.PhoneId)
                         .HasMany(phone => phone.Plans)
                         .WithMany(plan => plan.Phones);
 

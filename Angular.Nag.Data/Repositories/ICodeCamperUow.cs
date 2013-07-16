@@ -1,3 +1,5 @@
+using Angular.Nag.Models;
+
 namespace Angular.Nag.Data.Repositories
 {
     /// <summary>
@@ -10,6 +12,6 @@ namespace Angular.Nag.Data.Repositories
 
         // Repositories
         IPlansRepository Plans { get; }
-        //IRepository<Room> Rooms { get; }
+        IRepository<Phone> Phones { get; }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Angular.Nag.Models {
     public class Phone {
+        public int PhoneId { get; set; }
         public string Model { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }

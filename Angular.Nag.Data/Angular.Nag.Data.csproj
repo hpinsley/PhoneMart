@@ -45,11 +45,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repositories\CodeCamperUow.cs" />
+    <Compile Include="Repositories\EFRepository.cs" />
     <Compile Include="IPhoneRepository.cs" />
+    <Compile Include="Repositories\ICodeCamperUow.cs" />
+    <Compile Include="Repositories\IPlansRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\IRepositoryProvider.cs" />
     <Compile Include="PhoneDatabaseInitializer.cs" />
     <Compile Include="PhoneDb.cs" />
     <Compile Include="PhoneRepository.cs" />
+    <Compile Include="Repositories\PredicateBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\RepositoryFactories.cs" />
+    <Compile Include="Repositories\RepositoryProvider.cs" />
+    <Compile Include="Repositories\PlansRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Angular.Nag.Models\Angular.Nag.Models.csproj">

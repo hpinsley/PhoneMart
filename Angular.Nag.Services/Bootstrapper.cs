@@ -1,5 +1,6 @@
 using System.Web.Http;
 using Angular.Nag.Data;
+using Angular.Nag.Data.Repositories;
 using Microsoft.Practices.Unity;
 
 namespace Angular.Nag.Services
@@ -21,6 +22,14 @@ namespace Angular.Nag.Services
             // e.g. container.RegisterType<ITestService, TestService>();            
 
             container.RegisterType<IPhoneRepository, PhoneRepository>();
+
+            RepositoryFactories factories = new RepositoryFactories();
+            RepositoryProvider provider = new RepositoryProvider(factories);
+            CodeCamperUow uow = new CodeCamperUow(provider);
+
+            container.RegisterInstance<ICodeCamperUow>(uow);
+
+            
             return container;
         }
     }

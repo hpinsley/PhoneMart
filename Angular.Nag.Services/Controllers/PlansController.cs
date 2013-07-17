@@ -8,11 +8,9 @@ namespace Angular.Nag.Services.Controllers
 {
     public class PlansController : ApiController
     {
-        private readonly IPhoneRepository _phoneRepository;
         private readonly ICodeCamperUow _uow;
 
-        public PlansController(IPhoneRepository phoneRepository, ICodeCamperUow uow) {
-            _phoneRepository = phoneRepository;
+        public PlansController(ICodeCamperUow uow) {
             _uow = uow;
         }
 

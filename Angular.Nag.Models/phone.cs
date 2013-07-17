@@ -9,5 +9,6 @@ namespace Angular.Nag.Models {
         public string ImageFile { get; set; }
 
         public virtual List<Plan> Plans { get; set; }
+
     }
 }

@@ -8,6 +8,8 @@ namespace Angular.Nag.Data
         public PhoneDb()
             : base(@"Data Source=PINSLEYLAPTOP\SQLEXPRESS;Initial Catalog=Angular.Nag;Integrated Security=True") {
 
+            //Note that setting the lazy loading feature here
+            //is not effective as the UOW sets it in its CreateDbContext call.
             //this.Configuration.LazyLoadingEnabled = false;
         }
 

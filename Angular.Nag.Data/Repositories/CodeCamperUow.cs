@@ -32,7 +32,8 @@ namespace Angular.Nag.Data.Repositories
 
         // Code Camper repositories
 
-        public IRepository<Phone> Phones { get { return GetStandardRepo<Phone>(); } }
+        //public IRepository<Phone> Phones { get { return GetStandardRepo<Phone>(); } }
+        public IPhonesRepository Phones { get { return GetRepo<IPhonesRepository>(); } }
         public IPlansRepository Plans { get { return GetRepo<IPlansRepository>(); } }
         /// <summary>
         /// Save pending changes to the database

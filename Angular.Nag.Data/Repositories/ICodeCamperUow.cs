@@ -12,6 +12,6 @@ namespace Angular.Nag.Data.Repositories
 
         // Repositories
         IPlansRepository Plans { get; }
-        IRepository<Phone> Phones { get; }
+        IPhonesRepository Phones { get; }
     }
 }

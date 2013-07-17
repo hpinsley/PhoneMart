@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using Angular.Nag.Models;
 
 namespace Angular.Nag.Data.Repositories
 {
@@ -32,6 +33,8 @@ namespace Angular.Nag.Data.Repositories
             return new Dictionary<Type, Func<DbContext, object>>
                 {
                    {typeof(IPlansRepository), dbContext => new PlansRepository(dbContext)},
+                   //{typeof(IRepository<Phone>), dbContext => new PhonesRepository(dbContext)},
+                   {typeof(IPhonesRepository), dbContext => new PhonesRepository(dbContext)},
                 };
         }
 

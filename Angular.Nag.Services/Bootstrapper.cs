@@ -21,8 +21,6 @@ namespace Angular.Nag.Services
             // register all your components with the container here
             // e.g. container.RegisterType<ITestService, TestService>();            
 
-            container.RegisterType<IPhoneRepository, PhoneRepository>();
-
             RepositoryFactories factories = new RepositoryFactories();
             RepositoryProvider provider = new RepositoryProvider(factories);
             CodeCamperUow uow = new CodeCamperUow(provider);

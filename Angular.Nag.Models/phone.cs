@@ -10,5 +10,10 @@ namespace Angular.Nag.Models {
 
         public virtual List<Plan> Plans { get; set; }
 
+        public override string ToString() {
+            return string.Format("Phone Model: {0}; Description: {1}; Price: {2}; PhoneId: {3}",
+                                 Model, Description, Price, PhoneId);
+        }
+
     }
 }

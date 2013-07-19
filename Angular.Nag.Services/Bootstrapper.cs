@@ -1,5 +1,4 @@
 using System.Web.Http;
-using Angular.Nag.Data;
 using Angular.Nag.Data.Repositories;
 using Microsoft.Practices.Unity;
 
@@ -26,8 +25,7 @@ namespace Angular.Nag.Services
             CodeCamperUow uow = new CodeCamperUow(provider);
 
             container.RegisterInstance<ICodeCamperUow>(uow);
-
-            
+          
             return container;
         }
     }

@@ -25,8 +25,11 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // POST api/phones
-        public void Post([FromBody]string value)
-        {
+        public void Post(Phone newPhone) {
+            System.Diagnostics.Trace.WriteLine(string.Format("Adding {0}", newPhone));
+            _db.Phones.Add(newPhone);
+            _db.Commit();
+            System.Diagnostics.Trace.WriteLine(string.Format("Added {0}", newPhone));
         }
 
         // PUT api/phones/5

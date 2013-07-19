@@ -144,6 +144,7 @@
     <Content Include="img\phones\phone04.jpg" />
     <Content Include="index.html" />
     <Content Include="js\app.js" />
+    <Content Include="js\controllers\NewPhoneController.js" />
     <Content Include="js\controllers\MenuController.js" />
     <Content Include="js\controllers\PlansController.js" />
     <Content Include="js\controllers\PhoneController.js" />
@@ -165,6 +166,7 @@
     <Content Include="js\vendor\jquery-1.10.1.js" />
     <Content Include="js\vendor\jquery-1.10.1.min.js" />
     <Content Include="js\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="templates\newPhone.html" />
     <Content Include="templates\plans.html" />
     <Content Include="templates\directives\phoneTabs.html" />
     <Content Include="templates\directives\phoneList.html" />

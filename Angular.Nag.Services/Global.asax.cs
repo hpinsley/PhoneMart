@@ -29,6 +29,8 @@ namespace Angular.Nag.Services {
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<PhoneDb>());
             Database.SetInitializer(new PhoneDatabaseInitializer());
             System.Diagnostics.Trace.WriteLine("DropCreate Complete");
+
+            
         }
     }
 }

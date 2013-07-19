@@ -16,7 +16,8 @@
                 <div class="row">
                     <div class="span4">
                         <img style="height: 300px" ng-click="displayPhone(phone)"
-                            ng-src="img/phones/{{phone.imageFile}}" />
+                             ng-src="img/phones/{{phone.imageFile}}" />
+                        <div>Price: {{phone.price | currency}}</div>
                     </div>
                     <div class="span4">
                         <div class="lead">{{phone.description}}</div>

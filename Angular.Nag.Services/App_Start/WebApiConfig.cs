@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace Angular.Nag.Services {
     public static class WebApiConfig {
         public static void Register(HttpConfiguration config) {
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -19,7 +17,7 @@ namespace Angular.Nag.Services {
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            
+
         }
     }
 }

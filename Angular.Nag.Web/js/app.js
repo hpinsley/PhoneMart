@@ -9,6 +9,13 @@ nagApp.config(function ($routeProvider) {
                 controller: 'PhoneController',
                 templateUrl: 'templates/phones.html'
             })
+
+        .when('/phones/add',
+            {
+                controller: 'NewPhoneController',
+                templateUrl: 'templates/newPhone.html'
+            })
+
         .when('/plans',
             {
                 controller: 'PlansController',

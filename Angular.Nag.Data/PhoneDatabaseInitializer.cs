@@ -31,37 +31,36 @@ namespace Angular.Nag.Data {
 
             context.SaveChanges();
 
-            var person1 = new Person { FullName = "Pinsley, Howard", ContactPhoneNumber = "914-424-0430", EmailAddress = "hpinsley@gmail.com" };
-            var person2 = new Person { FullName = "Pinsley, Pilar", ContactPhoneNumber = "914-424-0431", EmailAddress = "luckypilar@gmail.com" };
-            var person3 = new Person { FullName = "Pinsley, Lauren", ContactPhoneNumber = "914-924-5472", EmailAddress = "lpinsley@gmail.com" };
-            var person4 = new Person { FullName = "Pinsley, Stefanie", ContactPhoneNumber = "914-261-3103", EmailAddress = "stefaniepinsley@yahoo.com" };
+            var howard = new Person { FullName = "Pinsley, Howard", ContactPhoneNumber = "914-424-0430", EmailAddress = "hpinsley@gmail.com" };
+            var david = new Person { FullName = "Pinsley, David", ContactPhoneNumber = "914-424-0431", EmailAddress = "luckypilar@gmail.com" };
 
-            context.People.Add(person1);
-            context.People.Add(person2);
-            context.People.Add(person3);
-            context.People.Add(person4);
+            context.People.Add(howard);
+            context.People.Add(david);
 
             context.SaveChanges();
 
-            var pi1 = new PhoneInstance { Phone = phone1, PhonePlan = plan1, SerialNumber = "1XGY765-FDRFG-34JFKEK", PhoneNumber = "111-424-0430" };
-            var pi2 = new PhoneInstance { Phone = phone2, PhonePlan = plan2, SerialNumber = "2XGY765-FDRFG-34JFKEK", PhoneNumber = "222-424-0430" };
-            var pi3 = new PhoneInstance { Phone = phone3, PhonePlan = plan3, SerialNumber = "3XGY765-FDRFG-34JFKEK", PhoneNumber = "333-424-0430" };
-            var pi4 = new PhoneInstance { Phone = phone4, PhonePlan = plan4, SerialNumber = "4XGY765-FDRFG-34JFKEK", PhoneNumber = "444-424-0430" };
+            var howardPhone1 = new PhoneInstance { Phone = phone1, PhonePlan = plan1, SerialNumber = "1XGY765-FDRFG-34JFKEK", PhoneNumber = "111-424-0430" };
+            var howardPhone2 = new PhoneInstance { Phone = phone2, PhonePlan = plan2, SerialNumber = "2XGY765-FDRFG-34JFKEK", PhoneNumber = "222-424-0430" };
+            var davidPhone1 = new PhoneInstance { Phone = phone3, PhonePlan = plan3, SerialNumber = "3XGY765-FDRFG-34JFKEK", PhoneNumber = "333-424-0430" };
+            var davidPhone2 = new PhoneInstance { Phone = phone4, PhonePlan = plan4, SerialNumber = "4XGY765-FDRFG-34JFKEK", PhoneNumber = "444-424-0430" };
 
-            context.PhoneInstances.Add(pi1);
-            context.PhoneInstances.Add(pi2);
-            context.PhoneInstances.Add(pi3);
-            context.PhoneInstances.Add(pi4);
+            context.PhoneInstances.Add(howardPhone1);
+            context.PhoneInstances.Add(howardPhone2);
+            context.PhoneInstances.Add(davidPhone1);
+            context.PhoneInstances.Add(davidPhone2);
 
             context.SaveChanges();
 
-            var acct1 = new Account { AccountHolder = person1 };
-            context.Accounts.Add(acct1);
-            context.SaveChanges();
+            var howardAcct = new Account { AccountHolder = howard };
+            context.Accounts.Add(howardAcct);
+            howardAcct.Phones.Add(howardPhone1);
+            howardAcct.Phones.Add(howardPhone2);
 
-            acct1.Phones.Add(pi1);
-            acct1.Phones.Add(pi2);
-            acct1.Phones.Add(pi3);
+            var davidAcct = new Account { AccountHolder = david };
+            context.Accounts.Add(davidAcct);
+            davidAcct.Phones.Add(davidPhone1);
+            davidAcct.Phones.Add(davidPhone2);
+
             context.SaveChanges();
 
             System.Diagnostics.Trace.WriteLine("Seeded phone values");

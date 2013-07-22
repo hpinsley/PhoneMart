@@ -36,6 +36,7 @@ namespace Angular.Nag.Data.Repositories
         public IPhonesRepository Phones { get { return GetRepo<IPhonesRepository>(); } }
         public IPlansRepository Plans { get { return GetRepo<IPlansRepository>(); } }
         public IAccountsRepository Accounts { get { return GetRepo<IAccountsRepository>(); } }
+        public PhoneDb PhoneDb { get { return DbContext; } }
 
         /// <summary>
         /// Save pending changes to the database

@@ -33,8 +33,9 @@ namespace Angular.Nag.Data.Repositories
             return new Dictionary<Type, Func<DbContext, object>>
                 {
                    {typeof(IPlansRepository), dbContext => new PlansRepository(dbContext)},
-                   //{typeof(IRepository<Phone>), dbContext => new PhonesRepository(dbContext)},
+                   //{typeof(IRepository<Phone>), dbContext => new AccountsRepository(dbContext)},
                    {typeof(IPhonesRepository), dbContext => new PhonesRepository(dbContext)},
+                   {typeof(IAccountsRepository), dbContext => new AccountsRepository(dbContext)},
                 };
         }
 

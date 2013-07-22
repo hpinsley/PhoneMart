@@ -21,5 +21,12 @@ nagApp.config(function ($routeProvider) {
                 controller: 'PlansController',
                 templateUrl: 'templates/plans.html'
             })
+
+        .when('/accounts',
+            {
+                controller: 'AccountsController',
+                templateUrl: 'templates/accounts.html'
+            })
+
         .otherwise({ redirectTo: '/phones' });
 });

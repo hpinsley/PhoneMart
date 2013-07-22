@@ -16,6 +16,9 @@ namespace Angular.Nag.Data
 
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Plan> Plans { get; set; }
+        public DbSet<Person> People { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<PhoneInstance> PhoneInstances { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<Phone>()
@@ -30,6 +33,35 @@ namespace Angular.Nag.Data
             modelBuilder.Entity<Plan>()
                         .Property(p => p.PlanId)
                         .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<Person>()
+                        .Property(p => p.PersonId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Person>()
+                        .Property(p => p.FullName).IsRequired();
+
+            /*
+             *         public int PhoneInstanceId { get; set; }
+        public Phone Phone { get; set; }
+        public string SerialNumber { get; set; }
+        public string PhoneNumber { get; set; }
+        public Plan PhonePlan { get; set; }*/
+
+            modelBuilder.Entity<PhoneInstance>()
+                        .Property(pi => pi.PhoneInstanceId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<PhoneInstance>()
+                        .Property(pi => pi.SerialNumber).IsRequired();
+
+            /*
+             *  public int AccountId { get; set; }
+        public Person AccountHolder { get; set; }
+        public List<PhoneInstance> Phones { get; set; }*/
+
+            modelBuilder.Entity<Account>()
+                .Property(ac => ac.AccountId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Account>().HasRequired(ac => ac.AccountHolder);
+            modelBuilder.Entity<Account>().HasMany(ac => ac.Phones);
+                        
+
 
             base.OnModelCreating(modelBuilder);
         }

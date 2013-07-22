@@ -35,6 +35,8 @@ namespace Angular.Nag.Data.Repositories
         //public IRepository<Phone> Phones { get { return GetStandardRepo<Phone>(); } }
         public IPhonesRepository Phones { get { return GetRepo<IPhonesRepository>(); } }
         public IPlansRepository Plans { get { return GetRepo<IPlansRepository>(); } }
+        public IAccountsRepository Accounts { get { return GetRepo<IAccountsRepository>(); } }
+
         /// <summary>
         /// Save pending changes to the database
         /// </summary>
@@ -50,9 +52,11 @@ namespace Angular.Nag.Data.Repositories
 
             // Do NOT enable proxied entities, else serialization fails
             DbContext.Configuration.ProxyCreationEnabled = false;
+            //DbContext.Configuration.ProxyCreationEnabled = true;
 
             // Load navigation properties explicitly (avoid serialization trouble)
             DbContext.Configuration.LazyLoadingEnabled = false;
+            //DbContext.Configuration.LazyLoadingEnabled = true;
 
             // Because Web API will perform validation, we don't need/want EF to do so
             DbContext.Configuration.ValidateOnSaveEnabled = false;

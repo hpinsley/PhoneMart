@@ -24,8 +24,7 @@ namespace Angular.Nag.Data.Repositories
 
         protected DbSet<T> DbSet { get; set; }
 
-        public virtual IQueryable<T> GetAll()
-        {
+        public virtual IQueryable<T> GetAll() {
             return DbSet;
         }
 

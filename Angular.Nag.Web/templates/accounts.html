@@ -2,27 +2,30 @@
     <h1>Accounts</h1>
     <table class="table table-bordered table-striped">
         <thead>
-            <th>Account</th>
-            <th>Contact Info</th>
+            <tr class="text-error">
+                <th>Account</th>
+                <th>Contact Info</th>
+            </tr>
         </thead>
         <tbody>
             <tr ng-repeat="account in accounts">
                 <td>{{account.accountId}} - {{account.accountHolder.fullName}}
                 </td>
-                <td>
-                    {{account.accountHolder.emailAddress}}<br />
+                <td>{{account.accountHolder.emailAddress}}<br />
                     {{account.accountHolder.contactPhoneNumber}}
                 </td>
                 <td>
                     <table class="table-bordered">
                         <thead>
-                            <th>Serial No.</th>
-                            <th>Phone No.</th>
-                            <th>Model</th>
-                            <th>Plan</th>
+                            <tr>
+                                <th>Serial No.</th>
+                                <th>Phone No.</th>
+                                <th>Model</th>
+                                <th>Plan</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="pi in account.phones">
+                            <tr class="success" ng-repeat="pi in account.phones">
                                 <td>{{pi.serialNumber}}</td>
                                 <td>{{pi.phoneNumber}}</td>
                                 <td>{{pi.phone.model}}</td>

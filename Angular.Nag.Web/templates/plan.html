@@ -3,25 +3,32 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="span8">
-            <h2>Plan Details</h2>
+        <div class="span6">
+            <h2 class="text-info">Plan Details</h2>
             <div class="row">
-                <div class="span4">Monthly Cost</div>
-                <div class="span4">{{plan.monthlyCost | currency}}</div>
+                <div class="span3">Monthly Cost</div>
+                <div class="span3">{{plan.monthlyCost | currency}}</div>
             </div>
             <div class="row">
-                <div class="span4">Talk Minutes</div>
-                <div class="span4">{{plan.voiceMinutes | number:1}}</div>
+                <div class="span3">Talk Minutes</div>
+                <div class="span3">{{plan.voiceMinutes | number:1}}</div>
             </div>
         </div>
-        <div class="span4">
-            <h2>Phones</h2>
-            <p>You have a choice of several phones on the {{plan.planName}} plan.  The following models are offered:</p>
-            <ul>
-                <li ng-repeat="phone in plan.phones">{{phone.model}}
-                </li>
-            </ul>
+        <div class="span6">
+            <div class="well">
+                <h2>Phones</h2>
+                <p>You have a choice of several phones on the {{plan.planName}} plan.  The following models are offered:</p>
+                <ul>
+                    <li ng-repeat="phone in plan.phones">{{phone.model}}
+                    </li>
+                </ul>
+            </div>
         </div>
-
+    </div>
+    <div class="row">
+        <div class="well">
+            <span class="icon-chevron-up"></span>
+            <a href="#/plans">Plan List</a>
+        </div>
     </div>
 </div>

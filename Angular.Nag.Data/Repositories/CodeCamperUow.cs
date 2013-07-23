@@ -22,8 +22,9 @@ namespace Angular.Nag.Data.Repositories
     /// </remarks>
     public class CodeCamperUow : ICodeCamperUow, IDisposable
     {
-        public CodeCamperUow(IRepositoryProvider repositoryProvider)
-        {
+        public CodeCamperUow(IRepositoryProvider repositoryProvider) {
+            System.Diagnostics.Trace.WriteLine("*** In UOW Constructor ***");
+
             CreateDbContext();
 
             repositoryProvider.DbContext = DbContext;

@@ -8,7 +8,7 @@ namespace Angular.Nag.Models {
         public int VoiceMinutes { get; set; }
         public int DataMinutes { get; set; }
 
-        public virtual List<Phone> Phones { get; set; }
+        public List<Phone> Phones { get; set; }
 
         public Plan() {
             Phones = new List<Phone>();

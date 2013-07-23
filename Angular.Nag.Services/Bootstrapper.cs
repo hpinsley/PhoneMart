@@ -20,11 +20,15 @@ namespace Angular.Nag.Services
             // register all your components with the container here
             // e.g. container.RegisterType<ITestService, TestService>();            
 
-            RepositoryFactories factories = new RepositoryFactories();
-            RepositoryProvider provider = new RepositoryProvider(factories);
-            CodeCamperUow uow = new CodeCamperUow(provider);
+            container.RegisterType<RepositoryFactories>();
+            container.RegisterType<IRepositoryProvider, RepositoryProvider>();
+            container.RegisterType<ICodeCamperUow, CodeCamperUow>();
 
-            container.RegisterInstance<ICodeCamperUow>(uow);
+            //RepositoryFactories factories = new RepositoryFactories();
+            //RepositoryProvider provider = new RepositoryProvider(factories);
+            //CodeCamperUow uow = new CodeCamperUow(provider);
+
+            //container.RegisterInstance<ICodeCamperUow>(uow, new ContainerControlledLifetimeManager());
           
             return container;
         }

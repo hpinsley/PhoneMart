@@ -56,10 +56,11 @@ namespace Angular.Nag.Data.Repositories
         /// <remarks>
         /// This ctor is primarily useful for testing this class
         /// </remarks>
-        public RepositoryFactories(IDictionary<Type, Func<DbContext, object>> factories )
-        {
-            _repositoryFactories = factories;
-        }
+        
+        //public RepositoryFactories(IDictionary<Type, Func<DbContext, object>> factories )
+        //{
+        //    _repositoryFactories = factories;
+        //}
 
         /// <summary>
         /// Get the repository factory function for the type.

@@ -9,5 +9,9 @@ namespace Angular.Nag.Models {
         public int DataMinutes { get; set; }
 
         public virtual List<Phone> Phones { get; set; }
+
+        public Plan() {
+            Phones = new List<Phone>();
+        }
     }
 }

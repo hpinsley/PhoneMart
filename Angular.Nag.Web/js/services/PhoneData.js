@@ -1,7 +1,14 @@
 ﻿'use strict';
 
 nagApp.factory('phoneData', function ($resource, $http, $q) {
+
+    var planResource = $resource("http://localhost/Angular.Nag.Services/api/plans/:id", { id: '@id' });
+    
     return {
+
+        getPlan: function(planId) {
+            return planResource.get({ id: planId });
+        },
         
         getAccounts: function() {
             var r = $resource("http://localhost/Angular.Nag.Services/api/accounts");

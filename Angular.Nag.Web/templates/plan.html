@@ -1,6 +1,27 @@
 ﻿<div class="container">
-    <h1>Plan {{planId}}</h1>
+    <h1>Plan {{plan.planName}}</h1>
 </div>
 <div class="container">
-    <a href="#/plans">List of Plans</a>
+    <div class="row">
+        <div class="span8">
+            <h2>Plan Details</h2>
+            <div class="row">
+                <div class="span4">Monthly Cost</div>
+                <div class="span4">{{plan.monthlyCost | currency}}</div>
+            </div>
+            <div class="row">
+                <div class="span4">Talk Minutes</div>
+                <div class="span4">{{plan.voiceMinutes | number:1}}</div>
+            </div>
+        </div>
+        <div class="span4">
+            <h2>Phones</h2>
+            <p>You have a choice of several phones on the {{plan.planName}} plan.  The following models are offered:</p>
+            <ul>
+                <li ng-repeat="phone in plan.phones">{{phone.model}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
 </div>

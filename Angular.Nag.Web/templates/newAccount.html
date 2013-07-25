@@ -1,0 +1,27 @@
+﻿<div class="container">
+    <h1>New Account</h1>
+    
+    <form name="addAccountForm" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label">Full Name:</label>
+            <div class="controls">
+                <input type="text" ng-model="fullName" required ng-minlength="5" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Phone:</label>
+            <div class="controls">
+                <input type="text" ng-model="contactPhoneNumber" required />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Email:</label>
+            <div class="controls">
+                <input type="email" ng-model="emailAddress" required />
+            </div>
+        </div>
+
+        <button ng-click="addAccount()" class="btn" ng-disabled="!addAccountForm.$valid">Add</button>
+    </form>
+
+</div>

@@ -1,40 +1,47 @@
 ﻿<div class="container">
     <h1>Accounts</h1>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr class="text-error">
-                <th>Account</th>
-                <th>Contact Info</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="account in accounts">
-                <td>{{account.accountId}} - {{account.accountHolder.fullName}}
-                </td>
-                <td>{{account.accountHolder.emailAddress}}<br />
-                    {{account.accountHolder.contactPhoneNumber}}
-                </td>
-                <td>
-                    <table class="table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Serial No.</th>
-                                <th>Phone No.</th>
-                                <th>Model</th>
-                                <th>Plan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="success" ng-repeat="pi in account.phones">
-                                <td>{{pi.serialNumber}}</td>
-                                <td>{{pi.phoneNumber}}</td>
-                                <td>{{pi.phone.model}}</td>
-                                <td>{{pi.phonePlan.planName}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
+    <div class="row">
+        <button class="btn-info" ng-click="addAccount()">Add</button>
+    </div>
+
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr class="text-error">
+                    <th>Account</th>
+                    <th>Contact Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="account in accounts">
+                    <td>{{account.accountId}} - {{account.accountHolder.fullName}}
+                    </td>
+                    <td>{{account.accountHolder.emailAddress}}<br />
+                        {{account.accountHolder.contactPhoneNumber}}
+                    </td>
+                    <td>
+                        <table class="table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Serial No.</th>
+                                    <th>Phone No.</th>
+                                    <th>Model</th>
+                                    <th>Plan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="success" ng-repeat="pi in account.phones">
+                                    <td>{{pi.serialNumber}}</td>
+                                    <td>{{pi.phoneNumber}}</td>
+                                    <td>{{pi.phone.model}}</td>
+                                    <td>{{pi.phonePlan.planName}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

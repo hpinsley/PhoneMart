@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using Angular.Nag.Data.Repositories;
 using Angular.Nag.Models;
+using Angular.Nag.Services.Models;
 
 namespace Angular.Nag.Services.Controllers
 {
@@ -56,8 +57,21 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // POST api/accounts
-        public void Post([FromBody]string value)
+        public int Post(NewAccount newAccount)
         {
+            Account account = new Account();
+            Person accountHolder = new Person();
+
+            accountHolder.FullName = newAccount.FullName;
+            accountHolder.ContactPhoneNumber = newAccount.ContactPhoneNumber;
+            accountHolder.EmailAddress = newAccount.EmailAddress;
+
+            account.AccountHolder = accountHolder;
+
+            _db.Accounts.Add(account);
+            _db.Commit();
+
+            return account.AccountId;
         }
 
         // PUT api/accounts/5

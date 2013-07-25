@@ -21,12 +21,13 @@
         </div>
 
         <h4>Plans</h4>
-        <div class="control-group">
-            <div ng-repeat="plan in plans">
+        <div ng-repeat="plan in plans">
+            <div class="control-group">
                 <label class="control-label">{{plan.planName}}</label>
                 <!-- <input type="checkbox" ng-model="chosenPlans[$index]" /> -->
-                <input type="checkbox" ng-model="plan.chosen" />
-
+                <div class="controls">
+                    <input type="checkbox" ng-model="plan.chosen" />
+                </div>
             </div>
         </div>
         <button ng-click="addPhone(plans)" class="btn" ng-disabled="!addPhoneForm.$valid">Add</button>

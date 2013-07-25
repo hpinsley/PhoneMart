@@ -3,11 +3,16 @@
 nagApp.factory('phoneData', function ($resource, $http, $q) {
 
     var planResource = $resource("http://localhost/Angular.Nag.Services/api/plans/:id", { id: '@id' });
-    
+    var accountResource = $resource("http://localhost/Angular.Nag.Services/api/accounts/:id", { id: '@id' });
+
     return {
 
         getPlan: function(planId) {
             return planResource.get({ id: planId });
+        },
+
+        getAccount: function(accountId) {
+            return accountResource.get({ id: accountId });
         },
         
         getAccounts: function() {

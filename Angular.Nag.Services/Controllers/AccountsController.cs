@@ -34,16 +34,7 @@ namespace Angular.Nag.Services.Controllers
             accounts = _db.Accounts.GetAll().ToList();
 
             foreach (var account in accounts) {
-                DbEntityEntry<Account> accountEntry = _db.PhoneDb.Entry(account);
-                accountEntry.Reference(ac => ac.AccountHolder).Load();
-                accountEntry.Collection(ac => ac.Phones).Load();
-
-                foreach (PhoneInstance phoneInstance in account.Phones) {
-                    DbEntityEntry<PhoneInstance> piEntry = _db.PhoneDb.Entry(phoneInstance);
-                    piEntry.Reference(pi => pi.Phone).Load();
-                    piEntry.Reference(pi => pi.PhonePlan).Load();
-                }
-
+                LoadNavProperties(account);
                 System.Diagnostics.Trace.WriteLine(string.Format("Account Id: {0} Holder: {1} with {2} phones.",
                                                                  account.AccountId, account.AccountHolder, account.Phones.Count));
             }
@@ -51,9 +42,24 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // GET api/accounts/5
-        public string Get(int id)
-        {
-            return "value";
+        public Account Get(int id) {
+            Account account = _db.Accounts.GetById(id);
+            LoadNavProperties(account);
+            System.Diagnostics.Trace.WriteLine(string.Format("Account Id: {0} Holder: {1} with {2} phones.",
+                                                             account.AccountId, account.AccountHolder, account.Phones.Count));
+            return account;
+        }
+
+        private void LoadNavProperties(Account account) {
+            DbEntityEntry<Account> accountEntry = _db.PhoneDb.Entry(account);
+            accountEntry.Reference(ac => ac.AccountHolder).Load();
+            accountEntry.Collection(ac => ac.Phones).Load();
+
+            foreach (PhoneInstance phoneInstance in account.Phones) {
+                DbEntityEntry<PhoneInstance> piEntry = _db.PhoneDb.Entry(phoneInstance);
+                piEntry.Reference(pi => pi.Phone).Load();
+                piEntry.Reference(pi => pi.PhonePlan).Load();
+            }
         }
 
         // POST api/accounts

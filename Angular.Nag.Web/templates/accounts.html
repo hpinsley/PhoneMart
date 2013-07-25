@@ -15,7 +15,8 @@
             </thead>
             <tbody>
                 <tr ng-repeat="account in accounts">
-                    <td>{{account.accountId}} - {{account.accountHolder.fullName}}
+                    <td>
+                        <a href="#/accounts/{{account.accountId}}">{{account.accountHolder.fullName}}</a>
                     </td>
                     <td>{{account.accountHolder.emailAddress}}<br />
                         {{account.accountHolder.contactPhoneNumber}}

@@ -1,5 +1,18 @@
 ﻿<div class="container">
     <h1>Account {{accountId}}</h1>
+
+    <div class="row">
+        <label>Account Holder:
+            {{account.accountHolder.fullName}}
+        </label>
+        <label>Contact Phone No.:
+            {{account.accountHolder.contactPhoneNumber}}
+        </label>
+        <label>Email Address:
+            {{account.accountHolder.emailAddress}}
+        </label>
+
+    </div>    
 </div>
 <div class="container">
     <div class="row">

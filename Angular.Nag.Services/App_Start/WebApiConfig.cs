@@ -7,6 +7,12 @@ namespace Angular.Nag.Services {
         public static void Register(HttpConfiguration config) {
 
             config.Routes.MapHttpRoute(
+                name: "AccountPhonesApi",
+                routeTemplate: "api/accounts/{accountId}/phones/{phoneInstanceId}",
+                defaults: new { controller = "AccountPhones", phoneInstanceId = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

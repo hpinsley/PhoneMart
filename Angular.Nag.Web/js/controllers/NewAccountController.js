@@ -12,9 +12,8 @@ nagApp.controller('NewAccountController', function NewAccountController($scope, 
                 emailAddress: $scope.emailAddress
             }
         })
-        .success(function (data) {
-            alert("New account created " + data);
-            $location.path("/accounts");
+        .success(function (accountId) {
+            $location.path("/accounts/" + accountId);
         })
         .error(function (error) {
             alert("We got error " + error.exceptionMessage);

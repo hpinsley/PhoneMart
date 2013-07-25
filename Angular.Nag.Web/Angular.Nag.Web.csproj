@@ -139,6 +139,7 @@
     <Content Include="index.html" />
     <Content Include="js\app.js" />
     <Content Include="js\controllers\AccountsController.js" />
+    <Content Include="js\controllers\AccountLookupController.js" />
     <Content Include="js\controllers\NewAccountController.js" />
     <Content Include="js\controllers\PlanLookupController.js" />
     <Content Include="js\controllers\NewPhoneController.js" />
@@ -164,6 +165,7 @@
     <Content Include="js\vendor\jquery-1.10.1.min.js" />
     <Content Include="js\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
     <Content Include="templates\accounts.html" />
+    <Content Include="templates\account.html" />
     <Content Include="templates\newAccount.html" />
     <Content Include="templates\plan.html" />
     <Content Include="templates\newPhone.html" />

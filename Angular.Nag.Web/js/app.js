@@ -40,5 +40,11 @@ nagApp.config(function ($routeProvider) {
                 templateUrl: 'templates/newAccount.html'
             })
 
+        .when('/accounts/:accountId',
+            {
+                controller: 'AccountLookupController',
+                templateUrl: 'templates/account.html'
+            })
+
         .otherwise({ redirectTo: '/phones' });
 });

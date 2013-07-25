@@ -1,18 +1,34 @@
 ﻿<div class="container">
     <h1>New Phone</h1>
-    <form name="addPhoneForm">
-        <div>
-            <span class="label">Model:</span>
-            <input type="text" ng-model="model" required ng-minlength="5"/>
+    <form name="addPhoneForm" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label">Model:</label>
+            <div class="controls">
+                <input type="text" ng-model="model" required ng-minlength="5" />
+            </div>
         </div>
-        <div>
-            <span class="label">Description:</span>
-            <input type="text" ng-model="description" required/>
+        <div class="control-group">
+            <label class="control-label">Description:</label>
+            <div class="controls">
+                <input type="text" ng-model="description" required />
+            </div>
         </div>
-        <div>
-            <span class="label">Price:</span>
-            <input type="number" ng-model="price" required/>
+        <div class="control-group">
+            <label class="control-label">Price:</label>
+            <div class="controls">
+                <input type="number" ng-model="price" required />
+            </div>
         </div>
-        <button ng-click="addPhone()" class="btn" ng-disabled="!addPhoneForm.$valid">Add</button>
+
+        <h4>Plans</h4>
+        <div class="control-group">
+            <div ng-repeat="plan in plans">
+                <label class="control-label">{{plan.planName}}</label>
+                <!-- <input type="checkbox" ng-model="chosenPlans[$index]" /> -->
+                <input type="checkbox" ng-model="plan.chosen" />
+
+            </div>
+        </div>
+        <button ng-click="addPhone(plans)" class="btn" ng-disabled="!addPhoneForm.$valid">Add</button>
     </form>
 </div>

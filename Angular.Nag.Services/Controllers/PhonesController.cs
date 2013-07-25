@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using Angular.Nag.Data.Repositories;
 using Angular.Nag.Models;
+using Angular.Nag.Services.Models;
 
 namespace Angular.Nag.Services.Controllers
 {
@@ -25,11 +27,27 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // POST api/phones
-        public void Post(Phone newPhone) {
+        public void Post(NewPhone newPhone) {
+
             System.Diagnostics.Trace.WriteLine(string.Format("Adding {0}", newPhone));
-            _db.Phones.Add(newPhone);
+
+            Phone phone = new Phone {
+                Model = newPhone.Model,
+                Description = newPhone.Description,
+                Price = newPhone.Price,
+                ImageFile = newPhone.ImageFile
+            };
+
+            var plans = _db.Plans.GetAll();
+            foreach (Plan plan in plans) {
+                if (newPhone.PlanIds.Contains(plan.PlanId)) {
+                    phone.Plans.Add(plan);
+                }
+            }
+            _db.Phones.Add(phone);
             _db.Commit();
-            System.Diagnostics.Trace.WriteLine(string.Format("Added {0}", newPhone));
+
+            System.Diagnostics.Trace.WriteLine(string.Format("Added {0}", phone));
         }
 
         // PUT api/phones/5

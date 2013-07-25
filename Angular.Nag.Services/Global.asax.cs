@@ -26,9 +26,8 @@ namespace Angular.Nag.Services {
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<PhoneDb>());
-            Database.SetInitializer(new PhoneDatabaseInitializer());
-            System.Diagnostics.Trace.WriteLine("DropCreate Complete");
+            //Database.SetInitializer(new PhoneDatabaseInitializer());
+            //System.Diagnostics.Trace.WriteLine("DropCreate Complete");
 
             
         }

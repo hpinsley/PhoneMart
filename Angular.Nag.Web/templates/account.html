@@ -3,18 +3,20 @@
 
     <div class="row">
         <h5>Account Owner</h5>
-        <label>
-            Account Holder:
+        <div class="well">
+            <label>
+                Account Holder:
             {{account.accountHolder.fullName}}
-        </label>
-        <label>
-            Contact Phone No.:
+            </label>
+            <label>
+                Contact Phone No.:
             {{account.accountHolder.contactPhoneNumber}}
-        </label>
-        <label>
-            Email Address:
-            {{account.accountHolder.emailAddress}}
-        </label>
+            </label>
+            <label>
+                Email Address:
+                {{account.accountHolder.emailAddress}}
+            </label>
+        </div>
     </div>
     <div class="row">
         <h5>Linked Phones</h5>
@@ -36,6 +38,7 @@
                 </tr>
             </tbody>
         </table>
+        <button ng-click="addPhone()" class="btn btn-inverse">Add Phone</button>
 
     </div>
 </div>

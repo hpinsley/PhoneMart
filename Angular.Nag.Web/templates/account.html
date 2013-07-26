@@ -3,20 +3,27 @@
 
     <div class="row">
         <h5>Account Owner</h5>
-        <div class="well">
+        <form name="updateAccountForm">
             <label>
                 Account Holder:
-            {{account.accountHolder.fullName}}
+                <span ng-show="mode=='SHOW'">{{account.accountHolder.fullName}}</span>
+                <input ng-show="mode=='EDIT'" type="text" ng-model="auFullName" required />
             </label>
             <label>
                 Contact Phone No.:
-            {{account.accountHolder.contactPhoneNumber}}
+                <span ng-show="mode=='SHOW'">{{account.accountHolder.contactPhoneNumber}}</span>
+                <input ng-show="mode=='EDIT'" type="text" ng-model="auContactPhoneNumber" required />
             </label>
             <label>
                 Email Address:
-                {{account.accountHolder.emailAddress}}
+                <span ng-show="mode=='SHOW'">{{account.accountHolder.emailAddress}}</span>
+                <input ng-show="mode=='EDIT'" type="text" ng-model="auEmailAddress" required />
             </label>
-        </div>
+            <br/>
+            <button class="btn btn-inverse" ng-show="mode=='SHOW'" ng-click="editAccount(account)">Edit</button>
+            <button class="btn btn-inverse" ng-disabled="!updateAccountForm.$valid" ng-show="mode=='EDIT'" ng-click="updateAccount(accountId)">Update</button>
+            <button class="btn btn-inverse" ng-show="mode=='EDIT'" ng-click="cancelEditAccount()">Cancel</button>
+        </form>
     </div>
     <div class="row">
         <h5>Linked Phones</h5>

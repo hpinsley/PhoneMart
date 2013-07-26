@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net;
 using System.Web.Http;
 using Angular.Nag.Data.Repositories;
 using Angular.Nag.Models;
@@ -81,8 +82,18 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // PUT api/accounts/5
-        public void Put(int id, [FromBody]string value)
-        {
+        public void Put(int id, [FromBody] NewAccount updatedAccount) {
+            Account account = _db.Accounts.GetById(id);
+            if (account == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            LoadNavProperties(account);
+
+            account.AccountHolder.FullName = updatedAccount.FullName;
+            account.AccountHolder.EmailAddress = updatedAccount.EmailAddress;
+            account.AccountHolder.ContactPhoneNumber = updatedAccount.ContactPhoneNumber;
+
+            _db.Commit();
         }
 
         // DELETE api/accounts/5

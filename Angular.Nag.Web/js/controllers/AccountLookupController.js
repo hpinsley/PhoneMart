@@ -6,8 +6,6 @@ nagApp.controller('AccountLookupController',
         $scope.account = phoneData.getAccount($routeParams.accountId);
 
         $scope.addPhone = function () {
-            var path = "/accounts/" + $routeParams.accountId + "/phones/add";
-            console.log(path);
-            $location.path(path);
+            $location.path("/accounts/" + $routeParams.accountId + "/phones/add");
         };
     });

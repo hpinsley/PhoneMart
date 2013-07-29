@@ -26,7 +26,6 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
         if (manufacturer == -1) {
             $scope.filters = {};
         } else {
-            //$scope.filters = { manufacturerId: manufacturer };
             $scope.filters["manufacturer.manufacturerId"] = manufacturer;
             console.log($scope.filters);
         }

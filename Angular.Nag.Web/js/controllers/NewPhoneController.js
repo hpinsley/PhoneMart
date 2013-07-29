@@ -3,6 +3,7 @@
 nagApp.controller('NewPhoneController', function NewPhoneController($scope, phoneData, $http, $location) {
 
     $scope.plans = phoneData.getPlans();
+    $scope.manufacturers = phoneData.getManufacturers();
     
     $scope.addPhone = function(plans) {
 
@@ -18,6 +19,7 @@ nagApp.controller('NewPhoneController', function NewPhoneController($scope, phon
                 method: "POST",
                 url: "http://localhost/Angular.Nag.Services/api/phones",
                 data: {
+                    manufacturerId: $scope.manufacturerId,
                     model: $scope.model,
                     description: $scope.description,
                     price: $scope.price,

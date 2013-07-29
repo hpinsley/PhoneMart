@@ -1,1 +1,1 @@
-curl -i -d "model=Ford" -d "description=A car phone" -d "price=100.0" http://localhost/Angular.Nag.Services/api/phones
+curl -i -H "Content-Type:application/json" -d "{manufacturerId:1, model:'Ford SafeTalk', description:'A car phone', price:100.0, imageFile:'phone02.jpg', planIds:[]}" http://localhost/Angular.Nag.Services/api/phones

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web.Http;
 using Angular.Nag.Data.Repositories;
 using Angular.Nag.Models;
@@ -31,7 +32,12 @@ namespace Angular.Nag.Services.Controllers
 
             System.Diagnostics.Trace.WriteLine(string.Format("Adding {0}", newPhone));
 
+            Manufacturer manufacturer = _db.Manufacturers.GetById(newPhone.ManufacturerId);
+            if (manufacturer == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
             Phone phone = new Phone {
+                Manufacturer = manufacturer,
                 Model = newPhone.Model,
                 Description = newPhone.Description,
                 Price = newPhone.Price,

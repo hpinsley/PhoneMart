@@ -15,11 +15,16 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
             return accountResource.get({ id: accountId });
         },
         
-        getAccounts: function() {
+        getAccounts: function () {
             var r = $resource("http://localhost/Angular.Nag.Services/api/accounts");
             return r.query();
         },
-        
+
+        getManufacturers: function() {
+            var r = $resource("http://localhost/Angular.Nag.Services/api/manufacturers");
+            return r.query();
+        },
+
         //getPhones: function () {
         //    var r = $resource("http://localhost/Angular.Nag.Services/api/phones");
         //    return r.query();

@@ -7,10 +7,26 @@ namespace Angular.Nag.Data {
 
         protected override void Seed(PhoneDb context) {
             System.Diagnostics.Trace.WriteLine("Seeding phone values");
-            var phone1 = new Phone { Model = "Nokia 1000", Price = 25.0m, Description = @"Capture more of the moment with a 41 megapixel camera sensor, Full HD video and Nokia Rich Recording for incredible sound quality.", ImageFile = "phone01.jpg" };
-            var phone2 = new Phone { Model = "Android 200", Price = 75.0m, Description = @"Your home screen. Your world. With HTC BlinkFeed™ on your phone, you’re never out of touch with your world. All your favorite content is streamed live onto one screen. If it’s happening now, you’ll find it on your home screen.  Awesome camera. Awesome imaging tools.Awesome camera. Awesome imaging tools. Get perfect images with one-press continuous shooting, VideoPic, and a camera that captures 300% more light.Slim phone. Fat sound.  Slim phone. Dual frontal stereo speakers are teamed with powerful amplifiers, so everyone can hear what you’re hearing. Share music, share videos, share games—and share them loudly.", ImageFile = "phone02.jpg" };
-            var phone3 = new Phone { Model = "iPhone 4", Price = 175.0m, Description = @"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).", ImageFile = "phone03.png" };
-            var phone4 = new Phone { Model = "iPhone 5",Price = 50.0m,Description = @"Apples's new top offering.  The iPhone 5 comes with Siri and a wealth of productivity apps making it the choice of todays savvy consumer.",ImageFile = "phone04.png"};
+
+            var apple = new Manufacturer {ManufacturerName = "Apple"};
+            var samsung = new Manufacturer {ManufacturerName = "Samsung"};
+            var lg = new Manufacturer { ManufacturerName = "LG" };
+            var casio = new Manufacturer { ManufacturerName = "Casio" };
+            var google = new Manufacturer { ManufacturerName = "Google" };
+            var microsoft = new Manufacturer { ManufacturerName = "Microsoft" };
+            var nokia = new Manufacturer { ManufacturerName = "Nokia" };
+
+            context.Manufacturers.Add(apple);
+            context.Manufacturers.Add(samsung);
+            context.Manufacturers.Add(lg);
+            context.Manufacturers.Add(casio);
+            context.Manufacturers.Add(google);
+            context.Manufacturers.Add(microsoft);
+
+            var phone1 = new Phone { Manufacturer = nokia, Model = "Global 1000", Price = 25.0m, Description = @"Capture more of the moment with a 41 megapixel camera sensor, Full HD video and Nokia Rich Recording for incredible sound quality.", ImageFile = "phone01.jpg" };
+            var phone2 = new Phone { Manufacturer = google, Model = "Android 200", Price = 75.0m, Description = @"Your home screen. Your world. With HTC BlinkFeed™ on your phone, you’re never out of touch with your world. All your favorite content is streamed live onto one screen. If it’s happening now, you’ll find it on your home screen.  Awesome camera. Awesome imaging tools.Awesome camera. Awesome imaging tools. Get perfect images with one-press continuous shooting, VideoPic, and a camera that captures 300% more light.Slim phone. Fat sound.  Slim phone. Dual frontal stereo speakers are teamed with powerful amplifiers, so everyone can hear what you’re hearing. Share music, share videos, share games—and share them loudly.", ImageFile = "phone02.jpg" };
+            var phone3 = new Phone { Manufacturer = apple, Model = "iPhone 4", Price = 175.0m, Description = @"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).", ImageFile = "phone03.png" };
+            var phone4 = new Phone { Manufacturer = apple, Model = "iPhone 5",Price = 50.0m,Description = @"Apples's new top offering.  The iPhone 5 comes with Siri and a wealth of productivity apps making it the choice of todays savvy consumer.",ImageFile = "phone04.png"};
 
             context.Phones.Add(phone1);
             context.Phones.Add(phone2);

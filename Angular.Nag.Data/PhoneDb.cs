@@ -14,6 +14,7 @@ namespace Angular.Nag.Data
             //this.Configuration.LazyLoadingEnabled = false;
         }
 
+        public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Plan> Plans { get; set; }
         public DbSet<Person> People { get; set; }
@@ -21,6 +22,13 @@ namespace Angular.Nag.Data
         public DbSet<PhoneInstance> PhoneInstances { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+            modelBuilder.Entity<Manufacturer>()
+                        .Property(m=>m.ManufacturerId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<Manufacturer>()
+                        .HasMany(m => m.Phones)
+                        .WithRequired(p => p.Manufacturer);
+
             modelBuilder.Entity<Phone>()
                         .HasKey(p => p.PhoneId)
                         .HasMany(phone => phone.Plans)

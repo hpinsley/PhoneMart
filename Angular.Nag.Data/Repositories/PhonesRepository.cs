@@ -12,7 +12,9 @@ namespace Angular.Nag.Data.Repositories
         }
 
         public IEnumerable<Phone> GetAllWithPlans() {
-            List<Phone> phones = _phoneDb.Phones.Include(p => p.Plans).ToList();
+            List<Phone> phones = _phoneDb.Phones.Include(p => p.Plans)
+                .Include(p=>p.Manufacturer)
+                .ToList();
 
             foreach (var phone in phones) {
                 foreach (var plan in phone.Plans) {

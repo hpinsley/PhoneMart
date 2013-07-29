@@ -21,12 +21,14 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
         var manufacturer = $scope.selectedManufacturer;
         if (!manufacturer)
             return;
-        alert("You selected " + manufacturer);
+        console.log("You selected " + manufacturer);
 
         if (manufacturer == -1) {
             $scope.filters = {};
         } else {
-            $scope.filters["manufacturer"] = manufacturer;
+            //$scope.filters = { manufacturerId: manufacturer };
+            $scope.filters["manufacturer.manufacturerId"] = manufacturer;
+            console.log($scope.filters);
         }
     };
 

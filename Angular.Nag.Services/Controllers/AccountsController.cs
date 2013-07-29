@@ -39,7 +39,7 @@ namespace Angular.Nag.Services.Controllers
                 System.Diagnostics.Trace.WriteLine(string.Format("Account Id: {0} Holder: {1} with {2} phones.",
                                                                  account.AccountId, account.AccountHolder, account.Phones.Count));
             }
-            return accounts;
+            return accounts.OrderBy(ac => ac.AccountHolder.FullName).ToList();
         }
 
         // GET api/accounts/5

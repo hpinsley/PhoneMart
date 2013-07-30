@@ -2,8 +2,10 @@
 
 nagApp.factory('phoneData', function ($resource, $http, $q) {
 
-    var planResource = $resource("http://localhost/Angular.Nag.Services/api/plans/:id", { id: '@id' });
-    var accountResource = $resource("http://localhost/Angular.Nag.Services/api/accounts/:id", { id: '@id' });
+    var planResource = $resource(nagApp.getServicesRoot() + "/api/plans/:id", { id: '@id' });
+    var accountResource = $resource(nagApp.getServicesRoot() + "/api/accounts/:id", { id: '@id' });
+    var accountsResource = $resource(nagApp.getServicesRoot() + "/api/accounts");
+    var manufacturersResource = $resource(nagApp.getServicesRoot() + "/api/manufacturers");
 
     return {
 
@@ -16,23 +18,17 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
         },
         
         getAccounts: function () {
-            var r = $resource("http://localhost/Angular.Nag.Services/api/accounts");
-            return r.query();
+            return accountsResource.query();
         },
 
         getManufacturers: function() {
-            var r = $resource("http://localhost/Angular.Nag.Services/api/manufacturers");
-            return r.query();
+            return manufacturersResource.query();
         },
 
-        //getPhones: function () {
-        //    var r = $resource("http://localhost/Angular.Nag.Services/api/phones");
-        //    return r.query();
-        //}
-        
-        getPhones: function() {
+        //Just to show how to do this without a resource and with $http       
+        getPhones: function () {
             var deferred = $q.defer();
-            $http({ method: "GET", url:"http://localhost/Angular.Nag.Services/api/phones"})
+            $http({ method: "GET", url: nagApp.getServicesRoot() + "/api/phones"})
                 .success(function (data) {
                     deferred.resolve(data);
                 })
@@ -43,9 +39,10 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
             return deferred.promise;
         },
 
-        getPlans: function() {
+        //Just to show how to do this without a resource and with $http       
+        getPlans: function () {
             var deferred = $q.defer();
-            $http({ method: "GET", url: "http://localhost/Angular.Nag.Services/api/plans" })
+            $http({ method: "GET", url: nagApp.getServicesRoot() + "/api/plans" })
                 .success(function(data) {
                     deferred.resolve(data);
                 })

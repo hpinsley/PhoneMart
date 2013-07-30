@@ -5,7 +5,7 @@ nagApp.controller('NewAccountController', function NewAccountController($scope, 
     $scope.addAccount = function () {
         $http({
             method: "POST",
-            url: "http://localhost/Angular.Nag.Services/api/accounts",
+            url: nagApp.getServicesRoot() + "/api/accounts",
             data: {
                 fullName: $scope.fullName,
                 contactPhoneNumber: $scope.contactPhoneNumber,

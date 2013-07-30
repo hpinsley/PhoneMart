@@ -26,7 +26,7 @@ nagApp.controller('AccountLookupController',
 
             $http({
                 method: "PUT",
-                url: "http://localhost/Angular.Nag.Services/api/accounts/" + accountId,
+                url: nagApp.getServicesRoot() + "/api/accounts/" + accountId,
                 data: {
                     fullName: $scope.auFullName,
                     contactPhoneNumber: $scope.auContactPhoneNumber,

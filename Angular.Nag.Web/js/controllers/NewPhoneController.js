@@ -17,7 +17,7 @@ nagApp.controller('NewPhoneController', function NewPhoneController($scope, phon
        
         $http({
                 method: "POST",
-                url: "http://localhost/Angular.Nag.Services/api/phones",
+                url: nagApp.getServicesRoot() + "/api/phones",
                 data: {
                     manufacturerId: $scope.manufacturerId,
                     model: $scope.model,

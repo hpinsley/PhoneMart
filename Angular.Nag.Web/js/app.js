@@ -2,6 +2,10 @@
 
 var nagApp = angular.module('nagApp', ['ngResource']);
 
+nagApp.getServicesRoot = function() {
+    return "http://localhost/Angular.Nag.Services";
+};
+
 nagApp.config(function ($routeProvider) {
     $routeProvider
         .when('/phones',

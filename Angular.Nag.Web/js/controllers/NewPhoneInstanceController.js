@@ -11,7 +11,7 @@ nagApp.controller('NewPhoneInstanceController', function NewPhoneInstanceControl
 
         $http({
             method: "POST",
-            url: "http://localhost/Angular.Nag.Services/api/accounts/" + accountId + "/phones",
+            url: nagApp.getServicesRoot() + "/api/accounts/" + accountId + "/phones",
             data: {
                 accountId: accountId,
                 phoneId: $scope.phoneId,

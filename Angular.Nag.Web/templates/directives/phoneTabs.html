@@ -31,14 +31,14 @@
                                     <thead>
                                         <tr>
                                             <th>Talk Minutes</th>
-                                            <th>Text Minutes</th>
+                                            <th>Data (MB)</th>
                                             <th>Price</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>{{plan.voiceMinutes}}</td>
-                                            <td>{{plan.dataMinutes}}</td>
+                                            <td>{{plan.dataMegabytes | number}}</td>
                                             <td>{{plan.monthlyCost | currency }}</td>
                                         </tr>
                                     </tbody>

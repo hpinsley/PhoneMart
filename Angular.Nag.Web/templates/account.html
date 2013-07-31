@@ -39,7 +39,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="pi in account.phones">
-                    <td>{{pi.serialNumber}}</td>
+                    <td><a href="#/accounts/{{accountId}}/phones/{{pi.phoneInstanceId}}">{{pi.serialNumber}}</a></td>
                     <td>{{pi.phoneNumber}}</td>
                     <td>{{pi.phone.model}}</td>
                     <td>{{pi.phonePlan.planName}}</td>

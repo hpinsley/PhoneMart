@@ -6,6 +6,7 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
     var accountResource = $resource(nagApp.getServicesRoot() + "/api/accounts/:id", { id: '@id' });
     var accountsResource = $resource(nagApp.getServicesRoot() + "/api/accounts");
     var manufacturersResource = $resource(nagApp.getServicesRoot() + "/api/manufacturers");
+    var phoneInstanceResource = $resource(nagApp.getServicesRoot() + "/api/accounts/:accountId/phones/:phoneInstanceId", { accountId: '@accountId', phoneInstanceId : '@phoneInstanceId'});
 
     return {
 
@@ -25,6 +26,16 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
             return manufacturersResource.query();
         },
 
+        getPhoneInstance: function(accountId, phoneInstanceId, onSuccess) {
+            return phoneInstanceResource.get({ accountId: accountId, phoneInstanceId: phoneInstanceId }, 
+                function(phoneInstance) {
+                    if (onSuccess) {
+                        onSuccess(phoneInstance);
+                    }
+                }
+            );
+        },
+        
         //Just to show how to do this without a resource and with $http       
         getPhones: function () {
             var deferred = $q.defer();

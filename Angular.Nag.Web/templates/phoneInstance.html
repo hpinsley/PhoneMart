@@ -1,0 +1,29 @@
+﻿<div class="container">
+    <h1>Account {{accountId}} - Phone Instance {{phoneInstanceId}}</h1>
+    <h5>{{phoneInstance.phone.manufacturer.manufacturerName}} {{phoneInstance.phone.model}}</h5>
+
+    <form name="updatePhoneForm" class="form-horizontal">
+
+        <div class="control-group">
+            <label class="control-label">Serial Number:</label>
+            <div class="controls">
+                <input type="text" ng-model="serialNumber" required />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Phone Number:</label>
+            <div class="controls">
+                <input type="text" ng-model="phoneNumber" required />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Plan:</label>
+            <div class="controls">
+                <select ng-model="phonePlanId" ng-options="plan.planId as plan.planName for plan in plans" ng-selected="planSelected()" required>
+                </select>
+            </div>
+        </div>
+
+        <button ng-click="updatePhone(accountId, phoneInstanceId)" class="btn btn-inverse" ng-disabled="!updatePhoneForm.$valid">Update</button>
+    </form>
+</div>

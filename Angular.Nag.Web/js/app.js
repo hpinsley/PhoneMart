@@ -56,5 +56,11 @@ nagApp.config(function ($routeProvider) {
                 templateUrl: 'templates/newPhoneInstance.html'
             })
 
+        .when('/accounts/:accountId/phones/:phoneInstanceId',
+            {
+                controller: 'PhoneInstanceLookupController',
+                templateUrl: 'templates/phoneInstance.html'
+            })
+
         .otherwise({ redirectTo: '/phones' });
 });

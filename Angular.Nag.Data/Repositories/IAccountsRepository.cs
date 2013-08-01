@@ -5,5 +5,6 @@ using Angular.Nag.Models;
 namespace Angular.Nag.Data.Repositories {
     public interface IAccountsRepository : IRepository<Account> {
         IQueryable<Account> GetAllWithChildData();
+        void DeletePhoneInstance(int accountId, int phoneInstanceId);
     }
 }

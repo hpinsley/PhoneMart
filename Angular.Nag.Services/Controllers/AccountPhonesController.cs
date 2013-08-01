@@ -61,19 +61,9 @@ namespace Angular.Nag.Services.Controllers
         }
 
         //api/accounts/2/phones/4
-        public PhoneInstance Delete(int accountId, int phoneInstanceId) {
-            var account = _db.Accounts.GetById(accountId);
-            if (account == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            LoadNavProperties(account);
-            var linkedPhone = account.Phones.Where(pi => pi.PhoneInstanceId == phoneInstanceId).FirstOrDefault();
-            if (linkedPhone == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-
-            throw new Exception("Not ready to delete phone instance " + phoneInstanceId.ToString());
-
+        public void Delete(int accountId, int phoneInstanceId) {
+            _db.Accounts.DeletePhoneInstance(accountId, phoneInstanceId);
             _db.Commit();
-            return linkedPhone;
         }
 
         // POST api/accounts/2/phones

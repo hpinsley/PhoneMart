@@ -1,7 +1,9 @@
 ﻿'use strict';
 
 nagApp.controller('PhoneInstanceLookupController',
+
     function PhoneInstanceLookupController($scope, $routeParams, phoneData, $http, $location) {
+
         $scope.accountId = $routeParams.accountId;
         $scope.phoneInstanceId = $routeParams.phoneInstanceId;
         $scope.plans = phoneData.getPlans();
@@ -40,8 +42,21 @@ nagApp.controller('PhoneInstanceLookupController',
                 alert("We got error " + (error.exceptionMessage || error.message) + " with status " + status);
             });
 
-            $scope.mode = "SHOW";
         };
 
-
+        $scope.deletePhoneInstance = function(accountId, phoneInstanceId) {
+            if (!confirm("Do you really want to delete this phone?")) {
+                return;
+            }
+            $http({
+                method: "DELETE",
+                url: nagApp.getServicesRoot() + "/api/accounts/" + accountId + "/phones/" + phoneInstanceId,
+            })
+            .success(function () {
+                $location.path("/accounts/" + accountId);
+            })
+            .error(function (error, status) {
+                alert("We got error " + (error.exceptionMessage || error.message) + " with status " + status);
+            });
+        };
     });

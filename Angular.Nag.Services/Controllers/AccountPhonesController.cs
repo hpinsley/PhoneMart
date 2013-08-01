@@ -39,6 +39,26 @@ namespace Angular.Nag.Services.Controllers
             return linkedPhone;
         }
 
+        //api/accounts/2/phones/4
+        public PhoneInstance Put(int accountId, int phoneInstanceId, PhoneInstanceUpdate phoneInstanceUpdate) {
+            var account = _db.Accounts.GetById(accountId);
+            if (account == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            LoadNavProperties(account);
+            var linkedPhone = account.Phones.Where(pi => pi.PhoneInstanceId == phoneInstanceId).FirstOrDefault();
+            if (linkedPhone == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            var plan = _db.Plans.GetById(phoneInstanceUpdate.PhonePlanId);
+
+            linkedPhone.SerialNumber = phoneInstanceUpdate.SerialNumber;
+            linkedPhone.PhoneNumber = phoneInstanceUpdate.PhoneNumber;
+            linkedPhone.PhonePlan = plan;
+
+            _db.Commit();
+            return linkedPhone;
+        }
+
         // POST api/accounts/2/phones
         // Add a new phone instance to the account
 

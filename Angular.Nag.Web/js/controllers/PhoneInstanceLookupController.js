@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 nagApp.controller('PhoneInstanceLookupController',
-    function PhoneInstanceLookupController($scope, $routeParams, phoneData) {
+    function PhoneInstanceLookupController($scope, $routeParams, phoneData, $http, $location) {
         $scope.accountId = $routeParams.accountId;
         $scope.phoneInstanceId = $routeParams.phoneInstanceId;
         $scope.plans = phoneData.getPlans();
@@ -20,5 +20,28 @@ nagApp.controller('PhoneInstanceLookupController',
                 $scope.phonePlanId = phoneInstance.phonePlan.planId;
             }
         );
+        
+        $scope.updatePhoneInstance = function (accountId, phoneInstanceId) {
+            console.log("Updating phone instance " + phoneInstanceId + " for account " + accountId);
+
+            $http({
+                method: "PUT",
+                url: nagApp.getServicesRoot() + "/api/accounts/" + accountId + "/phones/" + phoneInstanceId,
+                data: {
+                    serialNumber: $scope.serialNumber,
+                    phoneNumber: $scope.phoneNumber,
+                    phonePlanId: $scope.phonePlanId
+                }
+            })
+            .success(function () {
+                $location.path("/accounts/" + accountId);
+            })
+            .error(function (error, status) {
+                alert("We got error " + (error.exceptionMessage || error.message) + " with status " + status);
+            });
+
+            $scope.mode = "SHOW";
+        };
+
 
     });

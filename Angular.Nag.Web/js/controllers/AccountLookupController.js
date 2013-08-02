@@ -44,7 +44,23 @@ nagApp.controller('AccountLookupController',
             $scope.mode = "SHOW";
         };
 
-        $scope.cancelEditAccount = function (accountId) {
+        $scope.cancelEditAccount = function() {
             $scope.mode = "SHOW";
+        };
+
+        $scope.deleteAccount = function(accountId) {
+            if (!confirm("Do you really want to delete account " + accountId)) {
+                return;
+            }
+            $http({
+                method: "DELETE",
+                url: nagApp.getServicesRoot() + "/api/accounts/" + accountId,
+            })
+            .success(function () {
+                $location.path("/accounts");
+            })
+            .error(function (error) {
+                alert("We got error " + (error.exceptionMessage || error.message));
+            });
         };
     });

@@ -35,5 +35,33 @@ namespace Angular.Nag.Data.Repositories
                 }
             }
         }
+
+        /// <summary>
+        /// If you call this method directly, you must ensure that phones and account holder
+        /// are loaded as well.  It is recommended that callers call the
+        /// Delete(int it) version as it does this for you.
+        /// </summary>
+        public override void Delete(Account account) {
+            if (account == null)
+                return;
+
+            PhoneInstance[] phonesToDelete = account.Phones.ToArray();
+            foreach (PhoneInstance phoneInstance in phonesToDelete) {
+                account.Phones.Remove(phoneInstance);
+                _phoneDb.PhoneInstances.Remove(phoneInstance);
+            }
+            var accountHolder = account.AccountHolder;
+            _phoneDb.Accounts.Remove(account);
+            _phoneDb.People.Remove(accountHolder);
+        }
+
+        public override void Delete(int id) {
+            Account account = _phoneDb.Accounts
+                .Include(ac => ac.Phones)
+                .Include(ac => ac.AccountHolder)
+                .FirstOrDefault(ac => ac.AccountId == id);
+
+            Delete(account);
+        }
     }
 }

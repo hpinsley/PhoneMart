@@ -97,8 +97,9 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // DELETE api/accounts/5
-        public void Delete(int id)
-        {
+        public void Delete(int id) {
+            _db.Accounts.Delete(id);
+            _db.Commit();
         }
     }
 }

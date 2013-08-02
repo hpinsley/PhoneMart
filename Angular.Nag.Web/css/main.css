@@ -1,10 +1,15 @@
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
-
+.table {
+	border-width: 2px;
+	border-color: black;
+}
+.table thead {
+	background-color: black;
+	color: yellow;
+}
 
 
 

@@ -2,6 +2,7 @@
 
 nagApp.controller('NewAccountController', function NewAccountController($scope, $http, $location) {
 
+
     $scope.addAccount = function () {
         $http({
             method: "POST",
@@ -20,5 +21,12 @@ nagApp.controller('NewAccountController', function NewAccountController($scope, 
         });
 
     };
+
+    $scope.cancel = function() {
+        $location.path("/accounts");
+    };
+
+    $scope.return    
+
 
 });

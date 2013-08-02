@@ -1,8 +1,8 @@
 ﻿<div class="container">
-    <h1>Account {{accountId}}</h1>
 
     <div class="row">
         <div class="span5">
+            <h1>Account {{accountId}}</h1>
             <h5>Account Owner</h5>
             <form name="updateAccountForm">
                 <label>
@@ -22,13 +22,14 @@
                 </label>
                 <br />
                 <button class="btn btn-inverse" ng-show="mode=='SHOW'" ng-click="editAccount(account)">Edit</button>
+                <button class="btn btn-warning" ng-show="mode=='SHOW'" ng-click="deleteAccount(accountId)">Delete</button>
                 <button class="btn btn-inverse" ng-disabled="!updateAccountForm.$valid" ng-show="mode=='EDIT'" ng-click="updateAccount(accountId)">Update</button>
                 <button class="btn btn-inverse" ng-show="mode=='EDIT'" ng-click="cancelEditAccount()">Cancel</button>
             </form>
         </div>
         <div class="span7">
             <h5>Linked Phones</h5>
-            <table class="table-bordered table-condensed">
+            <table class="table table-bordered table-condensed">
                 <thead>
                     <tr>
                         <th>Serial No.</th>

@@ -7,14 +7,9 @@ nagApp.controller('NewPhoneController', function NewPhoneController($scope, phon
     
     $scope.addPhone = function(plans) {
 
-        var planIds = [];
-        for (var i = 0; i < plans.length; ++i) {
-            if (plans[i].chosen) {
-                planIds.push(plans[i].planId);
-            }
-        }
-        //alert(planIds);
-       
+        var chosenPlans = _.filter(plans, function(p) { return p.chosen; });
+        var planIds = _.map(chosenPlans, function (p) { return p.planId; });
+        
         $http({
                 method: "POST",
                 url: nagApp.getServicesRoot() + "/api/phones",
@@ -27,7 +22,7 @@ nagApp.controller('NewPhoneController', function NewPhoneController($scope, phon
                     planIds: planIds
                 }
             })
-        .success(function (data) {
+        .success(function () {
             $location.path("/phones");
         })
         .error(function (error) {

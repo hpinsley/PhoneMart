@@ -23,10 +23,10 @@
                         <div class="lead">{{phone.description}}</div>
                     </div>
                     <div class="span4">
-                        <h3>Available Plans for this Phone</h3>
+                        <h3>Available Plans</h3>
                         <ul style="list-style: none" class="pill-content">
                             <li ng-repeat="plan in phone.plans" style="margin-top: 30px">
-                                <h4>{{plan.planName}}</h4>
+                                <h4><a ng-href="#/plans/{{plan.planId}}">{{plan.planName}}</a></h4>
                                 <table class="table table-bordered" style="text-align: center">
                                     <thead>
                                         <tr>

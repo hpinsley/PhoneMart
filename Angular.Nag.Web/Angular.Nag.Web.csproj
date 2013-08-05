@@ -166,6 +166,8 @@
     <Content Include="js\vendor\jquery-1.10.1.js" />
     <Content Include="js\vendor\jquery-1.10.1.min.js" />
     <Content Include="js\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\underscore.min.js" />
     <Content Include="templates\accounts.html" />
     <Content Include="templates\account.html" />
     <Content Include="templates\phoneInstance.html" />
@@ -196,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\underscore.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

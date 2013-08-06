@@ -6,6 +6,10 @@ nagApp.controller('NewPhoneInstanceController', function NewPhoneInstanceControl
     $scope.phones = phoneData.getPhones();
     $scope.plans = phoneData.getPlans();
 
+    $scope.cancel = function() {
+        $location.path("/accounts/" + $scope.accountId);
+    };
+    
     $scope.addPhone = function(accountId) {
         console.log("adding phone for account " + accountId + " with phoneId " + $scope.phoneId + " and phonePlanId " + $scope.phonePlanId);
 

@@ -4,6 +4,10 @@ nagApp.controller('NewPhoneController', function NewPhoneController($scope, phon
 
     $scope.plans = phoneData.getPlans();
     $scope.manufacturers = phoneData.getManufacturers();
+
+    $scope.cancel = function() {
+        $location.path("/phones");
+    };
     
     $scope.addPhone = function(plans) {
 

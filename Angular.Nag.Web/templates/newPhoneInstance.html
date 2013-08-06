@@ -1,6 +1,6 @@
 ﻿<div class="container">
     <h1>Add Phone to Account {{accountId}}</h1>
-    
+
     <form name="addPhoneForm" class="form-horizontal">
         <div class="control-group">
             <label class="control-label">Model:</label>
@@ -32,6 +32,7 @@
             </div>
         </div>
 
-        <button ng-click="addPhone(accountId)" class="btn btn-inverse" ng-disabled="!addPhoneForm.$valid">Add</button>
+        <button ng-click="addPhone(accountId)" class="btn btn-info btn-large" ng-disabled="!addPhoneForm.$valid">Add</button>
+        <button ng-click="cancel()" class="btn btn-info btn-large">Cancel</button>
     </form>
 </div>

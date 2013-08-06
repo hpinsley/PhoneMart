@@ -4,9 +4,9 @@
         <div class="control-group">
             <label class="control-label">Manufacturer:</label>
             <div class="controls">
-                <select ng-model="manufacturerId" required>
-                    <option ng-repeat="manufacturer in manufacturers" value="{{manufacturer.manufacturerId}}">{{manufacturer.manufacturerName}}</option>
+                <select ng-model="manufacturerId" ng-options="manufacturer.manufacturerId as manufacturer.manufacturerName for manufacturer in manufacturers" required>
                 </select>
+
             </div>
         </div>
         <div class="control-group">

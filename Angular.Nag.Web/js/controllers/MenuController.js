@@ -2,5 +2,5 @@
 
 nagApp.controller('MenuController',
     function MenuController($scope) {
-        $scope.appName = "Phones";
+        $scope.appName = "PhoneMart";
     });

@@ -20,6 +20,12 @@ nagApp.config(function ($routeProvider) {
                 templateUrl: 'templates/newPhone.html'
             })
 
+        .when('/phones/:phoneId',
+            {
+                controller: 'PhoneLookupController',
+                templateUrl: 'templates/phone.html'
+            })
+
         .when('/plans',
             {
                 controller: 'PlansController',

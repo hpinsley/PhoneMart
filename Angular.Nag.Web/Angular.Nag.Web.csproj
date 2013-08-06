@@ -140,6 +140,7 @@
     <Content Include="js\app.js" />
     <Content Include="js\controllers\AccountsController.js" />
     <Content Include="js\controllers\AccountLookupController.js" />
+    <Content Include="js\controllers\PhoneLookupController.js" />
     <Content Include="js\controllers\PhoneInstanceLookupController.js" />
     <Content Include="js\controllers\NewPhoneInstanceController.js" />
     <Content Include="js\controllers\NewAccountController.js" />
@@ -171,6 +172,7 @@
     <Content Include="Scripts\underscore.min.js" />
     <Content Include="templates\accounts.html" />
     <Content Include="templates\account.html" />
+    <Content Include="templates\phone.html" />
     <Content Include="templates\phoneInstance.html" />
     <Content Include="templates\newPhoneInstance.html" />
     <Content Include="templates\newAccount.html" />

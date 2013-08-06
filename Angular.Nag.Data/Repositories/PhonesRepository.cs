@@ -11,6 +11,13 @@ namespace Angular.Nag.Data.Repositories
             _phoneDb = (PhoneDb) context;
         }
 
+        public override Phone GetById(int id) {
+            var phone = _phoneDb.Phones
+                                .Include(p => p.Manufacturer)
+                                .Include(p => p.Plans)
+                                .FirstOrDefault(p => p.PhoneId == id);
+            return phone;
+        }
         public IEnumerable<Phone> GetAllWithPlans() {
             List<Phone> phones = _phoneDb.Phones.Include(p => p.Plans)
                 .Include(p=>p.Manufacturer)

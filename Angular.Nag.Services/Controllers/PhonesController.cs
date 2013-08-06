@@ -22,9 +22,11 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // GET api/phones/5
-        public string Get(int id)
-        {
-            return "value";
+        public Phone Get(int id) {
+            var phone = _db.Phones.GetById(id);
+            if (phone == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            return phone;
         }
 
         // POST api/phones

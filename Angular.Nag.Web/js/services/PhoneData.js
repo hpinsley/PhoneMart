@@ -6,25 +6,37 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
     var accountResource = $resource(nagApp.getServicesRoot() + "/api/accounts/:id", { id: '@id' });
     var accountsResource = $resource(nagApp.getServicesRoot() + "/api/accounts");
     var manufacturersResource = $resource(nagApp.getServicesRoot() + "/api/manufacturers");
-    var phoneInstanceResource = $resource(nagApp.getServicesRoot() + "/api/accounts/:accountId/phones/:phoneInstanceId", { accountId: '@accountId', phoneInstanceId : '@phoneInstanceId'});
+    var phoneInstanceResource = $resource(nagApp.getServicesRoot() + "/api/accounts/:accountId/phones/:phoneInstanceId", { accountId: '@accountId', phoneInstanceId: '@phoneInstanceId' });
+    var phoneResource = $resource(nagApp.getServicesRoot() + "/api/phones/:phoneId", { phoneId: '@phoneId' });
 
     return {
 
-        getPlan: function(planId) {
-            return planResource.get({ id: planId });
-        },
-
-        getAccount: function(accountId) {
+        getAccount: function (accountId) {
             return accountResource.get({ id: accountId });
         },
-        
+
         getAccounts: function () {
             return accountsResource.query();
         },
 
-        getManufacturers: function() {
+        getManufacturers: function () {
             return manufacturersResource.query();
         },
+
+        getPhone: function (phoneId) {
+            var deferred = $q.defer();
+
+            phoneResource.get({ phoneId: phoneId },
+                function(phone) {
+                    deferred.resolve(phone);
+                },
+                function(error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        },
+        
 
         getPhoneInstance: function(accountId, phoneInstanceId, onSuccess) {
             return phoneInstanceResource.get({ accountId: accountId, phoneInstanceId: phoneInstanceId }, 
@@ -48,6 +60,10 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
                 });
 
             return deferred.promise;
+        },
+
+        getPlan: function(planId) {
+            return planResource.get({ id: planId });
         },
 
         //Just to show how to do this without a resource and with $http       

@@ -1,0 +1,58 @@
+﻿<div class="container">
+    <h1>Phone {{phone.model}}</h1>
+    <form name="phoneForm" class="form-horizontal">
+        <div class="row">
+            <div class="span6">
+                <h4>Model Info</h4>
+                <div class="control-group">
+                    <label class="control-label">Manufacturer:</label>
+                    <div class="controls">
+                        <select ng-model="manufacturerId" ng-options="manufacturer.manufacturerId as manufacturer.manufacturerName for manufacturer in manufacturers" required>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Model:</label>
+                    <div class="controls">
+                        <input type="text" ng-model="model" required ng-minlength="5" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Description:</label>
+                    <div class="controls">
+                        <input type="text" ng-model="description" required />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        Price:
+                    </label>
+                    <div class="controls">
+                        <input type="number" ng-model="price" required />
+                    </div>
+                </div>
+            </div>
+            <div class="span6">
+                <h4>Plans</h4>
+                <fieldset>
+                    <div ng-repeat="plan in plans">
+                        <div class="control-group">
+                            <label class="control-label">{{plan.planName}}</label>
+                            <div class="controls">
+                                <input type="checkbox" ng-model="plan.chosen" />
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="span12 text-center">
+                <button ng-click="updatePhone(plans)" class="btn btn-info btn-large" ng-disabled="!phoneForm.$valid">Update</button>
+                &nbsp;&nbsp;<button ng-click="cancel()" class="btn btn-warning btn-large">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

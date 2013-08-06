@@ -151,6 +151,7 @@
     <Content Include="js\directives\phoneTabs.js" />
     <Content Include="js\directives\phoneList.js" />
     <Content Include="js\directives\phoneTable.js" />
+    <Content Include="js\filters\phoneNumberFilter.js" />
     <Content Include="js\main.js" />
     <Content Include="js\services\PhoneData.js" />
     <Content Include="js\vendor\angular\angular-bootstrap.js" />

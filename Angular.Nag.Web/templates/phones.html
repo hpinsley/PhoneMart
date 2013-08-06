@@ -1,17 +1,18 @@
 ﻿<div class="container">
     <div class="row">
-        <div class="span3">
+        <div class="span2">
             <h1>Phones</h1>
         </div>
-        <div class="span6">
-            Manufacturers:
-            <select ng-model="selectedManufacturer" ng-selected="manufacturerSelected()">
-                <option value="-1">(all)</option>
-                <option ng-repeat="manufacturer in manufacturers" value="{{manufacturer.manufacturerId}}">{{manufacturer.manufacturerName}}</option>
-            </select>
+        <div class="span1">
+            <button class="btn-info btn-large" ng-click="addPhone()">Add</button>
         </div>
-        <div class="span3">
-            <button class="btn-info" ng-click="addPhone()">Add</button>
+        <div class="span4"></div>
+        <div class="span5">
+            <span class="text-info">Manufacturers:</span>
+                <select ng-model="selectedManufacturer" ng-selected="manufacturerSelected()">
+                    <option value="-1">(all)</option>
+                    <option ng-repeat="manufacturer in manufacturers" value="{{manufacturer.manufacturerId}}">{{manufacturer.manufacturerName}}</option>
+                </select>
         </div>
     </div>
 

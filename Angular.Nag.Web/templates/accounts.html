@@ -21,7 +21,7 @@
                         <td>{{account.accountId}}</td>
                         <td><a href="#/accounts/{{account.accountId}}">{{account.accountHolder.fullName}}</a></td>
                         <td>{{account.accountHolder.emailAddress}}</td>
-                        <td>{{account.accountHolder.contactPhoneNumber}}</td>
+                        <td>{{account.accountHolder.contactPhoneNumber | phoneNumber}}</td>
                         <td>{{account.phones.length}}</td>
                     </tr>
                 </tbody>

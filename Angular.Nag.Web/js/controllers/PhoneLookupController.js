@@ -1,22 +1,41 @@
 ﻿'use strict';
 
-nagApp.controller('PhoneLookupController', function PhoneLookupController($scope, $routeParams, phoneData, $http, $location) {
+nagApp.controller('PhoneLookupController', function PhoneLookupController($scope, $routeParams, phoneData, $http, $location, $q) {
 
     $scope.phoneId = $routeParams.phoneId;
     $scope.manufacturers = phoneData.getManufacturers();
     $scope.plans = phoneData.getPlans();
     $scope.phone = phoneData.getPhone($routeParams.phoneId);
 
-    $scope.phone.then(function (phone) {
-        $scope.manufacturerId = phone.manufacturer.manufacturerId;
-        $scope.model = phone.model;
-        $scope.description = phone.description;
-        $scope.price = phone.price;
+    //We need to wait until we have looked up the phone and also the
+    //list of available plans.  For this we utilize the fact that both
+    //are returned as promises.  The $q.all function takes an array of
+    //promises and when ALL are resolve, it resolves with an array of
+    //results.
+    
+    $q.all([$scope.phone, $scope.plans])
+        .then(function(results) {
+            var phone = results[0];
+            var plans = results[1];
 
-        _.each(phone.plans, function (phonePlan) {
+            $scope.manufacturerId = phone.manufacturer.manufacturerId;
+            $scope.model = phone.model;
+            $scope.description = phone.description;
+            $scope.price = phone.price;
+
+            // For each plan that this phone has, find the plan in the
+            // master list of plans and set a property called chosen to 
+            // true.  We bind off that property
             
+            _.each(phone.plans, function (p) {
+                var plan = _.find(plans, function (pp) {
+                    return pp.planId == p.planId;
+                });
+                if (plan) {
+                    plan.chosen = true;
+                }
+            });
         });
-    });
 
     $scope.cancel = function() {
         $location.path("/phones");

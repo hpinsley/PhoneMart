@@ -1,6 +1,7 @@
 ﻿<div class="tabbable">
     <ul class="nav nav-tabs">
-        <li ng-repeat="phone in phones | filter:filters" ng-class='{active: $index == 0}'>
+<!--        <li ng-repeat="phone in phones | filter:filters" ng-class='{active: $index == 0}'>-->
+        <li ng-repeat="phone in phones | filter:filters" ng-class='{active: phone.phoneId == currentPhone.phoneId}' ng-click="selectPhone(phone)">
             <a href="#phonePane{{$index}}" data-toggle="tab">
                 <img style="height: 50px" ng-src="img/phones/{{phone.imageFile}}" />
                 <br />
@@ -9,7 +10,7 @@
         </li>
     </ul>
     <div class="tab-content">
-        <div ng-repeat="phone in phones | filter:filters" id="phonePane{{$index}}" class="tab-pane" ng-class='{active: $index == 0}'>
+        <div ng-repeat="phone in phones | filter:filters" id="phonePane{{$index}}" class="tab-pane" ng-class='{active: phone.phoneId == currentPhone.phoneId}'>
 
             <div class="container">
                 <div class="row">
@@ -20,32 +21,27 @@
                         </a>
                         <div>Price: {{phone.price | currency}}</div>
                     </div>
-                    <div class="span4">
+                    <div class="span8">
                         <div class="lead">{{phone.description}}</div>
-                    </div>
-                    <div class="span4">
                         <h3>Available Plans</h3>
-                        <ul style="list-style: none" class="pill-content">
-                            <li ng-repeat="plan in phone.plans" style="margin-top: 30px">
-                                <h4><a ng-href="#/plans/{{plan.planId}}">{{plan.planName}}</a></h4>
-                                <table class="table table-bordered" style="text-align: center">
-                                    <thead>
-                                        <tr>
-                                            <th>Talk Minutes</th>
-                                            <th>Data (MB)</th>
-                                            <th>Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{{plan.voiceMinutes}}</td>
-                                            <td>{{plan.dataMegabytes | number}}</td>
-                                            <td>{{plan.monthlyCost | currency }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </li>
-                        </ul>
+                        <table class="table table-bordered" style="text-align: center">
+                            <thead>
+                                <tr>
+                                    <th>Plan</th>
+                                    <th>Talk Minutes</th>
+                                    <th>Data (MB)</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="plan in phone.plans">
+                                    <td><a ng-href="#/plans/{{plan.planId}}">{{plan.planName}}</a></td>
+                                    <td>{{plan.voiceMinutes}}</td>
+                                    <td>{{plan.dataMegabytes | number}}</td>
+                                    <td>{{plan.monthlyCost | currency }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -59,8 +59,28 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // PUT api/phones/5
-        public void Put(int id, [FromBody]string value)
-        {
+        public void Put(int id, NewPhone phoneData) {
+            var phone = _db.Phones.GetById(id);
+            if (phone == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            var manufacturer = _db.Manufacturers.GetById(phoneData.ManufacturerId);
+            if (manufacturer == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            phone.Manufacturer = manufacturer;
+            phone.Model = phoneData.Model;
+            phone.Description = phoneData.Description;
+            phone.Price = phoneData.Price;
+
+            phone.Plans.Clear();
+
+            var plans = _db.Plans.GetAll();
+            foreach (Plan plan in plans) {
+                if (phoneData.PlanIds.Contains(plan.PlanId)) {
+                    phone.Plans.Add(plan);
+                }
+            }
+            _db.Commit();
         }
 
         // DELETE api/phones/5

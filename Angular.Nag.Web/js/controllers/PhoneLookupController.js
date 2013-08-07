@@ -48,7 +48,7 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
         
         $http({
                 method: "PUT",
-                url: nagApp.getServicesRoot() + "/api/phones",
+                url: nagApp.getServicesRoot() + "/api/phones/" + $scope.phoneId,
                 data: {
                     manufacturerId: $scope.manufacturerId,
                     model: $scope.model,
@@ -61,7 +61,7 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
             $location.path("/phones");
         })
         .error(function (error) {
-            alert("We got error " + error.exceptionMessage);
+            alert("We got error " + (error.exceptionMessage || error.message));
         });
 
     };

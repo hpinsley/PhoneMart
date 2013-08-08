@@ -1,7 +1,7 @@
 ﻿<div class="tabbable">
     <ul class="nav nav-tabs">
 <!--        <li ng-repeat="phone in phones | filter:filters" ng-class='{active: $index == 0}'>-->
-        <li ng-repeat="phone in phones | filter:filters" ng-class='{active: phone.phoneId == currentPhone.phoneId}' ng-click="selectPhone(phone)">
+        <li ng-repeat="phone in phones | filter:filters" ng-class='{active: isActive(phone, $index)}' ng-click="selectPhone(phone)">
             <a href="#phonePane{{$index}}" data-toggle="tab">
                 <img style="height: 50px" ng-src="img/phones/{{phone.imageFile}}" />
                 <br />
@@ -10,7 +10,7 @@
         </li>
     </ul>
     <div class="tab-content">
-        <div ng-repeat="phone in phones | filter:filters" id="phonePane{{$index}}" class="tab-pane" ng-class='{active: phone.phoneId == currentPhone.phoneId}'>
+        <div ng-repeat="phone in phones | filter:filters" id="phonePane{{$index}}" class="tab-pane" ng-class='{active: isActive(phone, $index)}'>
 
             <div class="container">
                 <div class="row">

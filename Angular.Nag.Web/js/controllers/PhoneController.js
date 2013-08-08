@@ -8,8 +8,18 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
         $scope.$root.currentPhone = phone;
     };
     
-    function clearCurrentPhone() {
-        $scope.$root.currentPhone = null;
+    //See if the passed phone matches what we have in the scope as the current phone
+    function phoneIsCurrent(phone) {
+        return (($scope.currentPhone) && (phone.phoneId == $scope.currentPhone.phoneId));
+    }
+    
+    function currentPhoneIsFilteredOut() {
+        var filteredManufacturerId = $scope.filters["manufacturer.manufacturerId"];
+
+        //If we are filtering by manufacturer and the current phone has 
+        //a different manufacturer then it was filtered out.  
+
+        return ((filteredManufacturerId) && $scope.currentPhone && $scope.currentPhone.manufacturer.manufacturerId != filteredManufacturerId);
     }
     
     $scope.phones = phoneData.getPhones(); //this is a promise that Angular knows how to bind to
@@ -32,6 +42,21 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
         setCurrentPhone(phone);
     };
 
+    //Helper function to see which of the phones to make active.  This
+    //function is used in the markup like this:
+    //ng-class='{active: isActive(phone, $index)}'
+    
+    $scope.isActive = function (phone, index) {
+        //If we are filtering the list of phones and the current phone
+        //would be filtered out, we obviously can't select it.
+        if (currentPhoneIsFilteredOut()) {
+            return (index == 0);
+        }
+        else {
+            return phoneIsCurrent(phone);
+        }
+    };
+    
     //When you pass the scoped object (which is a promise) back
     //into a controller method, Angular unwraps the real object for you.
 
@@ -40,21 +65,15 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
     };
 
     $scope.manufacturerSelected = function() {
-        var manufacturer = $scope.selectedManufacturer;
-        if (!manufacturer)
+        var manufacturerId = $scope.selectedManufacturer;
+        if (!manufacturerId)
             return;
-        console.log("You selected " + manufacturer);
-
-        //If we are filtering, we want to select the first phone.
-        //Unfortunately, the phones are filtering but the first phone
-        //is not selecting.
-        
-        clearCurrentPhone();
-        
-        if (manufacturer == -1) {
+        console.log("You selected " + manufacturerId);
+  
+        if (manufacturerId == -1) {
             $scope.filters = {};
         } else {
-            $scope.filters["manufacturer.manufacturerId"] = manufacturer;
+            $scope.filters["manufacturer.manufacturerId"] = manufacturerId;
             console.log($scope.filters);
         }
     };

@@ -7,19 +7,43 @@
 <head>
   <title>Jasmine Spec Runner</title>
 
-  <link rel="shortcut icon" type="image/png" href="../Content/jasmine/jasmine_favicon.png">
-  <link rel="stylesheet" type="text/css" href="../Content/jasmine/jasmine.css">
-  <script type="text/javascript" src="../Scripts/jasmine/jasmine.js"></script>
-  <script type="text/javascript" src="../Scripts/jasmine/jasmine-html.js"></script>
+  <link rel="shortcut icon" type="image/png" href="~/Content/jasmine/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="~/Content/jasmine/jasmine.css">
+  <script type="text/javascript" src="~/Scripts/jasmine/jasmine.js"></script>
+  <script type="text/javascript" src="~/Scripts/jasmine/jasmine-html.js"></script>
 
   <!-- include source files here... -->
-  <script type="text/javascript" src="../Scripts/jasmine-samples/SpecHelper.js"></script>
+  <script type="text/javascript" src="~/Scripts/jasmine-samples/SpecHelper.js"></script>
 
-  <script type="text/javascript" src="../Scripts/jasmine-samples/Player.js"></script>
-  <script type="text/javascript" src="../Scripts/jasmine-samples/Song.js"></script>
+  <script type="text/javascript" src="~/Scripts/jasmine-samples/Player.js"></script>
+  <script type="text/javascript" src="~/Scripts/jasmine-samples/Song.js"></script>
+
+  <script src="~/js/vendor/angular/angular.js"></script>
+  <script src="~/js/vendor/angular/angular-resource.js"></script>
+  <script src="~/js/vendor/angular/angular-mocks.js"></script> 
+
+    <script src="~/js/app.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/services/PhoneData.js"></script>
+    <script src="~/js/directives/phoneTable.js"></script>
+    <script src="~/js/directives/phoneList.js"></script>
+    <script src="~/js/directives/phoneTabs.js"></script>
+    <script src="~/js/controllers/MenuController.js"></script>
+    <script src="~/js/controllers/PhoneController.js"></script>
+    <script src="~/js/controllers/PlansController.js"></script>
+    <script src="~/js/controllers/AccountsController.js"></script>
+    <script src="~/js/controllers/NewPhoneController.js"></script>
+    <script src="~/js/controllers/PlanLookupController.js"></script>
+    <script src="~/js/controllers/NewAccountController.js"></script>
+    <script src="~/js/controllers/AccountLookupController.js"></script>
+    <script src="~/js/controllers/NewPhoneInstanceController.js"></script>
+    <script src="~/js/controllers/PhoneInstanceLookupController.js"></script>
+    <script src="~/js/controllers/PhoneLookupController.js"></script>
+    <script src="~/js/filters/phoneNumberFilter.js"></script>
 
   <!-- include spec files here... -->
-  <script type="text/javascript" src="../Scripts/jasmine-samples/PlayerSpec.js"></script>
+  <script type="text/javascript" src="~/Scripts/jasmine-samples/PlayerSpec.js"></script>
+  <script type="text/javascript" src="~/tests/PlansControllerSpec.js"></script>
 
   <script type="text/javascript">
     (function() {

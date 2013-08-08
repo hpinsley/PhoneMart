@@ -193,7 +193,6 @@
     <Content Include="templates\directives\phoneTable.html" />
     <Content Include="templates\phones.html" />
     <Content Include="Test.html" />
-    <Content Include="tests\SpecRunner.html" />
     <Content Include="Unity.Mvc4.README.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -207,6 +206,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="tests\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

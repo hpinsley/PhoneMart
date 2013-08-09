@@ -1,26 +1,32 @@
-﻿describe("PlansController", function () {
+﻿'use strict';
+
+describe("PlansController", function () {
 
     var $controllerConstructor;
     var scope;
     var mockPhoneData;
+    var location;
 
     beforeEach(module('nagApp'));
 
-    beforeEach(inject(function ($controller, $rootScope) {
+    beforeEach(inject(function ($controller, $rootScope, $location) {
         $controllerConstructor = $controller;
         scope = $rootScope.$new();
+        location = $location;
         mockPhoneData = sinon.stub(
             { getPlans: function () {}}
         );
     }));
 
-    it("plansController should return obtain phone plans and set it on the scope", function () {
+    it("plansController should return obtain phone plans and set it on the scope", function() {
 
-        var mockPlans = {};
+        var mockPlans = {dummy: 1};
+        mockPhoneData.getPlans.returns(mockPlans);
+
         var ctrl = $controllerConstructor('PlansController',
-            { $scope: scope, $location: {}, phoneData: mockPhoneData });
-        mockPhoneData.getplans.returns(mockPlans);
-        expect($scope.plans).toBe(mockPlans);
+            { $scope: scope, $location: location, phoneData: mockPhoneData });
+
+        expect(scope.plans).toBe(mockPlans);
     });
 
 });

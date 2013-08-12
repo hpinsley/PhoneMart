@@ -33,7 +33,7 @@ describe("PhoneController", function () {
             }
         );
 
-        mockPhones = {};
+        mockPhones = [{ phoneId: 1 }, { phoneId: 2 }];
         deferredPhones = q.defer();
         deferredPhones.resolve(mockPhones);
         phonePromise = deferredPhones.promise;
@@ -49,6 +49,14 @@ describe("PhoneController", function () {
 
     it("should return a promise for phones", function() {
         expect(scope.phones).toBe(phonePromise);
+    });
+
+    it("should set the current phone to the first phone in the list", function () {
+        scope.phones.then(function (phones) {
+            expect(scope.currentPhone).toBeDefined();
+            expect(scope.currentPhone).toBe(phones[0]);
+        });
+        scope.$apply();
     });
 
     it("should set the manufacturers on the scope", function () {

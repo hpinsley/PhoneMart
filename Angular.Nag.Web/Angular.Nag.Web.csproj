@@ -211,6 +211,7 @@
     <Content Include="templates\phones.html" />
     <Content Include="Test.html" />
     <Content Include="tests\AccountLookupControllerSpec.js" />
+    <Content Include="tests\AccountsControllerSpec.js" />
     <Content Include="tests\PhoneControllerSpec.js" />
     <Content Include="tests\PlansControllerSpec.js" />
     <Content Include="Unity.Mvc4.README.txt" />

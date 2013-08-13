@@ -38,4 +38,9 @@ describe("AccountsController", function () {
         expect(scope.accounts).toBeDefined();
         expect(scope.accounts).toBe(accountList);
     });
+
+    it('should change the path to /accounts/add when addAccount is called', function () {
+        scope.addAccount();
+        expect(location.path()).toBe("/accounts/add");
+    });
 });

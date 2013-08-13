@@ -68,4 +68,23 @@ describe("AccountLookupController", function () {
         httpMock.flush();
         expect(scope.mode).toBe("SHOW");
     });
+
+    describe('deleteAccount', function () {
+        var accountId = 1;
+        window.confirm = function () { return true; };
+
+        beforeEach(function() {
+            httpMock.when("DELETE", nagApp.getServicesRoot() + "/api/accounts/" + accountId).respond(undefined);
+        });
+        it('should make an http DELETE call', function () {
+            scope.deleteAccount(accountId);
+            httpMock.flush();
+        });
+
+        it('should redirect to /accounts', function () {
+            scope.deleteAccount(accountId);
+            httpMock.flush();
+            expect(location.path()).toBe("/accounts");
+        });
+    });
 });

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
@@ -84,8 +85,9 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // DELETE api/phones/5
-        public void Delete(int id)
-        {
+        public void Delete(int id) {
+            _db.Phones.Delete(id);
+            _db.Commit();
         }
     }
 }

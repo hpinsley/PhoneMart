@@ -4,7 +4,9 @@
 
     <div class="row">
         <div class="span4">
-            <img style="height:300px" ng-src="img/phones/{{phoneInstance.phone.imageFile}}" />
+            <a href="#/phones/{{phoneInstance.phone.phoneId}}">
+                <img style="height: 300px" ng-src="img/phones/{{phoneInstance.phone.imageFile}}" />
+            </a>
             <h2>{{phoneInstance.phone.manufacturer.manufacturerName}} {{phoneInstance.phone.model}}</h2>
         </div>
         <div class="span8">

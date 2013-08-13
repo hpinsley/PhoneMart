@@ -23,7 +23,10 @@
                 <h2>Phones</h2>
                 <p>You have a choice of several phones on the {{plan.planName}} plan.  The following models are offered:</p>
                 <ul>
-                    <li ng-repeat="phone in plan.phones">{{phone.model}}
+                    <li ng-repeat="phone in plan.phones">
+                        <a href="#/phones/{{phone.phoneId}}">
+                            {{phone.manufacturer.manufacturerName}} {{phone.model}}
+                        </a>
                     </li>
                 </ul>
             </div>

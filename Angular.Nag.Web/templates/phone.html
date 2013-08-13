@@ -1,6 +1,11 @@
 ﻿<div class="container">
-    <h1>Phone {{phone.model}}</h1>
+    <h1>{{phone.manufacturer.manufacturerName}} {{phone.model}}</h1>
     <form name="phoneForm" class="form-horizontal">
+        <div class="row">
+            <div class="span12 text-center">
+                <img style="height: 100px" ng-src="img/phones/{{phone.imageFile}}" />                
+            </div>
+        </div>
         <div class="row">
             <div class="span6">
                 <h4>Model Info</h4>
@@ -51,7 +56,10 @@
         <div class="row">
             <div class="span12 text-center">
                 <button ng-click="updatePhone(plans)" class="btn btn-info btn-large" ng-disabled="!phoneForm.$valid">Update</button>
-                &nbsp;&nbsp;<button ng-click="cancel()" class="btn btn-warning btn-large">Cancel</button>
+                &nbsp;&nbsp;
+                <button ng-click="delete(phone)" class="btn btn-danger btn-large">Delete</button>
+                &nbsp;&nbsp;
+                <button ng-click="cancel()" class="btn btn-warning btn-large">Cancel</button>
             </div>
         </div>
     </form>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using Angular.Nag.Models;
@@ -29,6 +30,16 @@ namespace Angular.Nag.Data.Repositories
                 }
             }
             return phones;
+        }
+
+        public override void Delete(int id) {
+            Phone phone = _phoneDb.Phones.FirstOrDefault(p => p.PhoneId == id);
+            if (phone == null)
+                throw new Exception(string.Format("No such phone with id {0}", id));
+
+            var instances = _phoneDb.PhoneInstances.Where(pi => pi.Phone.PhoneId == phone.PhoneId).ToList();
+            instances.ForEach(pi => _phoneDb.PhoneInstances.Remove(pi));
+            _phoneDb.Phones.Remove(phone);
         }
     }
 }

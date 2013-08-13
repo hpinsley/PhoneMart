@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 using Angular.Nag.Data;
 using Angular.Nag.Data.Repositories;
 using Angular.Nag.Models;
@@ -23,14 +24,6 @@ namespace Angular.Nag.Services.Controllers
         // GET api/plans/5
         public Plan Get(int id) {
             Plan plan = _uow.Plans.GetById(id);
-            if (plan != null) {
-                DbEntityEntry<Plan> planEntry = _uow.PhoneDb.Entry(plan);
-                System.Diagnostics.Trace.WriteLine(string.Format("Before Phone plans load status is {0}", planEntry.Collection(pl => pl.Phones).IsLoaded));
-                planEntry.Collection(pl => pl.Phones).Load();
-                System.Diagnostics.Trace.WriteLine(string.Format("After Phone plans load status is {0}", planEntry.Collection(pl => pl.Phones).IsLoaded));
-
-
-            }
             return plan;
         }
 

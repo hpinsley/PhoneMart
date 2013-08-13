@@ -40,6 +40,22 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
     $scope.cancel = function() {
         $location.path("/phones");
     };
+
+    $scope.delete = function(phone) {
+        if (!confirm("Are you sure you want to delete " + phone.model + " and all of its account instances?"))
+            return;
+
+        $http({
+            method: "DELETE",
+            url: nagApp.getServicesRoot() + "/api/phones/" + phone.phoneId,
+        })
+        .success(function () {
+            $location.path("/phones");
+        })
+        .error(function (error) {
+            alert("We got error " + (error.exceptionMessage || error.message));
+        });
+    };
     
     $scope.updatePhone = function(plans) {
 

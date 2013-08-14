@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-describe("NewAccountController", function () {
+describe("NewPhoneController", function () {
 
     var $controllerConstructor;
     var scope;
@@ -8,18 +8,25 @@ describe("NewAccountController", function () {
     var httpMock;
     var q;
     var ctrl;
-    
+
+    var plans = [{ planId: 1 }, { planId: 2 }];
+    var manufacturers = [{ manufacturerId: 1 }, { manufacturerId: 2 }];
+
     beforeEach(module('nagApp'));
 
-    beforeEach(inject(function ($controller, $rootScope, $location, $httpBackend, phoneData, $q) {
+    beforeEach(inject(function ($controller, $rootScope, $location, $httpBackend, $q) {
         $controllerConstructor = $controller;
         scope = $rootScope.$new();
         location = $location;
         httpMock = $httpBackend;
         q = $q;
-        
-        ctrl = $controllerConstructor('NewAccountController',
-            { $scope: scope, $location: location});
+
+        httpMock.when("GET", nagApp.getServicesRoot() + "/api/plans").respond(plans);
+        httpMock.when("GET", nagApp.getServicesRoot() + "/api/manufacturers").respond(manufacturers);
+
+        ctrl = $controllerConstructor('NewPhoneController',
+            { $scope: scope });
+
 
     }));
 
@@ -29,18 +36,20 @@ describe("NewAccountController", function () {
         httpMock.verifyNoOutstandingRequest();
     });
 
-    it('should redirect to /accounts when cancel() is called', function () {
-        scope.cancel();
-        expect(location.path()).toBe("/accounts");
-    });
-
-    it('should post when addAccount() is called and redirect to the new account', function () {
-        var accountId = 3;
-
-        httpMock.when("POST", nagApp.getServicesRoot() + "/api/accounts").respond(200, accountId);
-
-        scope.addAccount();
+    it('should get the list of plans', function () {
+        //scope.plans is a promise.  You need to setup the then call before the flush
+        //or this code won't fire.
+        scope.plans.then(function (scopePlans) {
+            expect(scopePlans).toBeDefined();
+            expect(scopePlans).toBe(plans);
+        });
         httpMock.flush();
-        expect(location.path()).toBe("/accounts/" + accountId);
     });
+
+    it('should get the list of manufacturers', function () {
+        httpMock.flush();
+        //Need to use angular.equals when comparing the return of a resource
+        expect(angular.equals(scope.manufacturers, manufacturers)).toBeTruthy();
+    });
+
 });

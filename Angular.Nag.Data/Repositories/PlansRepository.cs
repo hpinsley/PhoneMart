@@ -15,7 +15,7 @@ namespace Angular.Nag.Data.Repositories
         public override Plan GetById(int id) {
             return _phoneDb.Plans
                            .Include("Phones.Manufacturer")
-                           .FirstOrDefault();
+                           .FirstOrDefault(plan => plan.PlanId == id);
 
         }
     }

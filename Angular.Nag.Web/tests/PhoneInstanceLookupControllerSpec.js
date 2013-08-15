@@ -92,7 +92,6 @@ describe("PhoneInstanceLookupController", function () {
     });
 
     it('deletePhoneInstance() should DELETE and redirect to the account', function () {
-        ctrl.confirm = function() { return true; };
         httpMock.flush();
         httpMock.when("DELETE", nagApp.getServicesRoot() + "/api/accounts/" + accountId + "/phones/" + phoneInstanceId).respond(200);
         scope.deletePhoneInstance(accountId, phoneInstanceId);

@@ -71,7 +71,6 @@ describe("AccountLookupController", function () {
 
     describe('deleteAccount', function () {
         var accountId = 1;
-        window.confirm = function () { return true; };
 
         beforeEach(function() {
             httpMock.when("DELETE", nagApp.getServicesRoot() + "/api/accounts/" + accountId).respond(undefined);

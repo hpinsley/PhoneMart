@@ -212,9 +212,13 @@
     <Content Include="Test.html" />
     <Content Include="tests\AccountLookupControllerSpec.js" />
     <Content Include="tests\AccountsControllerSpec.js" />
+    <Content Include="tests\PhoneInstanceLookupControllerSpec.js" />
+    <Content Include="tests\NewPhoneInstanceControllerSpec.js" />
+    <Content Include="tests\NewPhoneControllerSpec.js" />
     <Content Include="tests\NewAccountControllerSpec.js" />
     <Content Include="tests\PhoneControllerSpec.js" />
     <Content Include="tests\PlansControllerSpec.js" />
+    <Content Include="tests\TestHelpers.js" />
     <Content Include="Unity.Mvc4.README.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

@@ -212,6 +212,7 @@
     <Content Include="Test.html" />
     <Content Include="tests\AccountLookupControllerSpec.js" />
     <Content Include="tests\AccountsControllerSpec.js" />
+    <Content Include="tests\PhoneLookupControllerSpec.js" />
     <Content Include="tests\PlanLookupControllerSpec.js" />
     <Content Include="tests\PhoneInstanceLookupControllerSpec.js" />
     <Content Include="tests\NewPhoneInstanceControllerSpec.js" />

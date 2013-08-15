@@ -30,7 +30,7 @@ describe("AccountsController", function () {
 
         mockPhoneData.getAccounts.returns(accountList);
         ctrl = $controllerConstructor('AccountsController',
-            { $scope: scope, $location: location, phoneData: mockPhoneData});
+            { $scope: scope, phoneData: mockPhoneData});
 
     }));
 

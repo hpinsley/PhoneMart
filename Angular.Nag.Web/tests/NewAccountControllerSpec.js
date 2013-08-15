@@ -19,7 +19,7 @@ describe("NewAccountController", function () {
         q = $q;
         
         ctrl = $controllerConstructor('NewAccountController',
-            { $scope: scope, $location: location});
+            { $scope: scope });
 
     }));
 

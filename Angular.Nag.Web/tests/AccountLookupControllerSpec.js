@@ -32,7 +32,7 @@ describe("AccountLookupController", function () {
         mockPhoneData.getAccount.returns({ accountId: 1 });
         
         ctrl = $controllerConstructor('AccountLookupController',
-            { $scope: scope, $location: location, phoneData: mockPhoneData,  $routeParams: mockRouteParams});
+            { $scope: scope, phoneData: mockPhoneData,  $routeParams: mockRouteParams});
 
     }));
 

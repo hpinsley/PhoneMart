@@ -29,7 +29,7 @@ describe("PlansController", function () {
         mockPhoneData.getPlans.returns(mockPlans);
 
         var ctrl = $controllerConstructor('PlansController',
-            { $scope: scope, $location: location, phoneData: mockPhoneData });
+            { $scope: scope, phoneData: mockPhoneData });
 
         expect(scope.plans).toBe(mockPlans);
     });

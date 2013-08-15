@@ -43,7 +43,7 @@ describe("PhoneController", function () {
         mockPhoneData.getManufacturers.returns(mockManufacturers);
 
         ctrl = $controllerConstructor('PhoneController',
-            { $scope: scope, $location: location, phoneData: mockPhoneData });
+            { $scope: scope, phoneData: mockPhoneData });
 
     }));
 

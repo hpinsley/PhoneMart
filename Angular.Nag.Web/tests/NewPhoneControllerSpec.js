@@ -9,7 +9,7 @@ describe("NewPhoneController", function () {
     var q;
     var ctrl;
 
-    var plans = [{ planId: 1 }, { planId: 2 }];
+    var plans = [{ planId: 1, chosen:false }, { planId: 2, chosen:true}];
     var manufacturers = [{ manufacturerId: 1 }, { manufacturerId: 2 }];
 
     beforeEach(module('nagApp'));
@@ -52,4 +52,17 @@ describe("NewPhoneController", function () {
         expect(angular.equals(scope.manufacturers, manufacturers)).toBeTruthy();
     });
 
+    it('cancel() should redirect to /phones', function () {
+        httpMock.flush();
+        scope.cancel();
+        expect(location.path()).toBe("/phones");
+    });
+
+    it ('addPhone() should POST and then redirect to /phones', function () {
+        httpMock.flush();   //flush the get calls
+        httpMock.when("POST", nagApp.getServicesRoot() + "/api/phones").respond(200);
+        scope.addPhone(plans);
+        httpMock.flush();
+        expect(location.path()).toBe("/phones");
+    }) ;
 });

@@ -4,16 +4,14 @@ describe("PhoneController", function () {
 
     var $controllerConstructor;
     var scope;
-    var mockPhoneData;
     var location;
     var httpMock;
     var phoneDataSvc;
     var q;
-    var mockPhones;
-    var deferredPhones;
-    var phonePromise;
+    var phones = [{ phoneId: 1 }, { phoneId: 2 }];
     var ctrl;
-    var mockManufacturers;
+    var manufacturers = [{ manufacturerId: 1 }, { manufacturerId: 1 }];
+    var plans = [{ planId: 1 }, { planId: 2 }];
     
     beforeEach(module('nagApp'));
 
@@ -25,43 +23,44 @@ describe("PhoneController", function () {
         phoneDataSvc = phoneData;
         q = $q;
         
-        mockPhoneData = sinon.stub(
-            {
-                getPhones: function () { },
-                getManufacturers: function() {
-                }
-            }
-        );
-
-        mockPhones = [{ phoneId: 1 }, { phoneId: 2 }];
-        deferredPhones = q.defer();
-        deferredPhones.resolve(mockPhones);
-        phonePromise = deferredPhones.promise;
-        mockPhoneData.getPhones.returns(phonePromise);
-
-        mockManufacturers = {};
-        mockPhoneData.getManufacturers.returns(mockManufacturers);
+        httpMock.when("GET", nagApp.getServicesRoot() + "/api/phones").respond(phones);
+        httpMock.when("GET", nagApp.getServicesRoot() + "/api/manufacturers").respond(manufacturers);
+        httpMock.when("GET", nagApp.getServicesRoot() + "/api/plans").respond(plans);
 
         ctrl = $controllerConstructor('PhoneController',
-            { $scope: scope, phoneData: mockPhoneData });
+            { $scope: scope});
 
     }));
 
-    it("should return a promise for phones", function() {
-        expect(scope.phones).toBe(phonePromise);
+    it("should get the list of phones", function() {
+        expect(scope.phones).toBeDefined();
+        scope.phones.then(function (phoneList) {
+            expect(phoneList).toBe(phones);
+        });
+        httpMock.flush();
     });
 
+    it("should get the list of plans", function () {
+        expect(scope.plans).toBeDefined();
+        scope.plans.then(function (planList) {
+            expect(planList).toBe(plans);
+        });
+        httpMock.flush();
+    });
+
+
     it("should set the current phone to the first phone in the list", function () {
-        scope.phones.then(function (phones) {
+        scope.phones.then(function () {
             expect(scope.currentPhone).toBeDefined();
             expect(scope.currentPhone).toBe(phones[0]);
         });
-        scope.$apply();
+        httpMock.flush();
     });
 
     it("should set the manufacturers on the scope", function () {
         expect(scope.manufacturers).toBeDefined();
-        expect(scope.manufacturers).toBe(mockManufacturers);
+        httpMock.flush();
+        expect(angular.equals(scope.manufacturers, manufacturers)).toBeTruthy();
     });
 
     describe('filters', function () {

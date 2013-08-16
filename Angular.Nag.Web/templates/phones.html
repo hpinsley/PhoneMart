@@ -6,13 +6,16 @@
         <div class="span1">
             <button class="btn-info btn-large" ng-click="addPhone()">Add</button>
         </div>
-        <div class="span4"></div>
-        <div class="span5">
+        <div class="span9">
+            <span class="text-info">Plans:</span>
+            <select ng-model="selectedPlanId" ng-options="plan.planId as plan.planName for plan in plans" ng-selected="planSelected()">
+            </select>
+            &nbsp;&nbsp;
             <span class="text-info">Manufacturers:</span>
-                <select ng-model="selectedManufacturer" ng-selected="manufacturerSelected()">
-                    <option value="-1">(all)</option>
-                    <option ng-repeat="manufacturer in manufacturers" value="{{manufacturer.manufacturerId}}">{{manufacturer.manufacturerName}}</option>
-                </select>
+            <select ng-model="selectedManufacturer" ng-selected="manufacturerSelected()">
+                <option value="-1">(all)</option>
+                <option ng-repeat="manufacturer in manufacturers" value="{{manufacturer.manufacturerId}}">{{manufacturer.manufacturerName}}</option>
+            </select>
         </div>
     </div>
     <div class="row">

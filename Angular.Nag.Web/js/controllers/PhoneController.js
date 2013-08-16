@@ -24,6 +24,8 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
     
     $scope.phones = phoneData.getPhones(); //this is a promise that Angular knows how to bind to
     $scope.manufacturers = phoneData.getManufacturers();
+    $scope.plans = phoneData.getPlans();
+    
     $scope.filters = {};
 
     //After the phones load, set a current phone to the first phone
@@ -35,6 +37,10 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
         if (!$scope.currentPhone && phones.length > 0) {
             setCurrentPhone(phones[0]);
         }
+    });
+
+    $scope.plans.then(function (planList) {
+        planList.unshift({ planId: -1, planName: "(all)" });
     });
 
     //When a new phone is selected, remember it by setting the "current phone"
@@ -64,6 +70,13 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
         $location.path("/phones/add");
     };
 
+    $scope.planSelected = function () {
+        var planId = $scope.selectedPlanId;
+        if (!planId)
+            return;
+        console.log("You selected plan " + planId);
+    };
+    
     $scope.manufacturerSelected = function() {
         var manufacturerId = $scope.selectedManufacturer;
         if (!manufacturerId)

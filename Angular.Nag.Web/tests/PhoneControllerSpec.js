@@ -67,14 +67,14 @@ describe("PhoneController", function () {
         it("should be cleared when no manufacturer is set", function () {
             scope.selectedManufacturer = -1;
             scope.manufacturerSelected();
-            expect(scope.filters).toBeDefined();
-            expect(scope.filters).toEqual({});
+            expect(scope.propertiesFilter).toBeDefined();
+            expect(scope.propertiesFilter).toEqual({});
         });
         it("should be set to the manufactur's id when a manufacturer is selected", function () {
             scope.selectedManufacturer = 1;
             scope.manufacturerSelected();
-            expect(scope.filters).toBeDefined();
-            expect(scope.filters).toEqual({"manufacturer.manufacturerId" : 1});
+            expect(scope.propertiesFilter).toBeDefined();
+            expect(scope.propertiesFilter).toEqual({"manufacturer.manufacturerId" : 1});
         });
     });
 });

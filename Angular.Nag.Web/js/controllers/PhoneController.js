@@ -1,7 +1,8 @@
 ﻿'use strict';
 
-nagApp.controller('PhoneController', function PhoneController($scope, phoneData, $location) {
+nagApp.controller('PhoneController', function PhoneController($scope, phoneData, $location, $q) {
 
+    $scope.pleaseWait = true;
     $scope.phones = phoneData.getPhones(); //this is a promise that Angular knows how to bind to
     $scope.manufacturers = phoneData.getManufacturers();
     $scope.plans = phoneData.getPlans();
@@ -24,6 +25,10 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
         planList.unshift({ planId: -1, planName: "(all)" });
     });
 
+    $q.all([$scope.phones, $scope.plans]).then(function () {
+        $scope.pleaseWait = false;
+    });
+    
     //When a new phone is selected, remember it by setting the "current phone"
     $scope.selectPhone = function (phone) {
         setCurrentPhone(phone);

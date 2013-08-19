@@ -152,6 +152,7 @@
     <Content Include="js\controllers\MenuController.js" />
     <Content Include="js\controllers\PlansController.js" />
     <Content Include="js\controllers\PhoneController.js" />
+    <Content Include="js\directives\pleaseWait.js" />
     <Content Include="js\directives\phoneTabs.js" />
     <Content Include="js\directives\phoneList.js" />
     <Content Include="js\directives\phoneTable.js" />
@@ -198,6 +199,7 @@
     <Content Include="Scripts\underscore.min.js" />
     <Content Include="templates\accounts.html" />
     <Content Include="templates\account.html" />
+    <Content Include="templates\directives\pleaseWait.html" />
     <Content Include="templates\phone.html" />
     <Content Include="templates\phoneInstance.html" />
     <Content Include="templates\newPhoneInstance.html" />

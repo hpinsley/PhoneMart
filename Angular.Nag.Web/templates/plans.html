@@ -1,10 +1,28 @@
 ﻿<div class="container">
     <h1>Plans</h1>
-    <div class="well">
-        <ul>
-            <li ng-repeat="plan in plans">
-                <a href="#/plans/{{plan.planId}}">{{plan.planName}}</a>
-            </li>
-        </ul>
+    <h2>
+        <button class="btn btn-info" ng-click="addPlan()">Add</button>
+    </h2>
+
+    <div class="row">
+        <td class="span12">
+            <table id="plansTable" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Monthly Cost</th>
+                        <th>Talk Minutes</th>
+                        <th>Data (Megabytes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="plan in plans" class="text-right">
+                        <td><a href="#/plans/{{plan.planId}}">{{plan.planName}}</a></td>
+                        <td>{{plan.monthlyCost | currency}}</td>
+                        <td>{{plan.voiceMinutes | number:1}}</td>
+                        <td>{{plan.dataMegabytes | number:1}}</td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
 </div>

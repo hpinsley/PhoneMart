@@ -15,6 +15,26 @@ h1 {
 	color: yellow;
 }
 
+/* Plans table formatting */
+table#plansTable th, table#plansTable td {
+	text-align: right;
+}
+
+table#plansTable th:nth-child(1),table#plansTable td:nth-child(1) {
+	text-align: left;
+}
+
+/* Accounts table formatting */
+table#accountsTable th, table#accountsTable td {
+	text-align: left;
+}
+
+table#accountsTable th:nth-child(1),table#accountsTable td:nth-child(1) {
+	text-align: right;
+}
+table#accountsTable th:nth-child(5),table#accountsTable td:nth-child(5) {
+	text-align: right;
+}
 
 
 

@@ -2,7 +2,9 @@
 
 nagApp.controller('PhoneController', function PhoneController($scope, phoneData, $location, $q) {
 
-    $scope.pleaseWait = true;
+    $scope.pleaseWait = ($scope.applicationRunning) ? false : true;
+    $scope.$root.applicationRunning = true; //We only want to put up the please wait on the first load of the controller
+    
     $scope.phones = phoneData.getPhones(); //this is a promise that Angular knows how to bind to
     $scope.manufacturers = phoneData.getManufacturers();
     $scope.plans = phoneData.getPlans();

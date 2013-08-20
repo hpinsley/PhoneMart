@@ -1,0 +1,35 @@
+﻿<div class="container">
+    <h1>New Plan</h1>
+
+    <form name="addPlanForm" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label">Plan Name:</label>
+            <div class="controls">
+                <input type="text" ng-model="planName" required ng-minlength="5" />
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Montly Cost:</label>
+            <div class="controls">
+                <input type="number" ng-model="monthlyCost" required />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Voice Minutes:</label>
+            <div class="controls">
+                <input type="number" ng-model="voiceMinutes" required />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Data Megabytes:</label>
+            <div class="controls">
+                <input type="number" ng-model="dataMegabytes" required />
+            </div>
+        </div>
+
+        <button ng-click="addPlan()" class="btn" ng-disabled="!addPlanForm.$valid">Add</button>
+        <button ng-click="cancel()" class="btn btn-primary btn-warning">Cancel</button>
+    </form>
+
+</div>

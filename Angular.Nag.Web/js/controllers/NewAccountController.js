@@ -25,8 +25,4 @@ nagApp.controller('NewAccountController', function NewAccountController($scope, 
     $scope.cancel = function() {
         $location.path("/accounts");
     };
-
-    $scope.return    
-
-
 });

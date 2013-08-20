@@ -32,6 +32,12 @@ nagApp.config(function ($routeProvider) {
                 templateUrl: 'templates/plans.html'
             })
 
+        .when('/plans/add',
+            {
+                controller: 'NewPlanController',
+                templateUrl: 'templates/newPlan.html'
+            })
+
         .when('/plans/:planId',
             {
                 controller: 'PlanLookupController',

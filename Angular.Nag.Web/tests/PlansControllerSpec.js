@@ -4,10 +4,11 @@ describe("PlansController", function () {
 
     var $controllerConstructor;
     var scope;
-    var mockPhoneData;
     var location;
     var httpMock;
     var phoneDataSvc;
+    var ctrl;
+    var plans = [{ planId: 1 }, { planId: 2 }];
     
     beforeEach(module('nagApp'));
 
@@ -17,37 +18,25 @@ describe("PlansController", function () {
         location = $location;
         httpMock = $httpBackend;
         phoneDataSvc = phoneData;
-        
-        mockPhoneData = sinon.stub(
-            { getPlans: function () {}}
-        );
+
+        httpMock.when("GET", nagApp.getServicesRoot() + "/api/plans").respond(plans);
+
+        ctrl = $controllerConstructor('PlansController',
+            { $scope: scope });
     }));
 
     it("should return obtain phone plans and set it on the scope", function() {
-
-        var mockPlans = {};
-        mockPhoneData.getPlans.returns(mockPlans);
-
-        var ctrl = $controllerConstructor('PlansController',
-            { $scope: scope, phoneData: mockPhoneData });
-
-        expect(scope.plans).toBe(mockPlans);
+        expect(scope.plans).toBeDefined();
+        scope.plans.then(function (planList) {
+            expect(planList).toBe(plans);
+        });
+        
+        httpMock.flush();
     });
 
-    it("should return obtain phone plans using http", function () {
-
-        var mockPlans = {};
-        httpMock.when("GET", nagApp.getServicesRoot() + "/api/plans").respond(mockPlans);
-
-        var ctrl = $controllerConstructor('PlansController',
-            { $scope: scope, $location: location, phoneData: phoneDataSvc });
-
-        expect(scope.plans).toBeDefined();
-        expect(scope.plans.then).toBeDefined();
-        scope.plans.then(function (plans) {
-            expect(plans).toBe(mockPlans);
-        });
-        httpMock.flush();
+    it('should change the path to /plans/add when addPlan is called', function () {
+        scope.addPlan();
+        expect(location.path()).toBe("/plans/add");
     });
 
 });

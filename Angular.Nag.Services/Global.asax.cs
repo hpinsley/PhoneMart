@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Configuration;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -26,10 +23,11 @@ namespace Angular.Nag.Services {
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //Database.SetInitializer(new PhoneDatabaseInitializer());
-            //System.Diagnostics.Trace.WriteLine("DropCreate Complete");
-
-            
+            if (ConfigurationManager.AppSettings["InitDb"].ToLower() == "yes") {
+                System.Diagnostics.Trace.WriteLine("Initializing database");
+                Database.SetInitializer(new PhoneDatabaseInitializer());
+                System.Diagnostics.Trace.WriteLine("Database Initialized");
+            }
         }
     }
 }

@@ -19,6 +19,8 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
         if (!$scope.currentPhone && phones.length > 0) {
             setCurrentPhone(phones[0]);
         }
+    }, function (err) {
+        alert("Error getting phones " + (err.exceptionMessage || err.message || err));
     });
 
     $scope.plans.then(function (planList) {

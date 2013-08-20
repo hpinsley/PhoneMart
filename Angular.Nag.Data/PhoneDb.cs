@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 using System.Data.Entity;
 using Angular.Nag.Models;
 
@@ -7,11 +9,20 @@ namespace Angular.Nag.Data
     public class PhoneDb : DbContext
     {
         public PhoneDb()
-            : base(@"Data Source=PINSLEYLAPTOP\SQLEXPRESS;Initial Catalog=Angular.Nag;Integrated Security=True") {
+            : base(GetConnectionString()) {
 
             //Note that setting the lazy loading feature here
             //is not effective as the UOW sets it in its CreateDbContext call.
             //this.Configuration.LazyLoadingEnabled = false;
+        }
+
+        private static string GetConnectionString() {
+            const string key = "phones";
+            var connection = ConfigurationManager.ConnectionStrings[key];
+            if (connection != null) {
+                return connection.ConnectionString;
+            }
+            throw new Exception(string.Format("Unable to location connection string '{0}'", key));
         }
 
         public DbSet<Manufacturer> Manufacturers { get; set; }

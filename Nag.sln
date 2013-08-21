@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.Nag.Services", "Ang
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.Nag.Data", "Angular.Nag.Data\Angular.Nag.Data.csproj", "{14562E0C-C8EC-490E-82B4-6CBA19910AD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.Nag.Common", "Angular.Nag.Common\Angular.Nag.Common.csproj", "{ABBECC51-EB81-402D-BE01-34297D749E94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{14562E0C-C8EC-490E-82B4-6CBA19910AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14562E0C-C8EC-490E-82B4-6CBA19910AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14562E0C-C8EC-490E-82B4-6CBA19910AD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABBECC51-EB81-402D-BE01-34297D749E94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABBECC51-EB81-402D-BE01-34297D749E94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABBECC51-EB81-402D-BE01-34297D749E94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABBECC51-EB81-402D-BE01-34297D749E94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

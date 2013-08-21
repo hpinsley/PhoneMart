@@ -1,10 +1,11 @@
-﻿using System.Configuration;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Angular.Nag.Common.Interfaces;
 using Angular.Nag.Data;
 using System.Data.Entity;
+using IDependencyResolver = System.Web.Http.Dependencies.IDependencyResolver;
 
 
 namespace Angular.Nag.Services {
@@ -23,7 +24,11 @@ namespace Angular.Nag.Services {
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            if (ConfigurationManager.AppSettings["InitDb"].ToLower() == "yes") {
+            IDependencyResolver resolver = GlobalConfiguration.Configuration.DependencyResolver;
+
+            ISettings settings = (ISettings)resolver.GetService(typeof(ISettings));
+
+            if (settings.InitializeDatabase) {
                 System.Diagnostics.Trace.WriteLine("Initializing database");
                 Database.SetInitializer(new PhoneDatabaseInitializer());
                 System.Diagnostics.Trace.WriteLine("Database Initialized");

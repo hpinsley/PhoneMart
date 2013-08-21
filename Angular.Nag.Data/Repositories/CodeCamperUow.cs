@@ -1,4 +1,5 @@
 using System;
+using Angular.Nag.Common.Interfaces;
 using Angular.Nag.Models;
 
 namespace Angular.Nag.Data.Repositories
@@ -22,7 +23,11 @@ namespace Angular.Nag.Data.Repositories
     /// </remarks>
     public class CodeCamperUow : ICodeCamperUow, IDisposable
     {
-        public CodeCamperUow(IRepositoryProvider repositoryProvider) {
+        private readonly ISettings _settings;
+        protected IRepositoryProvider RepositoryProvider { get; set; }
+
+        public CodeCamperUow(IRepositoryProvider repositoryProvider, ISettings settings) {
+            _settings = settings;
             System.Diagnostics.Trace.WriteLine("*** In UOW Constructor ***");
 
             CreateDbContext();
@@ -53,17 +58,15 @@ namespace Angular.Nag.Data.Repositories
             DbContext.SaveChanges();
         }
 
-        protected void CreateDbContext()
-        {
-            DbContext = new PhoneDb();
+        protected void CreateDbContext() {
+            string connectionString = _settings.ConnectionString;
+            DbContext = new PhoneDb(connectionString);
 
             // Do NOT enable proxied entities, else serialization fails
             DbContext.Configuration.ProxyCreationEnabled = false;
-            //DbContext.Configuration.ProxyCreationEnabled = true;
 
             // Load navigation properties explicitly (avoid serialization trouble)
             DbContext.Configuration.LazyLoadingEnabled = false;
-            //DbContext.Configuration.LazyLoadingEnabled = true;
 
             // Because Web API will perform validation, we don't need/want EF to do so
             DbContext.Configuration.ValidateOnSaveEnabled = false;
@@ -74,7 +77,6 @@ namespace Angular.Nag.Data.Repositories
             // we'd have to be careful. We're not being that careful.
         }
 
-        protected IRepositoryProvider RepositoryProvider { get; set; }
 
         private IRepository<T> GetStandardRepo<T>() where T : class
         {

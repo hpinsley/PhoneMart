@@ -1,4 +1,6 @@
 using System.Web.Http;
+using Angular.Nag.Common.Implementations;
+using Angular.Nag.Common.Interfaces;
 using Angular.Nag.Data.Repositories;
 using Microsoft.Practices.Unity;
 
@@ -17,19 +19,11 @@ namespace Angular.Nag.Services
         {
             var container = new UnityContainer();
 
-            // register all your components with the container here
-            // e.g. container.RegisterType<ITestService, TestService>();            
-
+            container.RegisterType<ISettings, Settings>();
             container.RegisterType<RepositoryFactories>();
             container.RegisterType<IRepositoryProvider, RepositoryProvider>();
             container.RegisterType<ICodeCamperUow, CodeCamperUow>();
 
-            //RepositoryFactories factories = new RepositoryFactories();
-            //RepositoryProvider provider = new RepositoryProvider(factories);
-            //CodeCamperUow uow = new CodeCamperUow(provider);
-
-            //container.RegisterInstance<ICodeCamperUow>(uow, new ContainerControlledLifetimeManager());
-          
             return container;
         }
     }

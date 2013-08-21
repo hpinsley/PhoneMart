@@ -138,7 +138,6 @@
     <Compile Include="Controllers\ManufacturersController.cs" />
     <Compile Include="Controllers\PhonesController.cs" />
     <Compile Include="Controllers\PlansController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,6 +256,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Angular.Nag.Common\Angular.Nag.Common.csproj">
+      <Project>{abbecc51-eb81-402d-be01-34297d749e94}</Project>
+      <Name>Angular.Nag.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Angular.Nag.Data\Angular.Nag.Data.csproj">
       <Project>{14562e0c-c8ec-490e-82b4-6cba19910ad6}</Project>
       <Name>Angular.Nag.Data</Name>

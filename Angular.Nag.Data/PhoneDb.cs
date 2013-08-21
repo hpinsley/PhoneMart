@@ -8,21 +8,12 @@ namespace Angular.Nag.Data
 {
     public class PhoneDb : DbContext
     {
-        public PhoneDb()
-            : base(GetConnectionString()) {
+        public PhoneDb(string connectionString)
+            : base(connectionString) {
 
             //Note that setting the lazy loading feature here
             //is not effective as the UOW sets it in its CreateDbContext call.
             //this.Configuration.LazyLoadingEnabled = false;
-        }
-
-        private static string GetConnectionString() {
-            const string key = "phones";
-            var connection = ConfigurationManager.ConnectionStrings[key];
-            if (connection != null) {
-                return connection.ConnectionString;
-            }
-            throw new Exception(string.Format("Unable to location connection string '{0}'", key));
         }
 
         public DbSet<Manufacturer> Manufacturers { get; set; }

@@ -27,53 +27,56 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
             var deferred = $q.defer();
 
             phoneResource.get({ phoneId: phoneId },
-                function(phone) {
+                function (phone) {
                     deferred.resolve(phone);
                 },
-                function(error) {
+                function (error) {
                     deferred.reject(error);
                 });
 
             return deferred.promise;
         },
-        
 
-        getPhoneInstance: function(accountId, phoneInstanceId, onSuccess) {
-            return phoneInstanceResource.get({ accountId: accountId, phoneInstanceId: phoneInstanceId }, 
-                function(phoneInstance) {
-                    if (onSuccess) {
-                        onSuccess(phoneInstance);
-                    }
-                }
-            );
-        },
-        
         //Just to show how to do this without a resource and with $http       
         getPhones: function () {
             var deferred = $q.defer();
-            $http({ method: "GET", url: nagApp.getServicesRoot() + "/api/phones"})
+            $http({ method: "GET", url: nagApp.getServicesRoot() + "/api/phones" })
                 .success(function (data) {
                     deferred.resolve(data);
                 })
-                .error(function(error) {
+                .error(function (error) {
                     deferred.reject(error);
                 });
 
             return deferred.promise;
         },
 
-        getPlan: function(planId) {
-            return planResource.get({ id: planId });
+        getPlan: function (planId, onSuccess) {
+            return planResource.get({ id: planId },
+                function (plan) {
+                    if (onSuccess) {
+                        onSuccess(plan);
+                    }
+                });
+        },
+
+        getPhoneInstance: function (accountId, phoneInstanceId, onSuccess) {
+            return phoneInstanceResource.get({ accountId: accountId, phoneInstanceId: phoneInstanceId },
+                function (phoneInstance) {
+                    if (onSuccess) {
+                        onSuccess(phoneInstance);
+                    }
+                });
         },
 
         //Just to show how to do this without a resource and with $http       
         getPlans: function () {
             var deferred = $q.defer();
             $http({ method: "GET", url: nagApp.getServicesRoot() + "/api/plans" })
-                .success(function(data) {
+                .success(function (data) {
                     deferred.resolve(data);
                 })
-                .error(function(error) {
+                .error(function (error) {
                     deferred.reject(error);
                 });
 

@@ -143,6 +143,7 @@
     <Content Include="js\app.js" />
     <Content Include="js\controllers\AccountsController.js" />
     <Content Include="js\controllers\AccountLookupController.js" />
+    <Content Include="js\controllers\PlanUpdateController.js" />
     <Content Include="js\controllers\NewPlanController.js" />
     <Content Include="js\controllers\PhoneLookupController.js" />
     <Content Include="js\controllers\PhoneInstanceLookupController.js" />
@@ -200,6 +201,7 @@
     <Content Include="Scripts\underscore.min.js" />
     <Content Include="templates\accounts.html" />
     <Content Include="templates\account.html" />
+    <Content Include="templates\planUpdate.html" />
     <Content Include="templates\newPlan.html" />
     <Content Include="templates\directives\pleaseWait.html" />
     <Content Include="templates\phone.html" />
@@ -216,6 +218,7 @@
     <Content Include="Test.html" />
     <Content Include="tests\AccountLookupControllerSpec.js" />
     <Content Include="tests\AccountsControllerSpec.js" />
+    <Content Include="tests\PlanUpdateControllerSpec.js" />
     <Content Include="tests\NewPlanControllerSpec.js" />
     <Content Include="tests\PhoneLookupControllerSpec.js" />
     <Content Include="tests\PlanLookupControllerSpec.js" />

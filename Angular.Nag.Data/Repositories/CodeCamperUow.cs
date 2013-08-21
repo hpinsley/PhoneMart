@@ -24,7 +24,7 @@ namespace Angular.Nag.Data.Repositories
     public class CodeCamperUow : ICodeCamperUow, IDisposable
     {
         private readonly ISettings _settings;
-        protected IRepositoryProvider RepositoryProvider { get; set; }
+        private IRepositoryProvider RepositoryProvider { get; set; }
 
         public CodeCamperUow(IRepositoryProvider repositoryProvider, ISettings settings) {
             _settings = settings;

@@ -1,0 +1,40 @@
+﻿<div class="container">
+
+    <div class="row">
+        <div class="span12">
+            <h1>{{plan.planName}}</h1>
+            <form name="updatePlanForm" class="form-horizontal">
+
+                <div class="control-group">
+                    <label class="control-label">Plan Name:</label>
+                    <div class="controls">
+                        <input type="text" ng-model="planName" required ng-minlength="5" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Montly Cost:</label>
+                    <div class="controls">
+                        <input type="number" ng-model="monthlyCost" required />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Voice Minutes:</label>
+                    <div class="controls">
+                        <input type="number" ng-model="voiceMinutes" required />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Data Megabytes:</label>
+                    <div class="controls">
+                        <input type="number" ng-model="dataMegabytes" required />
+                    </div>
+                </div>
+
+                <br />
+                <button class="btn btn-info btn-large" ng-disabled="!updatePlanForm.$valid" ng-click="updatePlan(planId)">OK</button>
+                <button class="btn btn-warn btn-large" ng-click="cancel()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

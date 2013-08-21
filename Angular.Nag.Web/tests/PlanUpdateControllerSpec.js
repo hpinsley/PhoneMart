@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-describe("PlanLookupController", function () {
+describe("PlanUpdateController", function () {
 
     var $controllerConstructor;
     var scope;
@@ -8,10 +8,10 @@ describe("PlanLookupController", function () {
     var httpMock;
     var phoneDataSvc;
     var q;
-    var mockRouteParams;
     var ctrl;
     var planId = 9;
-    var plan = { planId: planId };
+    var plan = { planId: planId, planName: 'From Outer Space' };
+    var mockRouteParams;
     
     beforeEach(module('nagApp'));
 
@@ -22,40 +22,37 @@ describe("PlanLookupController", function () {
         httpMock = $httpBackend;
         phoneDataSvc = phoneData;
         q = $q;
+        
         mockRouteParams = { planId: planId };
 
         httpMock.when("GET", nagApp.getServicesRoot() + "/api/plans/" + planId).respond(plan);
-                        
-        ctrl = $controllerConstructor('PlanLookupController',
+
+        ctrl = $controllerConstructor('PlanUpdateController',
             { $scope: scope, $routeParams: mockRouteParams});
 
     }));
 
-    it('should get the planId from routeParams', function () {
+    it("should get the planId from the route", function () {
         httpMock.flush();
-        expect(scope.planId).toBe(planId);
+        expect(scope.planId).toBe(mockRouteParams.planId);
     });
 
-    it('should lookup the plan', function () {
+    it("should lookup the plan", function () {
         httpMock.flush();
         expect(angular.equals(scope.plan, plan)).toBeTruthy();
     });
 
-    it('should redirect to /plans/<planId>/update when updatePlan() is called', function () {
-        httpMock.flush();
-        scope.updatePlan(plan);
-        expect(location.path()).toBe("/plans/" + plan.planId + "/update");
-    });
-
-    it('should DELETE and redirect to /plans when deletePlan() is called', function () {
-        httpMock.flush();
-        scope.deletePlan(plan);
-        expect(location.path()).toBe("/plans");
-    });
-
-    it('should redirect to /plans when cancel() is called', function () {
+    it("cancel should redirect to /plans/:planId", function () {
         httpMock.flush();
         scope.cancel();
-        expect(location.path()).toBe("/plans");
+        expect(location.path()).toBe("/plans/" + planId);
+    });
+
+    it("updatePlan should PUT and redirect to /plans/:planId", function () {
+        httpMock.flush();
+        httpMock.when("PUT", nagApp.getServicesRoot() + "/api/plans/" + planId).respond(200);
+        scope.updatePlan(planId);
+        httpMock.flush();
+        expect(location.path()).toBe("/plans/" + planId);
     });
 });

@@ -24,12 +24,20 @@
                 <p>You have a choice of several phones on the {{plan.planName}} plan.  The following models are offered:</p>
                 <ul>
                     <li ng-repeat="phone in plan.phones">
-                        <a href="#/phones/{{phone.phoneId}}">
-                            {{phone.manufacturer.manufacturerName}} {{phone.model}}
+                        <a href="#/phones/{{phone.phoneId}}">{{phone.manufacturer.manufacturerName}} {{phone.model}}
                         </a>
                     </li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12 text-center">
+            <button ng-click="updatePlan(plan)" class="btn btn-info btn-large">Update</button>
+            &nbsp;&nbsp;
+                <button ng-click="deletePlan(plan)" class="btn btn-danger btn-large">Delete</button>
+            &nbsp;&nbsp;
+                <button ng-click="cancel()" class="btn btn-warning btn-large">Cancel</button>
         </div>
     </div>
     <div class="row">

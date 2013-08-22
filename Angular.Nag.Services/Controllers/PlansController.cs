@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Web.Http;
 using Angular.Nag.Data.Repositories;
 using Angular.Nag.Models;
@@ -41,8 +42,17 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // PUT api/plans/5
-        public void Put(int id, [FromBody]string value)
-        {
+        public void Put(int id, NewPlan planData) {
+            Plan plan = _db.Plans.GetById(id);
+            if (plan == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            plan.PlanName = planData.PlanName;
+            plan.MonthlyCost = planData.MonthlyCost;
+            plan.VoiceMinutes = planData.VoiceMinutes;
+            plan.DataMegabytes = planData.DataMegabytes;
+
+            _db.Commit();
         }
 
         // DELETE api/plans/5

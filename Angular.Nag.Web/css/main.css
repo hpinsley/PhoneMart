@@ -36,6 +36,10 @@ table#accountsTable th:nth-child(5),table#accountsTable td:nth-child(5) {
 	text-align: right;
 }
 
+table#planTable td:nth-child(2) {
+	text-align: right;
+}
+
 
 
 

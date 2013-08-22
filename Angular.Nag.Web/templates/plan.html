@@ -5,23 +5,28 @@
     <div class="row">
         <div class="span6">
             <h2 class="text-info">Plan Details</h2>
-            <div class="row">
-                <div class="span3">Monthly Cost</div>
-                <div class="span3">{{plan.monthlyCost | currency}}</div>
-            </div>
-            <div class="row">
-                <div class="span3">Talk Minutes</div>
-                <div class="span3">{{plan.voiceMinutes | number:1}}</div>
-            </div>
-            <div class="row">
-                <div class="span3">Data (Megabytes)</div>
-                <div class="span3">{{plan.dataMegabytes | number:1}}</div>
+            <div class="hero-unit">
+                <table id="planTable" class="table">
+                    <tbody>
+                        <tr>
+                            <td>Monthy Cost</td>
+                            <td>{{plan.monthlyCost | currency}}</td>
+                        </tr>
+                        <tr>
+                            <td>Voice Minutes</td>
+                            <td>{{plan.voiceMinutes | number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td>Data (Megabytes)</td>
+                            <td>{{plan.dataMegabytes | number:0}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="span6">
-            <div class="well">
-                <h2>Phones</h2>
-                <p>You have a choice of several phones on the {{plan.planName}} plan.  The following models are offered:</p>
+            <h2 class="text-info">Phones</h2>
+            <div class="hero-unit">
                 <ul>
                     <li ng-repeat="phone in plan.phones">
                         <a href="#/phones/{{phone.phoneId}}">{{phone.manufacturer.manufacturerName}} {{phone.model}}

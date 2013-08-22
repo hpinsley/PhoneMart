@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="span6">
+            <div class="hero-unit" style="background-color: inherit">
             <h2 class="text-info">Plan Details</h2>
-            <div class="hero-unit">
                 <table id="planTable" class="table">
                     <tbody>
                         <tr>
@@ -25,8 +25,8 @@
             </div>
         </div>
         <div class="span6">
+            <div class="hero-unit" style="background-color: inherit">
             <h2 class="text-info">Phones</h2>
-            <div class="hero-unit">
                 <ul>
                     <li ng-repeat="phone in plan.phones">
                         <a href="#/phones/{{phone.phoneId}}">{{phone.manufacturer.manufacturerName}} {{phone.model}}
@@ -42,13 +42,7 @@
             &nbsp;&nbsp;
                 <button ng-click="deletePlan(plan)" class="btn btn-danger btn-large">Delete</button>
             &nbsp;&nbsp;
-                <button ng-click="cancel()" class="btn btn-warning btn-large">Cancel</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="well">
-            <span class="icon-chevron-up"></span>
-            <a href="#/plans">Plan List</a>
+                <button ng-click="cancel()" class="btn btn-warning btn-large">Back</button>
         </div>
     </div>
 </div>

@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="plan in plans" class="text-right">
+                    <tr ng-repeat="plan in plans">
                         <td><a href="#/plans/{{plan.planId}}">{{plan.planName}}</a></td>
                         <td>{{plan.monthlyCost | currency}}</td>
                         <td>{{plan.voiceMinutes | number:1}}</td>

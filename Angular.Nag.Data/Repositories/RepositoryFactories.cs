@@ -36,6 +36,7 @@ namespace Angular.Nag.Data.Repositories
                    //{typeof(IRepository<Phone>), dbContext => new AccountsRepository(dbContext)},
                    {typeof(IPhonesRepository), dbContext => new PhonesRepository(dbContext)},
                    {typeof(IAccountsRepository), dbContext => new AccountsRepository(dbContext)},
+                   {typeof(IAppsRepository), dbContext => new AppsRepository(dbContext)},
                 };
         }
 

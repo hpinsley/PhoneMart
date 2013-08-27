@@ -5,6 +5,7 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
     var planResource = $resource(nagApp.getServicesRoot() + "/api/plans/:id", { id: '@id' });
     var accountResource = $resource(nagApp.getServicesRoot() + "/api/accounts/:id", { id: '@id' });
     var accountsResource = $resource(nagApp.getServicesRoot() + "/api/accounts");
+    var appsResource = $resource(nagApp.getServicesRoot() + "/api/apps");
     var manufacturersResource = $resource(nagApp.getServicesRoot() + "/api/manufacturers");
     var phoneInstanceResource = $resource(nagApp.getServicesRoot() + "/api/accounts/:accountId/phones/:phoneInstanceId", { accountId: '@accountId', phoneInstanceId: '@phoneInstanceId' });
     var phoneResource = $resource(nagApp.getServicesRoot() + "/api/phones/:phoneId", { phoneId: '@phoneId' });
@@ -17,6 +18,10 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
 
         getAccounts: function () {
             return accountsResource.query();
+        },
+
+        getApps: function () {
+            return appsResource.query();
         },
 
         getManufacturers: function () {

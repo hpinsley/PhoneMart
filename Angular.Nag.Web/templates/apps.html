@@ -1,0 +1,24 @@
+﻿<div class="container">
+    <h1>Apps</h1>
+    <h2>
+        <button class="btn btn-info" ng-click="addApp()">Add</button>
+    </h2>
+
+    <div class="row">
+        <td class="span12">
+            <table id="appsTable" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>App</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="app in apps">
+                        <td><a href="#/apps/{{app.appId}}">{{app.name}}</a></td>
+                        <td>{{app.description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</div>

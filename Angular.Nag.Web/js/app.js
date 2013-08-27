@@ -8,6 +8,12 @@ nagApp.getServicesRoot = function() {
 
 nagApp.config(function ($routeProvider) {
     $routeProvider
+        .when('/apps',
+            {
+                controller: 'AppsController',
+                templateUrl: 'templates/apps.html'
+            })
+
         .when('/phones',
             {
                 controller: 'PhoneController',

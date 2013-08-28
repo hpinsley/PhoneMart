@@ -3,6 +3,6 @@ using Angular.Nag.Models;
 
 namespace Angular.Nag.Data.Repositories {
     public interface IPhonesRepository : IRepository<Phone> {
-        IEnumerable<Phone> GetAllWithPlans();
+        IEnumerable<Phone> GetAllWithChildren();
     }
 }

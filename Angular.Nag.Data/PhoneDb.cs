@@ -22,6 +22,7 @@ namespace Angular.Nag.Data
         public DbSet<Person> People { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<PhoneInstance> PhoneInstances { get; set; }
+        public DbSet<App> Apps { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<Manufacturer>()
@@ -37,6 +38,10 @@ namespace Angular.Nag.Data
                         .WithMany(plan => plan.Phones);
 
             modelBuilder.Entity<Phone>()
+                        .HasMany(phone => phone.Apps)
+                        .WithMany(app => app.Phones);
+
+            modelBuilder.Entity<Phone>()
                         .Property(p => p.PhoneId)
                         .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
@@ -49,12 +54,6 @@ namespace Angular.Nag.Data
             modelBuilder.Entity<Person>()
                         .Property(p => p.FullName).IsRequired();
 
-            /*
-             *         public int PhoneInstanceId { get; set; }
-        public Phone Phone { get; set; }
-        public string SerialNumber { get; set; }
-        public string PhoneNumber { get; set; }
-        public Plan PhonePlan { get; set; }*/
 
             modelBuilder.Entity<PhoneInstance>()
                         .Property(pi => pi.PhoneInstanceId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

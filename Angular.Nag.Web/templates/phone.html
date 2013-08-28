@@ -52,6 +52,22 @@
                 </fieldset>
             </div>
         </div>
+        <div class="row">
+            <div class="span12">
+                <h4>Plans</h4>
+                <fieldset>
+                    <div ng-repeat="app in apps">
+                        <div class="control-group">
+                            <label class="control-label">{{app.name}}</label>
+                            <div class="controls">
+                                <input type="checkbox" ng-model="app.chosen" />
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                
+            </div>
+        </div>
         <!-- row -->
         <div class="row">
             <div class="span12 text-center">

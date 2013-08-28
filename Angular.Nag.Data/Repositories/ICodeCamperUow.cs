@@ -11,10 +11,11 @@ namespace Angular.Nag.Data.Repositories
         void Commit();
 
         // Repositories
-        IPlansRepository Plans { get; }
-        IPhonesRepository Phones { get; }
         IAccountsRepository Accounts { get; }
-        IRepository<Manufacturer> Manufacturers { get;  }
+        IAppsRepository Apps { get; }
+        IRepository<Manufacturer> Manufacturers { get; }
+        IPhonesRepository Phones { get; }
+        IPlansRepository Plans { get; }
         PhoneDb PhoneDb { get; }
     }
 }

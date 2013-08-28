@@ -143,6 +143,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\AccountPhonesController.cs" />
+    <Compile Include="Controllers\AppsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManufacturersController.cs" />
     <Compile Include="Controllers\PhonesController.cs" />

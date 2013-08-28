@@ -19,7 +19,7 @@ namespace Angular.Nag.Services.Controllers
 
 // GET api/phones
         public IEnumerable<Phone> Get() {
-            return _db.Phones.GetAllWithPlans();
+            return _db.Phones.GetAllWithChildren();
         }
 
         // GET api/phones/5

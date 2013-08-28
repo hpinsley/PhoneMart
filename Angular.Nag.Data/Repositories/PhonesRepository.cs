@@ -16,17 +16,23 @@ namespace Angular.Nag.Data.Repositories
             var phone = _phoneDb.Phones
                                 .Include(p => p.Manufacturer)
                                 .Include(p => p.Plans)
+                                .Include(p => p.Apps)
                                 .FirstOrDefault(p => p.PhoneId == id);
             return phone;
         }
-        public IEnumerable<Phone> GetAllWithPlans() {
-            List<Phone> phones = _phoneDb.Phones.Include(p => p.Plans)
+        public IEnumerable<Phone> GetAllWithChildren() {
+            List<Phone> phones = _phoneDb.Phones
+                .Include(p => p.Plans)
+                .Include(p => p.Apps)
                 .Include(p=>p.Manufacturer)
                 .ToList();
 
             foreach (var phone in phones) {
                 foreach (var plan in phone.Plans) {
                     plan.Phones = null; //clear out back references that get auto loaded
+                }
+                foreach (var app in phone.Apps) {
+                    app.Phones = null; //clear out back references that get auto loaded
                 }
             }
             return phones;

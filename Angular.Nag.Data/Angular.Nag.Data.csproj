@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Repositories\CodeCamperUow.cs" />
+    <Compile Include="Repositories\AppsRepository.cs" />
+    <Compile Include="Repositories\IAppsRepository.cs" />
     <Compile Include="Repositories\IAccountsRepository.cs" />
     <Compile Include="Repositories\AccountsRepository.cs" />
     <Compile Include="Repositories\IPhonesRepository.cs" />

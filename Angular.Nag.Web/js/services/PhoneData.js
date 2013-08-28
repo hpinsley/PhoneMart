@@ -9,6 +9,20 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
     var phoneInstanceResource = $resource(nagApp.getServicesRoot() + "/api/accounts/:accountId/phones/:phoneInstanceId", { accountId: '@accountId', phoneInstanceId: '@phoneInstanceId' });
     var phoneResource = $resource(nagApp.getServicesRoot() + "/api/phones/:phoneId", { phoneId: '@phoneId' });
 
+    //Internal, generalized function to do a get and return a promise
+    function getDataPromise(getUrl) {
+        var deferred = $q.defer();
+        $http({ method: "GET", url: getUrl })
+            .success(function (data) {
+                deferred.resolve(data);
+            })
+            .error(function (error) {
+                deferred.reject(error);
+            });
+
+        return deferred.promise;
+    }
+
     return {
 
         getAccount: function (accountId) {
@@ -17,6 +31,10 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
 
         getAccounts: function () {
             return accountsResource.query();
+        },
+
+        getApps: function () {
+            return getDataPromise(nagApp.getServicesRoot() + "/api/apps");
         },
 
         getManufacturers: function () {
@@ -39,16 +57,7 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
 
         //Just to show how to do this without a resource and with $http       
         getPhones: function () {
-            var deferred = $q.defer();
-            $http({ method: "GET", url: nagApp.getServicesRoot() + "/api/phones" })
-                .success(function (data) {
-                    deferred.resolve(data);
-                })
-                .error(function (error) {
-                    deferred.reject(error);
-                });
-
-            return deferred.promise;
+            return getDataPromise(nagApp.getServicesRoot() + "/api/phones");
         },
 
         getPlan: function (planId, onSuccess) {
@@ -71,16 +80,7 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
 
         //Just to show how to do this without a resource and with $http       
         getPlans: function () {
-            var deferred = $q.defer();
-            $http({ method: "GET", url: nagApp.getServicesRoot() + "/api/plans" })
-                .success(function (data) {
-                    deferred.resolve(data);
-                })
-                .error(function (error) {
-                    deferred.reject(error);
-                });
-
-            return deferred.promise;
+            return getDataPromise(nagApp.getServicesRoot() + "/api/plans");
         }
     };
 });

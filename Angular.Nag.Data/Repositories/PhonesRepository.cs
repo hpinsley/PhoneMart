@@ -16,6 +16,7 @@ namespace Angular.Nag.Data.Repositories
             var phone = _phoneDb.Phones
                                 .Include(p => p.Manufacturer)
                                 .Include(p => p.Plans)
+                                .Include(p => p.Apps)
                                 .FirstOrDefault(p => p.PhoneId == id);
             return phone;
         }

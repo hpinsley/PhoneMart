@@ -6,17 +6,19 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
     $scope.manufacturers = phoneData.getManufacturers();
     $scope.plans = phoneData.getPlans();
     $scope.phone = phoneData.getPhone($routeParams.phoneId);
-
+    $scope.apps = phoneData.getApps();
+    
     //We need to wait until we have looked up the phone and also the
     //list of available plans.  For this we utilize the fact that both
     //are returned as promises.  The $q.all function takes an array of
     //promises and when ALL are resolve, it resolves with an array of
     //results.
     
-    $q.all([$scope.phone, $scope.plans])
+    $q.all([$scope.phone, $scope.plans, $scope.apps])
         .then(function(results) {
             var phone = results[0];
             var plans = results[1];
+            var apps = results[2];
 
             $scope.manufacturerId = phone.manufacturer.manufacturerId;
             $scope.model = phone.model;
@@ -33,6 +35,19 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
                 });
                 if (plan) {
                     plan.chosen = true;
+                }
+            });
+
+            // For each app that this phone has, find the app in the
+            // master list of apps and set a property called chosen to 
+            // true.  We bind off that property
+
+            _.each(phone.apps, function (phoneApp) {
+                var app = _.find(apps, function (anApp) {
+                    return anApp.appId == phoneApp.appId;
+                });
+                if (app) {
+                    app.chosen = true;
                 }
             });
         });

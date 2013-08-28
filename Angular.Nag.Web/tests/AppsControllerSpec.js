@@ -29,9 +29,11 @@ describe("AppsController", function () {
     }));
 
     it('should set the list of apps on the scope', function () {
-        httpMock.flush();
         expect(scope.apps).toBeDefined();
-        expect(angular.equals(scope.apps, apps)).toBeTruthy();
+        scope.apps.then(function (appList) {
+            expect(appList).toBe(apps);
+        });
+        httpMock.flush();
     });
 
 });

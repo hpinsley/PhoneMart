@@ -2,13 +2,8 @@
     <h1>{{phone.manufacturer.manufacturerName}} {{phone.model}}</h1>
     <form name="phoneForm" class="form-horizontal">
         <div class="row">
-            <div class="span12 text-center">
-                <img style="height: 100px" ng-src="img/phones/{{phone.imageFile}}" />                
-            </div>
-        </div>
-        <div class="row">
-            <div class="span6">
-                <h4>Model Info</h4>
+            <div class="span8">
+                <h3>Model Info</h3>
                 <div class="control-group">
                     <label class="control-label">Manufacturer:</label>
                     <div class="controls">
@@ -38,9 +33,14 @@
                     </div>
                 </div>
             </div>
+            <div class="span4">
+                <img style="height: 200px" ng-src="img/phones/{{phone.imageFile}}" />                
+            </div>
+        </div>
+        <div class="row">
             <div class="span6">
-                <h4>Plans</h4>
-                <fieldset>
+                <h4 class="text-center">Plans</h4>
+                <fieldset class="checklist offset1">
                     <div ng-repeat="plan in plans">
                         <div class="control-group">
                             <label class="control-label">{{plan.planName}}</label>
@@ -51,11 +51,9 @@
                     </div>
                 </fieldset>
             </div>
-        </div>
-        <div class="row">
-            <div class="span12">
-                <h4>Plans</h4>
-                <fieldset>
+            <div class="span6">
+                <h4 class="text-center">Apps</h4>
+                <fieldset class="checklist offset1">
                     <div ng-repeat="app in apps">
                         <div class="control-group">
                             <label class="control-label">{{app.name}}</label>
@@ -68,9 +66,8 @@
                 
             </div>
         </div>
-        <!-- row -->
         <div class="row">
-            <div class="span12 text-center">
+            <div class="span12 text-center" style="margin-top: 10px">
                 <button ng-click="updatePhone(plans)" class="btn btn-info btn-large" ng-disabled="!phoneForm.$valid">Update</button>
                 &nbsp;&nbsp;
                 <button ng-click="delete(phone)" class="btn btn-danger btn-large">Delete</button>

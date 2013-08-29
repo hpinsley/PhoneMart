@@ -40,16 +40,14 @@ table#planTable td:nth-child(2) {
 	text-align: right;
 }
 
+.form-horizontal fieldset.checklist .control-group {
+	margin-bottom: 1px;
+	height: auto;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.form-horizontal fieldset.checklist .control-group label.control-label {
+	margin-bottom: 0;
+	height: 16px;
+	line-height: 16px;
+	font-size: 16px;
+}

@@ -54,8 +54,8 @@ namespace Angular.Nag.Data {
             context.Plans.Add(plan4);
 
             var app1 = new App { Name = "Angry Birds", Description = "Get the evil pigs by launching the virtuous birds!", Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
-            var app2 = new App { Name = "Tweet Caster", Description = "The top of the line twitter client.", Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
-            var app3 = new App { Name = "Calendar", Description = "Keeps track of your appointments and more", Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
+            var app2 = new App { Name = "Tweet Caster", Description = "The top of the line twitter client.", Phones = new List<Phone> { global1000, starLight, galaxy, axis8 } };
+            var app3 = new App { Name = "Calendar", Description = "Keeps track of your appointments and more", Phones = new List<Phone> { starLight, swift4, galaxy, lgSlim } };
             var app4 = new App { Name = "Email", Description = "The best smartphone email client around.", Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
 
             context.Apps.Add(app1);

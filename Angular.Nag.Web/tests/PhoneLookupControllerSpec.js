@@ -13,6 +13,7 @@ describe("PhoneLookupController", function () {
     var phoneId = 9;
     var manufacturers = [{ manufacturerId: 1 }, { manufacturerId: 2 }];
     var plans = [{ planId: 1 }, { planId: 2 }, { planId: 3 }, { planId: 4 }];
+    var apps = [{ appId: 1 }, { appId: 2 }];
     var phone = {
         phoneId: phoneId,
         manufacturer: { manufacturerId: 2 },
@@ -34,6 +35,7 @@ describe("PhoneLookupController", function () {
         mockRouteParams = { phoneId: phoneId };
 
         httpMock.when("GET", nagApp.getServicesRoot() + "/api/manufacturers").respond(manufacturers);
+        httpMock.when("GET", nagApp.getServicesRoot() + "/api/apps").respond(apps);
         httpMock.when("GET", nagApp.getServicesRoot() + "/api/plans").respond(plans);
         httpMock.when("GET", nagApp.getServicesRoot() + "/api/phones/" + phoneId).respond(phone);
 

@@ -23,9 +23,8 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // GET api/apps/5
-        public string Get(int id)
-        {
-            return "value";
+        public App Get(int id) {
+            return _db.Apps.GetById(id);
         }
 
         // POST api/apps

@@ -14,6 +14,12 @@ nagApp.config(function ($routeProvider) {
                 templateUrl: 'templates/apps.html'
             })
 
+        .when('/apps/:appId',
+            {
+                controller: 'AppLookupController',
+                templateUrl: 'templates/app.html'
+            })
+
         .when('/phones',
             {
                 controller: 'PhoneController',

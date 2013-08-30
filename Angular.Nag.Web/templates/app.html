@@ -1,0 +1,40 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="span9">
+            <h2 class="text-info">App</h2>
+            <form name="appForm" class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">App Name:</label>
+                    <div class="controls">
+                        <input type="text" ng-model="appName" required ng-minlength="5" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Description:</label>
+                    <div class="controls">
+                        <input type="text" ng-model="appDescription" required ng-minlength="5" class="span6" />
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="span3">
+            <h2 class="text-info">Phones</h2>
+            <ul>
+                <li ng-repeat="phone in app.phones">
+                    <a href="#/phones/{{phone.phoneId}}">{{phone.manufacturer.manufacturerName}} {{phone.model}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12 text-center" style="margin-top: 10px">
+            <button ng-click="updateApp()" class="btn btn-info btn-large" ng-disabled="!appForm.$valid">Update</button>
+            &nbsp;&nbsp;
+                <button ng-click="delete(app)" class="btn btn-danger btn-large">Delete</button>
+            &nbsp;&nbsp;
+                <button ng-click="cancel()" class="btn btn-warning btn-large">Cancel</button>
+        </div>
+    </div>
+</div>

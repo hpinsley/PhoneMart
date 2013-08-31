@@ -266,6 +266,9 @@
   <ItemGroup>
     <Content Include="Scripts\jasmine\MIT.LICENSE" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\godaddy PhoneMart.pubxml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

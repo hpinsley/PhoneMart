@@ -12,7 +12,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Angular.Nag.Web.dll">
-      <publishTime>08/31/2013 14:21:58</publishTime>
+      <publishTime>08/31/2013 14:28:55</publishTime>
     </File>
     <File Include="bin/Glimpse.AspNet.dll">
       <publishTime>08/22/2013 17:14:44</publishTime>
@@ -411,7 +411,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/06/2013 15:20:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/31/2013 14:22:17</publishTime>
+      <publishTime>08/31/2013 14:29:37</publishTime>
     </File>
   </ItemGroup>
 </Project>

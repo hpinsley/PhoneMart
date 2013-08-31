@@ -12,16 +12,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Angular.Nag.Common.dll">
-      <publishTime>08/31/2013 12:15:55</publishTime>
+      <publishTime>08/31/2013 13:46:39</publishTime>
     </File>
     <File Include="bin/Angular.Nag.Data.dll">
-      <publishTime>08/31/2013 12:15:58</publishTime>
+      <publishTime>08/31/2013 13:46:42</publishTime>
     </File>
     <File Include="bin/Angular.Nag.Models.dll">
-      <publishTime>08/31/2013 12:15:55</publishTime>
+      <publishTime>08/31/2013 13:46:39</publishTime>
     </File>
     <File Include="bin/Angular.Nag.Services.dll">
-      <publishTime>08/31/2013 12:16:02</publishTime>
+      <publishTime>08/31/2013 13:46:46</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>07/09/2013 18:29:50</publishTime>
@@ -85,6 +85,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/Unity.WebApi.dll">
       <publishTime>07/14/2013 11:55:50</publishTime>
+    </File>
+    <File Include="bin/WebActivator.dll">
+      <publishTime>08/31/2013 13:17:33</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/09/2013 18:29:50</publishTime>
@@ -300,7 +303,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/09/2013 18:28:47</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>08/22/2013 17:14:55</publishTime>
+      <publishTime>08/31/2013 13:21:16</publishTime>
     </File>
     <File Include="Scripts/jquery-1.7.1.js">
       <publishTime>07/09/2013 18:29:25</publishTime>
@@ -363,7 +366,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/09/2013 18:28:47</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/31/2013 12:16:17</publishTime>
+      <publishTime>08/31/2013 13:47:07</publishTime>
     </File>
   </ItemGroup>
 </Project>

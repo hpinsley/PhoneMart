@@ -145,9 +145,12 @@
     <Content Include="Global.asax" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\phones\phone01.jpg" />
     <Content Include="img\phones\phone02.jpg" />
     <Content Include="img\phones\phone03.jpg" />
+    <Content Include="img\phones\phone03.png" />
     <Content Include="img\phones\phone04.jpg" />
+    <Content Include="img\phones\phone04.png" />
     <Content Include="index.html" />
     <Content Include="js\app.js" />
     <Content Include="js\controllers\AccountsController.js" />

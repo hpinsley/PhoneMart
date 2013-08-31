@@ -12,7 +12,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Angular.Nag.Web.dll">
-      <publishTime>08/31/2013 14:06:12</publishTime>
+      <publishTime>08/31/2013 14:21:58</publishTime>
     </File>
     <File Include="bin/Glimpse.AspNet.dll">
       <publishTime>08/22/2013 17:14:44</publishTime>
@@ -98,20 +98,29 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="img/glyphicons-halflings.png">
       <publishTime>07/06/2013 15:07:05</publishTime>
     </File>
+    <File Include="img/phones/phone01.jpg">
+      <publishTime>07/13/2013 15:46:04</publishTime>
+    </File>
     <File Include="img/phones/phone02.jpg">
       <publishTime>07/13/2013 15:52:05</publishTime>
     </File>
     <File Include="img/phones/phone03.jpg">
       <publishTime>09/10/2011 23:26:13</publishTime>
     </File>
+    <File Include="img/phones/phone03.png">
+      <publishTime>07/13/2013 15:54:10</publishTime>
+    </File>
     <File Include="img/phones/phone04.jpg">
       <publishTime>09/22/2010 09:24:56</publishTime>
+    </File>
+    <File Include="img/phones/phone04.png">
+      <publishTime>07/13/2013 15:55:38</publishTime>
     </File>
     <File Include="index.html">
       <publishTime>08/30/2013 19:03:37</publishTime>
     </File>
     <File Include="js/app.js">
-      <publishTime>08/30/2013 18:58:04</publishTime>
+      <publishTime>08/31/2013 14:21:55</publishTime>
     </File>
     <File Include="js/controllers/AccountLookupController.js">
       <publishTime>08/13/2013 09:12:32</publishTime>
@@ -402,7 +411,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/06/2013 15:20:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/31/2013 14:06:16</publishTime>
+      <publishTime>08/31/2013 14:22:17</publishTime>
     </File>
   </ItemGroup>
 </Project>

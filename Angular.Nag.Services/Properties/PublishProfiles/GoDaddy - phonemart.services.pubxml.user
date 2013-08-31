@@ -12,16 +12,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Angular.Nag.Common.dll">
-      <publishTime>08/31/2013 11:52:52</publishTime>
+      <publishTime>08/31/2013 12:15:55</publishTime>
     </File>
     <File Include="bin/Angular.Nag.Data.dll">
-      <publishTime>08/31/2013 11:52:54</publishTime>
+      <publishTime>08/31/2013 12:15:58</publishTime>
     </File>
     <File Include="bin/Angular.Nag.Models.dll">
-      <publishTime>08/31/2013 11:52:51</publishTime>
+      <publishTime>08/31/2013 12:15:55</publishTime>
     </File>
     <File Include="bin/Angular.Nag.Services.dll">
-      <publishTime>08/31/2013 11:12:57</publishTime>
+      <publishTime>08/31/2013 12:16:02</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>07/09/2013 18:29:50</publishTime>
@@ -363,7 +363,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/09/2013 18:28:47</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/31/2013 11:53:12</publishTime>
+      <publishTime>08/31/2013 12:16:17</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -36,4 +36,10 @@ describe("AppsController", function () {
         httpMock.flush();
     });
 
+    it('addApp() should redirect to /apps/add', function () {
+        httpMock.flush();
+        scope.addApp();
+        expect(location.path()).toBe("/apps/add");
+    });
+
 });

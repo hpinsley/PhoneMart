@@ -15,6 +15,12 @@ nagApp.config(function ($routeProvider) {
                 templateUrl: 'templates/apps.html'
             })
 
+        .when('/apps/add',
+            {
+                controller: 'NewAppController',
+                templateUrl: 'templates/newApp.html'
+            })
+
         .when('/apps/:appId',
             {
                 controller: 'AppLookupController',

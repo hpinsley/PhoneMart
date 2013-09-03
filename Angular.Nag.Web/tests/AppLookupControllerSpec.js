@@ -54,4 +54,5 @@ describe("AppLookupController", function () {
         httpMock.flush();
         expect(location.path()).toBe("/apps");
     });
+
 });

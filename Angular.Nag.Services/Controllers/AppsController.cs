@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using Angular.Nag.Data.Repositories;
 using Angular.Nag.Models;
@@ -28,8 +25,13 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // POST api/apps
-        public void Post([FromBody]string value)
+        public void Post(App newApp)
         {
+            var app = new App();
+            app.Name = newApp.Name;
+            app.Description = newApp.Description;
+            _db.Apps.Add(app);
+            _db.Commit();
         }
 
         // PUT api/apps/5

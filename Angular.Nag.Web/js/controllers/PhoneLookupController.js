@@ -72,10 +72,13 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
         });
     };
     
-    $scope.updatePhone = function(plans) {
+    $scope.updatePhone = function(plans, apps) {
 
         var chosenPlans = _.filter(plans, function(p) { return p.chosen; });
         var planIds = _.map(chosenPlans, function (p) { return p.planId; });
+
+        var chosenApps = _.filter(apps, function (a) { return a.chosen; });
+        var appIds = _.map(chosenApps, function (a) { return a.appId; });
         
         $http({
                 method: "PUT",
@@ -85,7 +88,8 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
                     model: $scope.model,
                     description: $scope.description,
                     price: $scope.price,
-                    planIds: planIds
+                    planIds: planIds,
+                    appIds: appIds
                 }
             })
         .success(function () {

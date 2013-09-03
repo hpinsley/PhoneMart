@@ -106,10 +106,10 @@ describe("PhoneLookupController", function () {
         expect(location.path()).toBe("/phones");
     });
 
-    it('update(plans) should PUT and redirect to /phones', function() {
+    it('update() should PUT and redirect to /phones', function() {
         httpMock.flush();
         httpMock.when("PUT", nagApp.getServicesRoot() + "/api/phones/" + phoneId).respond(200);
-        scope.updatePhone(plans);
+        scope.updatePhone(plans, apps);
         httpMock.flush();
         expect(location.path()).toBe("/phones");
     });

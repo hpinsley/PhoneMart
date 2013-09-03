@@ -53,6 +53,14 @@ namespace Angular.Nag.Services.Controllers
                     phone.Plans.Add(plan);
                 }
             }
+
+            var apps = _db.Apps.GetAll();
+            foreach (App app in apps) {
+                if (newPhone.AppIds.Contains(app.AppId)) {
+                    phone.Apps.Add(app);
+                }
+            }
+
             _db.Phones.Add(phone);
             _db.Commit();
 

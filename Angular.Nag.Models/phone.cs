@@ -19,6 +19,7 @@ namespace Angular.Nag.Models {
 
         public Phone() {
             Plans = new List<Plan>();
+            Apps = new List<App>();
         }
     }
 }

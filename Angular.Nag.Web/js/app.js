@@ -3,8 +3,8 @@
 var nagApp = angular.module('nagApp', ['ngResource']);
 
 nagApp.getServicesRoot = function() {
-    //return "http://localhost/Angular.Nag.Services";
-    return "http://howardpinsley.com/phonemart.services";
+    return "http://localhost/Angular.Nag.Services";
+    //return "http://howardpinsley.com/phonemart.services";
 };
 
 nagApp.config(function ($routeProvider) {

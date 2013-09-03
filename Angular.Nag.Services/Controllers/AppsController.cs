@@ -33,8 +33,13 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // PUT api/apps/5
-        public void Put(int id, [FromBody]string value)
-        {
+        public void Put(int id, [FromBody]App appUpdate) {
+            var app = _db.Apps.GetById(id);
+            if (app == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            app.Name = appUpdate.Name;
+            app.Description = appUpdate.Description;
+            _db.Commit();
         }
 
         // DELETE api/apps/5

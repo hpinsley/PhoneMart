@@ -46,4 +46,12 @@ describe("AppLookupController", function () {
         scope.cancel();
         expect(location.path()).toBe("/apps");
     });
+
+    it('update() should call PUT and redirect to /apps', function () {
+        httpMock.flush();
+        httpMock.when("PUT", nagApp.getServicesRoot() + "/api/apps/" + appId).respond(200);
+        scope.updateApp();
+        httpMock.flush();
+        expect(location.path()).toBe("/apps");
+    });
 });

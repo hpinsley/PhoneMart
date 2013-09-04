@@ -13,6 +13,7 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
     $scope.selectedPlanId = -1;
     $scope.selectedManufacturer = -1;
     $scope.selectedAppId = -1;
+
     
     //After the phones load, set a current phone to the first phone
     //if one is not already set.  Note that we set it on the root scope
@@ -38,6 +39,19 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
     $q.all([$scope.phones, $scope.plans]).then(function () {
         $scope.pleaseWait = false;
     });
+
+    $scope.showFilters = function(show) {
+        if (show) {
+            $("#filterBtn").hide();
+            $("#clearFilterBtn").show();
+            $("#filterToggle").slideDown();
+        } else {
+            $("#clearFilterBtn").hide();
+            $("#filterBtn").show();
+            $("#filterToggle").slideUp();
+            clearFilters();
+        }
+    };
     
     //When a new phone is selected, remember it by setting the "current phone"
     $scope.selectPhone = function (phone) {
@@ -96,6 +110,12 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
     //=================
     //Private functions
     //=================
+
+    function clearFilters() {
+        $scope.selectedPlanId = -1;
+        $scope.selectedManufacturer = -1;
+        $scope.selectedAppId = -1;
+    };
 
     //Private function to set the current phone on the root scope so 
     //that we remember it as we navigate the site.

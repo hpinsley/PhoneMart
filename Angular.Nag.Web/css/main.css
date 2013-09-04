@@ -39,14 +39,8 @@ table#planTable td:nth-child(2) {
     font-size: 16px; }
 
 div#phoneFilterControl {
-  background-color: gray;
   float: left;
   height: 80px; }
-  div#phoneFilterControl label {
-    color: yellow;
-    margin-top: 10px;
-    display: block;
-    font-size: 16pt; }
   div#phoneFilterControl button {
     margin-left: 3px;
     margin-top: 10px;

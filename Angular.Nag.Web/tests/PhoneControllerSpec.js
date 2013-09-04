@@ -12,6 +12,7 @@ describe("PhoneController", function () {
     var ctrl;
     var manufacturers = [{ manufacturerId: 1 }, { manufacturerId: 1 }];
     var plans = [{ planId: 1 }, { planId: 2 }];
+    var apps = [{ appId: 1 }, { appId: 2 }];
     
     beforeEach(module('nagApp'));
 
@@ -26,6 +27,7 @@ describe("PhoneController", function () {
         httpMock.when("GET", nagApp.getServicesRoot() + "/api/phones").respond(phones);
         httpMock.when("GET", nagApp.getServicesRoot() + "/api/manufacturers").respond(manufacturers);
         httpMock.when("GET", nagApp.getServicesRoot() + "/api/plans").respond(plans);
+        httpMock.when("GET", nagApp.getServicesRoot() + "/api/apps").respond(apps);
 
         ctrl = $controllerConstructor('PhoneController',
             { $scope: scope});

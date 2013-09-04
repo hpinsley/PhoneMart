@@ -83,7 +83,21 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
                 return (plan.planId == $scope.selectedPlanId);
             });
 
-        console.log("Filtering " + phone.model + " to be " + includePhone);
+        console.log("Plan Filtering " + phone.model + " to be " + includePhone);
+        return includePhone;
+    };
+
+    $scope.appFilter = function (phone) {
+        if ($scope.selectedAppId == -1)
+            return true;
+        //If there is a selected app, only include the phone 
+        //if its list of apps contains the selected one.
+        var includePhone = _.any(phone.apps,
+            function (app) {
+                return (app.appId == $scope.selectedAppId);
+            });
+
+        console.log("App Filtering " + phone.model + " to be " + includePhone);
         return includePhone;
     };
 
@@ -130,7 +144,8 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
 
     function currentPhoneIsFilteredOut() {
         return currentPhoneDoesntMatchSelectedManufacturer() ||
-            currentPhoneDoesntIncludeSelectedPlan();
+            currentPhoneDoesntIncludeSelectedPlan() ||
+            currentPhoneDoesntIncludeSelectedApp();
     }
 
     function currentPhoneDoesntIncludeSelectedPlan() {
@@ -147,6 +162,20 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
         });
     }
     
+    function currentPhoneDoesntIncludeSelectedApp() {
+        if ($scope.selectedAppId == -1)
+            return false;
+        if (!$scope.currentPhone)
+            return false;
+
+        //We have a phone and a selected app.  See if any of the phone's included
+        //apps match the selected plan
+
+        return !_.any($scope.currentPhone.apps, function (app) {
+            return (app.appId == $scope.selectedAppId);
+        });
+    }
+
     function currentPhoneDoesntMatchSelectedManufacturer() {
         var filteredManufacturerId = $scope.propertiesFilter["manufacturer.manufacturerId"];
 

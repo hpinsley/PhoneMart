@@ -1,53 +1,71 @@
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
 h1 {
-	margin-top: 0;
-}
+  margin-top: 0; }
 
 .table {
-	border-width: 2px;
-	border-color: black;
-}
+  border-width: 2px;
+  border-color: black; }
+
 .table thead {
-	background-color: black;
-	color: yellow;
-}
+  background-color: black;
+  color: yellow; }
 
 /* Plans table formatting */
 table#plansTable th, table#plansTable td {
-	text-align: right;
-}
+  text-align: right; }
 
-table#plansTable th:nth-child(1),table#plansTable td:nth-child(1) {
-	text-align: left;
-}
+table#plansTable th:nth-child(1), table#plansTable td:nth-child(1) {
+  text-align: left; }
 
 /* Accounts table formatting */
 table#accountsTable th, table#accountsTable td {
-	text-align: left;
-}
+  text-align: left; }
 
-table#accountsTable th:nth-child(1),table#accountsTable td:nth-child(1) {
-	text-align: right;
-}
-table#accountsTable th:nth-child(5),table#accountsTable td:nth-child(5) {
-	text-align: right;
-}
+table#accountsTable th:nth-child(1), table#accountsTable td:nth-child(1) {
+  text-align: right; }
+
+table#accountsTable th:nth-child(5), table#accountsTable td:nth-child(5) {
+  text-align: right; }
 
 table#planTable td:nth-child(2) {
-	text-align: right;
-}
+  text-align: right; }
 
 .form-horizontal fieldset.checklist .control-group {
-	margin-bottom: 1px;
-	height: auto;
-}
+  margin-bottom: 1px;
+  height: auto; }
+  .form-horizontal fieldset.checklist .control-group label.control {
+    margin-bottom: 0;
+    height: 16px;
+    line-height: 16px;
+    font-size: 16px; }
 
-.form-horizontal fieldset.checklist .control-group label.control-label {
-	margin-bottom: 0;
-	height: 16px;
-	line-height: 16px;
-	font-size: 16px;
-}
+div#phoneFilterControl {
+  background-color: gray;
+  float: left;
+  height: 80px; }
+  div#phoneFilterControl label {
+    color: yellow;
+    margin-top: 10px;
+    display: block;
+    font-size: 16pt; }
+  div#phoneFilterControl button {
+    margin-left: 3px;
+    margin-top: 10px;
+    display: block; }
+
+div#phoneFilters {
+  font-size: 8pt;
+  float: left;
+  height: 80px; }
+  div#phoneFilters div.phoneFilter {
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    line-height: 25px; }
+    div#phoneFilters div.phoneFilter label {
+      display: inline-block;
+      width: 100px;
+      text-align: right;
+      font-size: 8pt; }
+    div#phoneFilters div.phoneFilter select {
+      font-size: 8pt; }
+

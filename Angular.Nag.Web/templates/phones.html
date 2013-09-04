@@ -1,28 +1,39 @@
 ﻿<div class="container">
     <div class="row">
-        <div class="span2">
+        <div class="span6">
             <h1>Phones</h1>
+            <button class="btn btn-info" ng-click="addPhone()">Add</button>
         </div>
 
-        <div class="span1">
-            <button class="btn-info btn-large" ng-click="addPhone()">Add</button>
-        </div>
-        <div class="span9">
-            <span class="text-info">Plans:</span>
-            <select ng-model="selectedPlanId" ng-options="plan.planId as plan.planName for plan in plans">
-            </select>
-            &nbsp;&nbsp;
-            <span class="text-info">Manufacturers:</span>
-            <select ng-model="selectedManufacturer" ng-selected="manufacturerSelected()">
-                <option value="-1">(all)</option>
-                <option ng-repeat="manufacturer in manufacturers" value="{{manufacturer.manufacturerId}}">{{manufacturer.manufacturerName}}</option>
-            </select>
+        <div id="filtersSection" class="span6">
+            <div id="phoneFilterControl">
+                <label class="text-info">Filters</label>
+                <button class="btn btn-info btn-small">Clear</button>
+            </div>
+            <div id="phoneFilters">
+                <div class="phoneFilter">
+                    <label class="text-info">Apps:</label>
+                    <select ng-model="selectedAppId" ng-options="app.appId as app.name for app in apps">
+                    </select>
+                </div>
+                <div class="phoneFilter">
+                    <label class="text-info">Plans:</label>
+                    <select ng-model="selectedPlanId" ng-options="plan.planId as plan.planName for plan in plans">
+                    </select>
+                </div>
+                <div class="phoneFilter">
+                    <label class="text-info">Manufacturers:</label>
+                    <select ng-model="selectedManufacturer" ng-selected="manufacturerSelected()">
+                        <option value="-1">(all)</option>
+                        <option ng-repeat="manufacturer in manufacturers" value="{{manufacturer.manufacturerId}}">{{manufacturer.manufacturerName}}</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </div>
-
     <div class="row">
         <div class="span12">
-            <please-wait message="Loading phones.  Please wait..."/>
+            <please-wait message="Loading phones.  Please wait..." />
         </div>
     </div>
 

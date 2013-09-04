@@ -4,13 +4,15 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
 
     $scope.pleaseWait = ($scope.applicationRunning) ? false : true;
     $scope.$root.applicationRunning = true; //We only want to put up the please wait on the first load of the controller
-    
+
+    $scope.apps = phoneData.getApps();
     $scope.phones = phoneData.getPhones(); //this is a promise that Angular knows how to bind to
     $scope.manufacturers = phoneData.getManufacturers();
     $scope.plans = phoneData.getPlans();
     $scope.propertiesFilter = {};
     $scope.selectedPlanId = -1;
     $scope.selectedManufacturer = -1;
+    $scope.selectedAppId = -1;
     
     //After the phones load, set a current phone to the first phone
     //if one is not already set.  Note that we set it on the root scope
@@ -29,6 +31,10 @@ nagApp.controller('PhoneController', function PhoneController($scope, phoneData,
         planList.unshift({ planId: -1, planName: "(all)" });
     });
 
+    $scope.apps.then(function(appList) {
+        appList.unshift({ appId: -1, name: "(all)" });
+    });
+    
     $q.all([$scope.phones, $scope.plans]).then(function () {
         $scope.pleaseWait = false;
     });

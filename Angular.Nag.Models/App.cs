@@ -6,6 +6,7 @@ namespace Angular.Nag.Models {
         public int AppId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public decimal Price { get; set; }
 
         public List<Phone> Phones { get; set; }
 

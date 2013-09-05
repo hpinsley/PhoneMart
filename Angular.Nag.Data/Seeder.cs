@@ -52,10 +52,10 @@ namespace Angular.Nag.Data {
             context.Plans.Add(plan3);
             context.Plans.Add(plan4);
 
-            var app1 = new App { Name = "Angry Birds", Description = "Get the evil pigs by launching the virtuous birds!", Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
-            var app2 = new App { Name = "Tweet Caster", Description = "The top of the line twitter client.", Phones = new List<Phone> { global1000, starLight, galaxy, axis8 } };
-            var app3 = new App { Name = "Calendar", Description = "Keeps track of your appointments and more", Phones = new List<Phone> { starLight, swift4, galaxy, lgSlim } };
-            var app4 = new App { Name = "Email", Description = "The best smartphone email client around.", Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
+            var app1 = new App { Name = "Angry Birds", Price = 2.99m ,Description = "Get the evil pigs by launching the virtuous birds!", Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
+            var app2 = new App { Name = "Tweet Caster", Price = 1.99m, Description = "The top of the line twitter client.", Phones = new List<Phone> { global1000, starLight, galaxy, axis8 } };
+            var app3 = new App { Name = "Calendar", Price = 0m, Description = "Keeps track of your appointments and more", Phones = new List<Phone> { starLight, swift4, galaxy, lgSlim } };
+            var app4 = new App { Name = "Email", Price = 0m, Description = "The best smartphone email client around.", Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
 
             context.Apps.Add(app1);
             context.Apps.Add(app2);
@@ -73,9 +73,9 @@ namespace Angular.Nag.Data {
             context.SaveChanges();
 
             var howardPhone1 = new PhoneInstance { Phone = global1000, PhonePlan = plan1, SerialNumber = "1XGY765-FDRFG-34JFKEK", PhoneNumber = "111-424-0430" };
-            var howardPhone2 = new PhoneInstance { Phone = android200, PhonePlan = plan2, SerialNumber = "2XGY765-FDRFG-34JFKEK", PhoneNumber = "222-424-0430" };
+            var howardPhone2 = new PhoneInstance { Phone = starLight, PhonePlan = plan2, SerialNumber = "2XGY765-FDRFG-34JFKEK", PhoneNumber = "222-424-0430" };
             var davidPhone1 = new PhoneInstance { Phone = swift4, PhonePlan = plan3, SerialNumber = "3XGY765-FDRFG-34JFKEK", PhoneNumber = "333-424-0430" };
-            var davidPhone2 = new PhoneInstance { Phone = swift5, PhonePlan = plan4, SerialNumber = "4XGY765-FDRFG-34JFKEK", PhoneNumber = "444-424-0430" };
+            var davidPhone2 = new PhoneInstance { Phone = lgSlim, PhonePlan = plan4, SerialNumber = "4XGY765-FDRFG-34JFKEK", PhoneNumber = "444-424-0430" };
 
             context.PhoneInstances.Add(howardPhone1);
             context.PhoneInstances.Add(howardPhone2);

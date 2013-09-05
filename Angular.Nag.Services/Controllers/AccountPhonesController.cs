@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -110,6 +109,8 @@ namespace Angular.Nag.Services.Controllers
 
                 DbEntityEntry<Phone> phoneEntry = _db.PhoneDb.Entry(phoneInstance.Phone);
                 phoneEntry.Reference(p => p.Manufacturer).Load();
+                phoneEntry.Collection(p => p.Plans).Load();
+                phoneEntry.Collection(p => p.Apps).Load();
             }
         }
 

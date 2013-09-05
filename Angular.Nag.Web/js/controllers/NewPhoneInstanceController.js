@@ -6,6 +6,16 @@ nagApp.controller('NewPhoneInstanceController', function NewPhoneInstanceControl
     $scope.phones = phoneData.getPhones();
     $scope.plans = phoneData.getPlans();
 
+    $scope.$watch("phoneId", function () {
+        if (!$scope.phoneId)
+            return;
+        
+        alert("Phone id changed to " + $scope.phoneId);
+        //Since the phone selection changed, we have to also change
+        //the plan dropdown so it includes only the plans associated
+        //with the phone model.
+    });
+    
     $scope.cancel = function() {
         $location.path("/accounts/" + $scope.accountId);
     };

@@ -1,12 +1,11 @@
 ﻿<div class="container">
-    <h1>Add Phone to Account {{accountId}}</h1>
+    <h1>Add Phone to Account {{accountId}} - {{account.accountHolder.fullName}}</h1>
 
     <form name="addPhoneForm" class="form-horizontal">
         <div class="control-group">
             <label class="control-label">Model:</label>
             <div class="controls">
-                <select ng-model="phoneId">
-                    <option ng-repeat="phone in phones" value="{{phone.phoneId}}">{{phone.model}}</option>
+                <select ng-model="selectedPhone" ng-options="phone.model for phone in phones">
                 </select>
             </div>
         </div>
@@ -26,8 +25,7 @@
         <div class="control-group">
             <label class="control-label">Plan:</label>
             <div class="controls">
-                <select ng-model="phonePlanId">
-                    <option ng-repeat="plan in plans" value="{{plan.planId}}">{{plan.planName}}</option>
+                <select ng-model="selectedPlan" ng-options="plan.planName for plan in selectedPhone.plans">
                 </select>
             </div>
         </div>

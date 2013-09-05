@@ -4,18 +4,8 @@ nagApp.controller('NewPhoneInstanceController', function NewPhoneInstanceControl
 
     $scope.accountId = $routeParams.accountId;
     $scope.phones = phoneData.getPhones();
-    $scope.plans = phoneData.getPlans();
+    $scope.account = phoneData.getAccount($routeParams.accountId);
 
-    $scope.$watch("phoneId", function () {
-        if (!$scope.phoneId)
-            return;
-        
-        alert("Phone id changed to " + $scope.phoneId);
-        //Since the phone selection changed, we have to also change
-        //the plan dropdown so it includes only the plans associated
-        //with the phone model.
-    });
-    
     $scope.cancel = function() {
         $location.path("/accounts/" + $scope.accountId);
     };
@@ -28,10 +18,10 @@ nagApp.controller('NewPhoneInstanceController', function NewPhoneInstanceControl
             url: nagApp.getServicesRoot() + "/api/accounts/" + accountId + "/phones",
             data: {
                 accountId: accountId,
-                phoneId: $scope.phoneId,
+                phoneId: $scope.selectedPhone.phoneId,
                 serialNumber: $scope.serialNumber,
                 phoneNumber: $scope.phoneNumber,
-                phonePlanId: $scope.phonePlanId
+                phonePlanId: $scope.selectedPlan.planId
             }
         })
         .success(function () {

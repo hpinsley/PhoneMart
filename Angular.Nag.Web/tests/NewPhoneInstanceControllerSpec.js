@@ -9,9 +9,9 @@ describe("NewPhoneInstanceController", function () {
     var q;
     var ctrl;
     var accountId = 5;
-    
-    var phones = [{ phoneId: 1 }, { phoneId: 2 }];
-    var plans = [{ planId: 1 }, { planId: 2 }];
+
+    var account = { accountId: accountId };
+    var phones = [{ phoneId: 1, plans: [ { planId: 1} ] }, { phoneId: 2, plans: [ { planId: 1}] }];
 
     beforeEach(module('nagApp'));
 
@@ -23,7 +23,7 @@ describe("NewPhoneInstanceController", function () {
         q = $q;
 
         httpMock.when("GET", nagApp.getServicesRoot() + "/api/phones").respond(phones);
-        httpMock.when("GET", nagApp.getServicesRoot() + "/api/plans").respond(plans);
+        httpMock.when("GET", nagApp.getServicesRoot() + "/api/accounts/" + accountId).respond(account);
 
         var mockRouteParams = { accountId: accountId };
         ctrl = $controllerConstructor('NewPhoneInstanceController',
@@ -51,17 +51,6 @@ describe("NewPhoneInstanceController", function () {
         httpMock.flush();
     });
 
-    it('should get the list of plans', function () {
-        expect(scope.plans).toBeDefined();
-        //scope.plans is a promise.  You need to setup the then call before the flush
-        //or this code won't fire.
-        scope.plans.then(function (planList) {
-            expect(planList).toBeDefined();
-            expect(planList).toBe(plans);
-        });
-        httpMock.flush();
-    });
-
     it('should redirect to /accounts/:accountId when cancel() is called', function () {
         httpMock.flush();
         scope.cancel();
@@ -71,6 +60,10 @@ describe("NewPhoneInstanceController", function () {
     it('should POST and redirect to /accounts/:accountId when addPhone() is called', function() {
         httpMock.flush();
         httpMock.when("POST", nagApp.getServicesRoot() + "/api/accounts/" + accountId + "/phones").respond(200);
+
+        scope.selectedPhone = phones[0];
+        scope.selectedPlan = phones[0].plans[0];
+        
         scope.addPhone(accountId);
         httpMock.flush();
         expect(location.path()).toBe("/accounts/" + accountId);

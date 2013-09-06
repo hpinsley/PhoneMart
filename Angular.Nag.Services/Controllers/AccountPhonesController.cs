@@ -106,6 +106,7 @@ namespace Angular.Nag.Services.Controllers
                 DbEntityEntry<PhoneInstance> piEntry = _db.PhoneDb.Entry(phoneInstance);
                 piEntry.Reference(pi => pi.Phone).Load();
                 piEntry.Reference(pi => pi.PhonePlan).Load();
+                piEntry.Collection(pi => pi.Apps).Load();
 
                 DbEntityEntry<Phone> phoneEntry = _db.PhoneDb.Entry(phoneInstance.Phone);
                 phoneEntry.Reference(p => p.Manufacturer).Load();

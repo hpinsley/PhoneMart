@@ -9,9 +9,15 @@ namespace Angular.Nag.Models {
         public decimal Price { get; set; }
 
         public List<Phone> Phones { get; set; }
+        public List<PhoneInstance> PhoneInstances { get; set; }
 
         public override string ToString() {
             return string.Format("App: Id: {0}, Name: {1}", AppId, Name);
+        }
+
+        public App() {
+            Phones = new List<Phone>();
+            PhoneInstances = new List<PhoneInstance>();
         }
     }
 }

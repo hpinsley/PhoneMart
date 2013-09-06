@@ -22,6 +22,10 @@ nagApp.controller('PhoneInstanceLookupController',
                 $scope.phonePlanId = phoneInstance.phonePlan.planId;
             }
         );
+
+        $scope.cancel = function() {
+            $location.path("/accounts/" + $scope.accountId);
+        };
         
         $scope.updatePhoneInstance = function (accountId, phoneInstanceId) {
             console.log("Updating phone instance " + phoneInstanceId + " for account " + accountId);

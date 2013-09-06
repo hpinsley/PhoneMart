@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Configuration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using Angular.Nag.Models;
 
@@ -60,6 +58,10 @@ namespace Angular.Nag.Data
             modelBuilder.Entity<PhoneInstance>()
                         .Property(pi => pi.SerialNumber).IsRequired();
 
+            modelBuilder.Entity<PhoneInstance>()
+                        .HasMany(pi => pi.Apps)
+                        .WithMany(app => app.PhoneInstances);
+
             /*
              *  public int AccountId { get; set; }
         public Person AccountHolder { get; set; }
@@ -69,8 +71,6 @@ namespace Angular.Nag.Data
                 .Property(ac => ac.AccountId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Account>().HasRequired(ac => ac.AccountHolder);
             modelBuilder.Entity<Account>().HasMany(ac => ac.Phones);
-                        
-
 
             base.OnModelCreating(modelBuilder);
         }

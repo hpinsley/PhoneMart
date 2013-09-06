@@ -98,5 +98,10 @@ describe("PhoneInstanceLookupController", function () {
         httpMock.flush();
         expect(location.path()).toBe("/accounts/" + accountId);
     });
+    it('cancel() should redirect to the account', function () {
+        httpMock.flush();
+        scope.cancel();
+        expect(location.path()).toBe("/accounts/" + accountId);
+    });
 
 });

@@ -32,13 +32,12 @@
                 </div>
                 <button ng-click="updatePhoneInstance(accountId, phoneInstanceId)" class="btn btn-inverse" ng-disabled="!updatePhoneForm.$valid">Update</button>
                 <button ng-click="deletePhoneInstance(accountId, phoneInstanceId)" class="btn btn-warning">Delete</button>
+                <button ng-click="cancel()" class="btn btn-info">Back</button>
             </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="well">
-            <span class="icon-chevron-up"></span>
-            <a href="#/accounts/{{accountId}}">Back to Account</a>
+            <h3>Apps</h3>
+            <ul>
+                <li ng-repeat="app in phoneInstance.apps">{{app.name}}</li>
+            </ul>
         </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ nagApp.controller('AppLookupController', function AppLookupController($scope, $r
         function(app) {
             $scope.appName = app.name;
             $scope.appDescription = app.description;
+            $scope.appPrice = app.price;
         });
 
     $scope.cancel = function () {
@@ -20,7 +21,8 @@ nagApp.controller('AppLookupController', function AppLookupController($scope, $r
             url: nagApp.getServicesRoot() + "/api/apps/" + appId,
             data: {
                 name: $scope.appName,
-                description: $scope.appDescription
+                description: $scope.appDescription,
+                price: $scope.appPrice
             }
         })
         .success(function () {

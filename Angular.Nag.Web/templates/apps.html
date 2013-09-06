@@ -11,12 +11,14 @@
                     <tr>
                         <th>App</th>
                         <th>Description</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="app in apps">
                         <td><a href="#/apps/{{app.appId}}">{{app.name}}</a></td>
                         <td>{{app.description}}</td>
+                        <td>{{app.price | currency}}</td>
                     </tr>
                 </tbody>
             </table>

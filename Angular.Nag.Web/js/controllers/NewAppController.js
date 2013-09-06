@@ -13,7 +13,8 @@ nagApp.controller('NewAppController', function NewAppController($scope, phoneDat
                 url: nagApp.getServicesRoot() + "/api/apps",
                 data: {
                     name: $scope.appName,
-                    description: $scope.appDescription
+                    description: $scope.appDescription,
+                    price: $scope.appPrice
                 }
             })
         .success(function () {

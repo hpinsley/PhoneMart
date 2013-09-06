@@ -30,6 +30,7 @@ namespace Angular.Nag.Services.Controllers
             var app = new App();
             app.Name = newApp.Name;
             app.Description = newApp.Description;
+            app.Price = newApp.Price;
             _db.Apps.Add(app);
             _db.Commit();
         }
@@ -41,6 +42,7 @@ namespace Angular.Nag.Services.Controllers
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             app.Name = appUpdate.Name;
             app.Description = appUpdate.Description;
+            app.Price = appUpdate.Price;
             _db.Commit();
         }
 

@@ -52,10 +52,10 @@ namespace Angular.Nag.Data {
             context.Plans.Add(plan3);
             context.Plans.Add(plan4);
 
-            var angryBirds = new App { Name = "Angry Birds", Price = 2.99m ,Description = "Get the evil pigs by launching the virtuous birds!", Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
+            var angryBirds = new App { Name = "Angry Birds", Price = 2.99m ,Description = "Get the evil pigs by launching the virtuous birds!", Phones = new List<Phone> { global1000, swift4, galaxy, axis8, lgSlim } };
             var tweetCaster = new App { Name = "Tweet Caster", Price = 1.99m, Description = "The top of the line twitter client.", Phones = new List<Phone> { global1000, starLight, galaxy, axis8 } };
-            var calendar = new App { Name = "Calendar", Price = 0m, Description = "Keeps track of your appointments and more", Phones = new List<Phone> { starLight, swift4, galaxy, lgSlim } };
-            var email = new App { Name = "Email", Price = 0m, Description = "The best smartphone email client around.", Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
+            var calendar = new App { Name = "Calendar", Price = 0m, Description = "Keeps track of your appointments and more", Phones = new List<Phone> { global1000, starLight, swift4, galaxy, lgSlim } };
+            var email = new App { Name = "Email", Price = 0m, Description = "The best smartphone email client around.", Phones = new List<Phone> { global1000, swift4, galaxy, axis8, starLight } };
 
             context.Apps.Add(angryBirds);
             context.Apps.Add(tweetCaster);

@@ -67,15 +67,22 @@ namespace Angular.Nag.Data
                         .HasMany(pi => pi.Apps)
                         .WithMany(app => app.PhoneInstances);
 
-            /*
-             *  public int AccountId { get; set; }
-        public Person AccountHolder { get; set; }
-        public List<PhoneInstance> Phones { get; set; }*/
-
             modelBuilder.Entity<Account>()
                 .Property(ac => ac.AccountId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Account>().HasRequired(ac => ac.AccountHolder);
             modelBuilder.Entity<Account>().HasMany(ac => ac.Phones);
+
+            /*
+            modelBuilder.Entity<Accessory>()
+                .ToTable("Accessories");
+
+            modelBuilder.Entity<Accessory>()
+                .Property(a => a.Category).HasColumnType("nvarchar(max)");
+
+            modelBuilder.Entity<Accessory>()
+                .Map<PhoneCharger>(m => m.Requires("Category").HasValue("Charger"))
+                .Map<PhoneCase>(m => m.Requires("Category").HasValue("Case"));
+            */
 
             base.OnModelCreating(modelBuilder);
         }

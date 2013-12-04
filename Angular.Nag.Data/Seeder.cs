@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using Angular.Nag.Models;
 
 namespace Angular.Nag.Data {
@@ -15,12 +16,12 @@ namespace Angular.Nag.Data {
             var uranus = new Manufacturer { ManufacturerName = "Uranus" };
             var pluto = new Manufacturer { ManufacturerName = "Pluto" };
 
-            context.Manufacturers.Add(mercury);
-            context.Manufacturers.Add(venus);
-            context.Manufacturers.Add(mars);
-            context.Manufacturers.Add(jupiter);
-            context.Manufacturers.Add(saturn);
-            context.Manufacturers.Add(uranus);
+            context.Manufacturers.AddOrUpdate(mercury);
+            context.Manufacturers.AddOrUpdate(venus);
+            context.Manufacturers.AddOrUpdate(mars);
+            context.Manufacturers.AddOrUpdate(jupiter);
+            context.Manufacturers.AddOrUpdate(saturn);
+            context.Manufacturers.AddOrUpdate(uranus);
 
             var global1000 = new Phone { Manufacturer = pluto, Model = "Global 1000", Price = 25.0m, Description = @"Capture more of the moment with a 41 megapixel camera sensor, Full HD video and Pluto's Great Recording for incredible sound quality.", ImageFile = "phone01.jpg" };
             var android200 = new Phone { Manufacturer = saturn, Model = "Android 200", Price = 75.0m, Description = @"Saturn's Android 200 sets the gold standard among Android phones.", ImageFile = "phone02.jpg" };

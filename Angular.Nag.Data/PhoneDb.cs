@@ -14,6 +14,11 @@ namespace Angular.Nag.Data
             //this.Configuration.LazyLoadingEnabled = false;
         }
 
+        //Default constructor used for code migrations
+        public PhoneDb() { 
+
+        }
+
         public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Plan> Plans { get; set; }

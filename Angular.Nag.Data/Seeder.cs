@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.Linq;
 using Angular.Nag.Models;
 
 namespace Angular.Nag.Data {
@@ -8,6 +9,7 @@ namespace Angular.Nag.Data {
         public static void Seed(PhoneDb context) {
             System.Diagnostics.Trace.WriteLine("Seeding phone values");
 
+            //Manufacurers
             var mercury = new Manufacturer { ManufacturerName = "Mercury" };
             var venus = new Manufacturer { ManufacturerName = "Venus" };
             var mars = new Manufacturer { ManufacturerName = "Mars" };
@@ -15,14 +17,9 @@ namespace Angular.Nag.Data {
             var saturn = new Manufacturer { ManufacturerName = "Saturn" };
             var uranus = new Manufacturer { ManufacturerName = "Uranus" };
             var pluto = new Manufacturer { ManufacturerName = "Pluto" };
+            context.Manufacturers.AddOrUpdate(m => m.ManufacturerName, mercury, venus, mars, jupiter, saturn, uranus);
 
-            context.Manufacturers.AddOrUpdate(mercury);
-            context.Manufacturers.AddOrUpdate(venus);
-            context.Manufacturers.AddOrUpdate(mars);
-            context.Manufacturers.AddOrUpdate(jupiter);
-            context.Manufacturers.AddOrUpdate(saturn);
-            context.Manufacturers.AddOrUpdate(uranus);
-
+            //Phones
             var global1000 = new Phone { Manufacturer = pluto, Model = "Global 1000", Price = 25.0m, Description = @"Capture more of the moment with a 41 megapixel camera sensor, Full HD video and Pluto's Great Recording for incredible sound quality.", ImageFile = "phone01.jpg" };
             var android200 = new Phone { Manufacturer = saturn, Model = "Android 200", Price = 75.0m, Description = @"Saturn's Android 200 sets the gold standard among Android phones.", ImageFile = "phone02.jpg" };
             var swift4 = new Phone { Manufacturer = mercury, Model = "Swift 4", Price = 175.0m, Description = @"The Swift 4 is Mercury's upgrade on the revolutionary Swift.  It features the touch-screen user interface that has set the standard in consumer smart phones.", ImageFile = "phone03.png" };
@@ -31,71 +28,53 @@ namespace Angular.Nag.Data {
             var axis8 = new Phone { Manufacturer = uranus, Model = "Axis 8", Price = 125.0m, Description = @"The Axis 8 phone is Uranus's first entry into the smart phone market that is based on its new Cosmo-style user interface", ImageFile = "phone01.jpg" };
             var lgSlim = new Phone { Manufacturer = mars, Model = "Slimline", Price = 75.0m, Description = @"The original flip phone with its simple-to-use interface.", ImageFile = "phone01.jpg" };
             var starLight = new Phone { Manufacturer = jupiter, Model = "Star Light", Price = 175.0m, Description = @"Jupiters's top of the line phone.", ImageFile = "phone02.jpg" };
-
-            context.Phones.Add(global1000);
-            context.Phones.Add(android200);
-            context.Phones.Add(swift4);
-            context.Phones.Add(swift5);
-            context.Phones.Add(galaxy);
-            context.Phones.Add(axis8);
-            context.Phones.Add(lgSlim);
-            context.Phones.Add(starLight);
-
+            context.Phones.AddOrUpdate(p => p.Model, global1000, android200, swift4, swift5, galaxy, axis8, lgSlim, starLight);
             context.SaveChanges();
 
+            //Plans
             var plan1 = new Plan { PlanName = "Family Text and Talk", MonthlyCost = 100.0m, DataMegabytes = 1000, VoiceMinutes = 500, Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
             var plan2 = new Plan { PlanName = "Yappers and Texters", MonthlyCost = 50.0m, DataMegabytes = 500, VoiceMinutes = 250, Phones = new List<Phone> { global1000, swift4, swift5, starLight } };
             var plan3 = new Plan { PlanName = "Teenage Text Special", MonthlyCost = 50.0m, DataMegabytes = 1000, VoiceMinutes = 150, Phones = new List<Phone> { android200, swift4, swift5, galaxy, starLight } };
             var plan4 = new Plan { PlanName = "Frugal Family", MonthlyCost = 25.0m, DataMegabytes = 250, VoiceMinutes = 250, Phones = new List<Phone> { global1000, swift4, axis8, lgSlim } };
+            context.Plans.AddOrUpdate(p => p.PlanName, plan1, plan2, plan3, plan4);
+            context.SaveChanges();
 
-            context.Plans.Add(plan1);
-            context.Plans.Add(plan2);
-            context.Plans.Add(plan3);
-            context.Plans.Add(plan4);
-
+            //Apps
             var angryBirds = new App { Name = "Angry Birds", Price = 2.99m ,Description = "Get the evil pigs by launching the virtuous birds!", Phones = new List<Phone> { global1000, swift4, galaxy, axis8, lgSlim } };
             var tweetCaster = new App { Name = "Tweet Caster", Price = 1.99m, Description = "The top of the line twitter client.", Phones = new List<Phone> { global1000, starLight, galaxy, axis8 } };
             var calendar = new App { Name = "Calendar", Price = 0m, Description = "Keeps track of your appointments and more", Phones = new List<Phone> { global1000, starLight, swift4, galaxy, lgSlim } };
             var email = new App { Name = "Email", Price = 0m, Description = "The best smartphone email client around.", Phones = new List<Phone> { global1000, swift4, galaxy, axis8, starLight } };
-
-            context.Apps.Add(angryBirds);
-            context.Apps.Add(tweetCaster);
-            context.Apps.Add(calendar);
-            context.Apps.Add(email);
-
+            context.Apps.AddOrUpdate(a => a.Name, angryBirds, tweetCaster, calendar, email);
             context.SaveChanges();
 
+            //People
             var howard = new Person { FullName = "Pinsley, Howard", ContactPhoneNumber = "914-424-0430", EmailAddress = "hpinsley@gmail.com" };
             var david = new Person { FullName = "Pinsley, David", ContactPhoneNumber = "914-424-0431", EmailAddress = "luckypilar@gmail.com" };
-
-            context.People.Add(howard);
-            context.People.Add(david);
-
+            context.People.AddOrUpdate(p => p.FullName, howard, david);
             context.SaveChanges();
 
+            //PhoneInstance
             var howardPhone1 = new PhoneInstance { Phone = global1000, PhonePlan = plan1, SerialNumber = "1XGY765-FDRFG-34JFKEK", PhoneNumber = "111-424-0430", Apps = new List<App>{ email, calendar}};
             var howardPhone2 = new PhoneInstance { Phone = starLight, PhonePlan = plan2, SerialNumber = "2XGY765-FDRFG-34JFKEK", PhoneNumber = "222-424-0430", Apps = new List<App> { email, tweetCaster } };
             var davidPhone1 = new PhoneInstance { Phone = swift4, PhonePlan = plan3, SerialNumber = "3XGY765-FDRFG-34JFKEK", PhoneNumber = "333-424-0430", Apps = new List<App> { email, angryBirds } };
             var davidPhone2 = new PhoneInstance { Phone = lgSlim, PhonePlan = plan4, SerialNumber = "4XGY765-FDRFG-34JFKEK", PhoneNumber = "444-424-0430", Apps = new List<App> { angryBirds, calendar } };
-
-            context.PhoneInstances.Add(howardPhone1);
-            context.PhoneInstances.Add(howardPhone2);
-            context.PhoneInstances.Add(davidPhone1);
-            context.PhoneInstances.Add(davidPhone2);
-
+            context.PhoneInstances.AddOrUpdate(pi => pi.SerialNumber, howardPhone1, howardPhone2, davidPhone1, davidPhone2);
             context.SaveChanges();
 
-            var howardAcct = new Account { AccountHolder = howard };
-            context.Accounts.Add(howardAcct);
-            howardAcct.Phones.Add(howardPhone1);
-            howardAcct.Phones.Add(howardPhone2);
+            //Accounts
+            if (context.Accounts.Count() == 0) {
+                var howardAcct = new Account { AccountHolder = howard };
+                context.Accounts.Add(howardAcct);
+                howardAcct.Phones.Add(howardPhone1);
+                howardAcct.Phones.Add(howardPhone2);
 
-            var davidAcct = new Account { AccountHolder = david };
-            context.Accounts.Add(davidAcct);
-            davidAcct.Phones.Add(davidPhone1);
-            davidAcct.Phones.Add(davidPhone2);
+                var davidAcct = new Account { AccountHolder = david };
+                context.Accounts.Add(davidAcct);
+                davidAcct.Phones.Add(davidPhone1);
+                davidAcct.Phones.Add(davidPhone2);
 
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
             System.Diagnostics.Trace.WriteLine("Seeded phone values");
         }

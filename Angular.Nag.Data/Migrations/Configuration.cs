@@ -26,6 +26,8 @@ namespace Angular.Nag.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            Seeder.Seed(context);
         }
     }
 }

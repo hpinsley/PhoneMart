@@ -72,17 +72,13 @@ namespace Angular.Nag.Data
             modelBuilder.Entity<Account>().HasRequired(ac => ac.AccountHolder);
             modelBuilder.Entity<Account>().HasMany(ac => ac.Phones);
 
-            /*
             modelBuilder.Entity<Accessory>()
                 .ToTable("Accessories");
 
-            modelBuilder.Entity<Accessory>()
-                .Property(a => a.Category).HasColumnType("nvarchar(max)");
-
+            //Note that the descriminator column should not actually exist in the model at all.
             modelBuilder.Entity<Accessory>()
                 .Map<PhoneCharger>(m => m.Requires("Category").HasValue("Charger"))
                 .Map<PhoneCase>(m => m.Requires("Category").HasValue("Case"));
-            */
 
             base.OnModelCreating(modelBuilder);
         }

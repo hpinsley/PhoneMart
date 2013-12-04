@@ -5,7 +5,6 @@ namespace Angular.Nag.Models {
     public abstract class Accessory {
         public int AccessoryId { get; set; }
         public string Description { get; set; }
-        public string Category { get; set; }
 
         public List<Phone> Phones { get; set; }
 

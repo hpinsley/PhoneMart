@@ -30,8 +30,8 @@ namespace Angular.Nag.Services {
 
             if (settings.InitializeDatabase) {
                 System.Diagnostics.Trace.WriteLine("Initializing database");
-                //Database.SetInitializer(new PhoneDatabaseInitializer());
-                Database.SetInitializer(new NoDropInitializer());
+                Database.SetInitializer(new PhoneDatabaseInitializer());
+                //Database.SetInitializer(new NoDropInitializer());
                 System.Diagnostics.Trace.WriteLine("Database Initialized");
             }
         }

@@ -11,6 +11,7 @@ namespace Angular.Nag.Models {
 
         public List<Plan> Plans { get; set; }
         public List<App> Apps { get; set; }
+        public List<Accessory> Accessories { get; set; }
 
         public override string ToString() {
             return string.Format("Phone Model: {0}; Description: {1}; Price: {2}; PhoneId: {3}",
@@ -20,6 +21,7 @@ namespace Angular.Nag.Models {
         public Phone() {
             Plans = new List<Plan>();
             Apps = new List<App>();
+            Accessories = new List<Accessory>();
         }
     }
 }

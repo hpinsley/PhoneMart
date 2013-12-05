@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201312032349212_InitialCreate.Designer.cs">
       <DependentUpon>201312032349212_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201312050003132_Accessories.cs" />
+    <Compile Include="Migrations\201312050003132_Accessories.Designer.cs">
+      <DependentUpon>201312050003132_Accessories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NoDropInitializer.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -110,6 +114,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201312032349212_InitialCreate.resx">
       <DependentUpon>201312032349212_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312050003132_Accessories.resx">
+      <DependentUpon>201312050003132_Accessories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

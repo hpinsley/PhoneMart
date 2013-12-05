@@ -76,6 +76,15 @@ namespace Angular.Nag.Data {
                 context.SaveChanges();
             }
 
+            //Accessories
+
+            var blueCase = new PhoneCase { Color = "Blue", Description = "Blue phone case", Price = 25.0m, Phones = new List<Phone> { global1000, swift4, galaxy, axis8 } };
+            var redCase = new PhoneCase { Color = "Red", Description = "Red phone case", Price = 25.0m, Phones = new List<Phone> { global1000, swift4, galaxy, axis8, android200, swift5, starLight } };
+            var greenCase = new PhoneCase { Color = "Green", Description = "Green phone case", Price = 30.0m, Phones = new List<Phone> { global1000, swift4, galaxy, axis8, android200, lgSlim } };
+            var longCarCharger = new PhoneCharger { ChargerType = ChargerType.Car, CordLength = 5, Description = "Long Phone Charger", Price = 40.0m, Phones = new List<Phone> { global1000, swift4, galaxy, axis8, android200, lgSlim } };
+            context.Accessories.AddOrUpdate(a => a.Description, blueCase, redCase, greenCase, longCarCharger);
+            context.SaveChanges();
+
             System.Diagnostics.Trace.WriteLine("Seeded phone values");
         }
 

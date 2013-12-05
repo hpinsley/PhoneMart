@@ -26,6 +26,9 @@ namespace Angular.Nag.Data
         public DbSet<Account> Accounts { get; set; }
         public DbSet<PhoneInstance> PhoneInstances { get; set; }
         public DbSet<App> Apps { get; set; }
+        //public DbSet<PhoneCase> PhoneCases { get; set; }
+        //public DbSet<PhoneCharger> PhoneChargers { get; set; }
+        public DbSet<Accessory> Accessories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<Manufacturer>()

@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201312050003132_Accessories.Designer.cs">
       <DependentUpon>201312050003132_Accessories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201312051323083_AddPriceToAccessory.cs" />
+    <Compile Include="Migrations\201312051323083_AddPriceToAccessory.Designer.cs">
+      <DependentUpon>201312051323083_AddPriceToAccessory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NoDropInitializer.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -117,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201312050003132_Accessories.resx">
       <DependentUpon>201312050003132_Accessories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312051323083_AddPriceToAccessory.resx">
+      <DependentUpon>201312051323083_AddPriceToAccessory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

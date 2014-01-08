@@ -17,6 +17,7 @@ namespace Angular.Nag.Data.Repositories
                                 .Include(p => p.Manufacturer)
                                 .Include(p => p.Plans)
                                 .Include(p => p.Apps)
+                                .Include(p => p.Accessories)
                                 .FirstOrDefault(p => p.PhoneId == id);
             return phone;
         }
@@ -25,6 +26,7 @@ namespace Angular.Nag.Data.Repositories
                 .Include(p => p.Plans)
                 .Include(p => p.Apps)
                 .Include(p=>p.Manufacturer)
+                .Include(p=>p.Accessories)
                 .ToList();
 
             foreach (var phone in phones) {
@@ -33,6 +35,9 @@ namespace Angular.Nag.Data.Repositories
                 }
                 foreach (var app in phone.Apps) {
                     app.Phones = null; //clear out back references that get auto loaded
+                }
+                foreach (var accessory in phone.Accessories) {
+                    accessory.Phones = null;
                 }
             }
             return phones;

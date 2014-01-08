@@ -27,6 +27,7 @@
                             <ul class="nav nav-pills">
                                 <li class="active"><a href="#phonePlans{{$index}}" data-toggle="tab">Plans</a></li>
                                 <li><a href="#phoneApps{{$index}}" data-toggle="tab">Apps</a></li>
+                                <li><a href="#phoneAccessories{{$index}}" data-toggle="tab">Accessories</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="phonePlans{{$index}}">
@@ -61,6 +62,22 @@
                                             <tr ng-repeat="app in phone.apps">
                                                 <td><a ng-href="#/apps/{{app.appId}}">{{app.name}}</a></td>
                                                 <td>{{app.description}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane" id="phoneAccessories{{$index}}">
+                                    <table class="table table-bordered" style="text-align: center">
+                                        <thead>
+                                            <tr>
+                                                <th>Description</th>
+                                                <th>Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="accessory in phone.accessories">
+                                                <td>{{accessory.description}}</td>
+                                                <td>{{accessory.price | currency}}</td>
                                             </tr>
                                         </tbody>
                                     </table>

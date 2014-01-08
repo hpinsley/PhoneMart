@@ -43,6 +43,7 @@ namespace Angular.Nag.Data.Repositories
         public IPlansRepository Plans { get { return GetRepo<IPlansRepository>(); } }
         public IAccountsRepository Accounts { get { return GetRepo<IAccountsRepository>(); } }
         public IAppsRepository Apps { get { return GetRepo<IAppsRepository>(); } }
+        public IAccessoriesRepository Accessories { get { return GetRepo<IAccessoriesRepository>(); } }
 
         public IRepository<Manufacturer> Manufacturers {
             get { return GetStandardRepo<Manufacturer>(); }

@@ -82,6 +82,7 @@
     <Compile Include="Repositories\IAccountsRepository.cs" />
     <Compile Include="Repositories\AccountsRepository.cs" />
     <Compile Include="Repositories\IPhonesRepository.cs" />
+    <Compile Include="Repositories\IAccessoriesRepository.cs" />
     <Compile Include="Repositories\PhonesRepository.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
     <Compile Include="Repositories\ICodeCamperUow.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Repositories\IRepositoryProvider.cs" />
     <Compile Include="PhoneDatabaseInitializer.cs" />
     <Compile Include="PhoneDb.cs" />
+    <Compile Include="Repositories\AccessoriesRepository.cs" />
     <Compile Include="Repositories\PredicateBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryFactories.cs" />

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using Angular.Nag.Models;
 
 namespace Angular.Nag.Data.Repositories
 {
@@ -37,6 +36,7 @@ namespace Angular.Nag.Data.Repositories
                    {typeof(IPhonesRepository), dbContext => new PhonesRepository(dbContext)},
                    {typeof(IAccountsRepository), dbContext => new AccountsRepository(dbContext)},
                    {typeof(IAppsRepository), dbContext => new AppsRepository(dbContext)},
+                   {typeof(IAccessoriesRepository), dbContext => new AccessoriesRepository(dbContext)},
                 };
         }
 
@@ -51,9 +51,6 @@ namespace Angular.Nag.Data.Repositories
         /// <summary>
         /// Constructor that initializes with an arbitrary collection of factories
         /// </summary>
-        /// <param name="factories">
-        /// The repository factory functions for this instance. 
-        /// </param>
         /// <remarks>
         /// This ctor is primarily useful for testing this class
         /// </remarks>

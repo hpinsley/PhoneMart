@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="span6">
+            <div class="span4">
                 <h4 class="text-center">Plans</h4>
                 <fieldset class="checklist offset1">
                     <div ng-repeat="plan in plans">
@@ -51,7 +51,7 @@
                     </div>
                 </fieldset>
             </div>
-            <div class="span6">
+            <div class="span4">
                 <h4 class="text-center">Apps</h4>
                 <fieldset class="checklist offset1">
                     <div ng-repeat="app in apps">
@@ -63,7 +63,20 @@
                         </div>
                     </div>
                 </fieldset>
-                
+
+            </div>
+            <div class="span4">
+                <h4 class="text-center">Accessories</h4>
+                <fieldset class="checklist offset1">
+                    <div ng-repeat="accessory in accessories">
+                        <div class="control-group">
+                            <label class="control-label">{{accessory.description}}</label>
+                            <div class="controls">
+                                <input type="checkbox" ng-model="accessory.chosen" />
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
             </div>
         </div>
         <div class="row">

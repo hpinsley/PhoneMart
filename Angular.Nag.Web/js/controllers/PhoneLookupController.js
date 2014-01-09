@@ -7,6 +7,7 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
     $scope.plans = phoneData.getPlans();
     $scope.phone = phoneData.getPhone($routeParams.phoneId);
     $scope.apps = phoneData.getApps();
+    $scope.accessories = phoneData.getAccessories();
     
     //We need to wait until we have looked up the phone and also the
     //list of available plans.  For this we utilize the fact that both
@@ -14,11 +15,12 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
     //promises and when ALL are resolve, it resolves with an array of
     //results.
     
-    $q.all([$scope.phone, $scope.plans, $scope.apps])
+    $q.all([$scope.phone, $scope.plans, $scope.apps, $scope.accessories])
         .then(function(results) {
             var phone = results[0];
             var plans = results[1];
             var apps = results[2];
+            var accessories = results[3];
 
             $scope.manufacturerId = phone.manufacturer.manufacturerId;
             $scope.model = phone.model;
@@ -50,7 +52,16 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
                     app.chosen = true;
                 }
             });
-        });
+            //Same thing for accessories
+            _.each(phone.accessories, function(phoneAccessory) {
+                var acc = _.find(accessories, function(anAcc) {
+                    return anAcc.accessoryId === phoneAccessory.accessoryId;
+                });
+                if (acc) {
+                    acc.chosen = true;
+                }
+            });
+    });
 
     $scope.cancel = function() {
         $location.path("/phones");

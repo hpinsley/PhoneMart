@@ -44,6 +44,10 @@ nagApp.factory('phoneData', function ($resource, $http, $q) {
             );
         },
 
+        getAccessories: function () {
+            return getDataPromise(nagApp.getServicesRoot() + "/api/accessories");
+        },
+
         getApps: function () {
             return getDataPromise(nagApp.getServicesRoot() + "/api/apps");
         },

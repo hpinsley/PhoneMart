@@ -83,13 +83,16 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
         });
     };
     
-    $scope.updatePhone = function(plans, apps) {
+    $scope.updatePhone = function(plans, apps, accessories) {
 
         var chosenPlans = _.filter(plans, function(p) { return p.chosen; });
         var planIds = _.map(chosenPlans, function (p) { return p.planId; });
 
         var chosenApps = _.filter(apps, function (a) { return a.chosen; });
         var appIds = _.map(chosenApps, function (a) { return a.appId; });
+
+        var chosenAccessories = _.filter(accessories, function (a) { return a.chosen; });
+        var accessoryIds = _.map(chosenAccessories, function(a) { return a.accessoryId; });
         
         $http({
                 method: "PUT",
@@ -100,14 +103,15 @@ nagApp.controller('PhoneLookupController', function PhoneLookupController($scope
                     description: $scope.description,
                     price: $scope.price,
                     planIds: planIds,
-                    appIds: appIds
+                    appIds: appIds,
+                    accessoryIds: accessoryIds
                 }
             })
         .success(function () {
             $location.path("/phones");
         })
         .error(function (error) {
-            alert("We got error " + (error.exceptionMessage || error.message));
+            alert("We got error " + (error.exceptionMessage || error.message || error));
         });
 
     };

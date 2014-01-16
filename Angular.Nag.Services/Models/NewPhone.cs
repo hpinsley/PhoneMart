@@ -7,6 +7,7 @@
         public string ImageFile { get; set; }
         public int[] PlanIds { get; set; }
         public int[] AppIds { get; set; }
+        public int[] AccessoryIds { get; set; }
 
         public override string ToString() {
             return string.Format("Phone Model: {0}; Description: {1}; Price: {2}",

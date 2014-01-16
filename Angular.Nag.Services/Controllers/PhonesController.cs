@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
@@ -7,17 +6,15 @@ using Angular.Nag.Data.Repositories;
 using Angular.Nag.Models;
 using Angular.Nag.Services.Models;
 
-namespace Angular.Nag.Services.Controllers
-{
-    public class PhonesController : ApiController
-    {
+namespace Angular.Nag.Services.Controllers {
+    public class PhonesController : ApiController {
         private readonly ICodeCamperUow _db;
 
         public PhonesController(ICodeCamperUow db) {
             _db = db;
         }
 
-// GET api/phones
+        // GET api/phones
         public IEnumerable<Phone> Get() {
             return _db.Phones.GetAllWithChildren();
         }
@@ -68,6 +65,7 @@ namespace Angular.Nag.Services.Controllers
         }
 
         // PUT api/phones/5
+        [HttpPut]
         public void Put(int id, NewPhone phoneData) {
             var phone = _db.Phones.GetById(id);
             if (phone == null)
@@ -82,7 +80,6 @@ namespace Angular.Nag.Services.Controllers
             phone.Price = phoneData.Price;
 
             phone.Plans.Clear();
-
             var plans = _db.Plans.GetAll();
             foreach (Plan plan in plans) {
                 if (phoneData.PlanIds.Contains(plan.PlanId)) {
@@ -95,6 +92,14 @@ namespace Angular.Nag.Services.Controllers
             foreach (App app in apps) {
                 if (phoneData.AppIds.Contains(app.AppId)) {
                     phone.Apps.Add(app);
+                }
+            }
+
+            phone.Accessories.Clear();
+            var accessories = _db.Accessories.GetAll();
+            foreach (Accessory accessory in accessories) {
+                if (phoneData.AccessoryIds.Contains(accessory.AccessoryId)) {
+                    phone.Accessories.Add(accessory);
                 }
             }
             _db.Commit();
